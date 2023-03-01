@@ -13,80 +13,75 @@ let gridBoard = [
 //numbers in your arrays may be used to represent the 'state' of that board space... which player is there, what kind of space it is etc...
 
 // Preparing the game
+
 let difficultySliderSettings = false;
+document.getElementById('event1').style.display = 'none';
 
 let main = document.getElementById("main");
 function SettingsMenu() {
     difficultySliderSettings = true;
-    document.getElementById('startButton').style.display = 'none';
-    document.getElementById('introIcon').style.display = 'none';
-
-    
-    let pageFather = document.createElement('section');
-    pageFather.setAttribute('class', 'pageFather');
-    main.appendChild(pageFather);
-
-    let settingFather = document.createElement('section');
-    settingFather.setAttribute('class', 'settingFather');
-
-    let settingHead = document.createElement('p');
-    settingHead.setAttribute('class', 'settingHead');
-    settingHead.innerText = 'Settings';
-
-    let settingHandler = document.createElement('div');
-    settingHandler.setAttribute('class', 'settingHandler');
-
-    let playerCountHandler = document.createElement('form');
-    playerCountHandler.setAttribute('class', 'playerCountHandler');
-    
-    let playerCountSelect = document.createElement('select');
-    playerCountSelect.setAttribute('class', 'playerCountSelect');
-
+    document.getElementById('event0').style.display = 'none';
+    document.getElementById('event1').style.display = 'inline';
+    document.getElementById('footer').style.display = "none";
     optionCreation();
+    difficultyCreation();
     
-    let playerCountText = document.createElement('p');
-    playerCountText.setAttribute('class', 'playerCountText');
+}
+function difficultyCreation() {
+    let difficultyCountOption1 = document.createElement('option');
+    difficultyCountOption1.setAttribute('value', 1);
+    difficultyCountOption1.innerText = 'Easy';
 
-    let difficultyHandler = document.createElement('div');
-    difficultyHandler.setAttribute('class', 'difficultyHandler');
+    let difficultyCountOption2 = document.createElement('option');
+    difficultyCountOption2.setAttribute('value', 2);
+    difficultyCountOption2.innerText = 'Normal';
 
-    settingHandler.appendChild(playerCountHandler);
-    settingHandler.appendChild(difficultyHandler);
-    playerCountHandler.appendChild(playerCountSelect);
+    let difficultyCountOption3 = document.createElement('option');
+    difficultyCountOption3.setAttribute('value', 3);
+    difficultyCountOption3.innerText = 'Hard';
+    
+    let difficultyCountOption4 = document.createElement('option');
+    difficultyCountOption4.setAttribute('value', 4);
+    difficultyCountOption4.innerText = 'Custom';
 
-    pageFather.appendChild(settingHead);
-    pageFather.appendChild(settingHandler);
-
-    startGameButton.addEventListener('click', (event) => {
-        startGame();
-    });
-    let startGameButton = document.createElement('button');
+    difficultyOptions.appendChild(difficultyCountOption1);
+    difficultyOptions.appendChild(difficultyCountOption2);
+    difficultyOptions.appendChild(difficultyCountOption3);
+    difficultyOptions.appendChild(difficultyCountOption4);
 }
 
 function optionCreation() {
     let playerCountOption1 = document.createElement('option');
     playerCountOption1.setAttribute('value', 1);
+    playerCountOption1.innerText = '1 player';
 
     let playerCountOption2 = document.createElement('option');
     playerCountOption2.setAttribute('value', 2);
+    playerCountOption2.innerText = '2 players';
 
     let playerCountOption3 = document.createElement('option');
     playerCountOption3.setAttribute('value', 3);
+    playerCountOption3.innerText = '3 players';
     
     let playerCountOption4 = document.createElement('option');
     playerCountOption4.setAttribute('value', 4);
+    playerCountOption4.innerText = '4 players';
 
     let playerCountOption5 = document.createElement('option');
     playerCountOption5.setAttribute('value', 5);
+    playerCountOption5.innerText = '5 players';
     
     let playerCountOption6 = document.createElement('option');
-    playerCountOption5.setAttribute('value', 6);
+    playerCountOption6.setAttribute('value', 6);
+    playerCountOption6.innerText = '6 players';
 
     let playerCountOption7 = document.createElement('option');
-    playerCountOption5.setAttribute('value', 7);
+    playerCountOption7.setAttribute('value', 7);
+    playerCountOption7.innerText = '7 players';
 
     let playerCountOption8 = document.createElement('option');
-    playerCountOption5.setAttribute('value', 8);
+    playerCountOption8.setAttribute('value', 8);
+    playerCountOption8.innerText = '8 players';
 
     playerCountSelect.appendChild(playerCountOption1);
     playerCountSelect.appendChild(playerCountOption2);
@@ -100,8 +95,9 @@ function optionCreation() {
 
 // Event 2: Settings / customizable options
 
+
 let AI = false;
-let playerAmount = 0;
+let playerAmount = 1;
 let players = [];
 
 playerAmount = playerCountSelect.value
@@ -167,6 +163,7 @@ function playerCreation() {
     } else {
         alert("The PlayerAmount variable is not doing what it should.");
     }
+}
 
     // Elements of the game that will change
 
@@ -174,7 +171,10 @@ function playerCreation() {
         worldEvent: "none",
         president: "none"
     }
-}
 
 // Event 3: Game 
 
+    //daniel says holla
+    //Mason says salve
+    //Lucas says SANCTUS DOMINUS
+    //Mark says nyob zoo
