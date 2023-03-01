@@ -4,13 +4,10 @@
     font-size: 18px;
     padding: 0;
     margin: 0;
-}
-
-body {
     background-color: black;
 }
 
-.middle {
+main > section {
     display: flex;
     justify-content: center;
     flex-direction: center;
@@ -18,19 +15,22 @@ body {
 
 /* Event 1: Intropage */
 #introIcon {
-    background-image: url(../images/MrEvilMonopoly.png);
+    background-image: url(../images/LOGOS/MrEvilMonopoly.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain; 
     background-blend-mode: hard-light;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
-.Event0Container {
+.Event1Container {
     display: flex;
     justify-content: center;
     height: 25vh;
+    width: fit-content;
     margin-top: 50vh;
 }
 
@@ -58,5 +58,53 @@ footer a {
 }
 
 /* Event 2: Settings */
+.pageFather{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+}
+
+.pageFather * {
+    background-color: rgb(212, 212, 212);
+    border: 2px aqua solid;
+}
+
+.settingHead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 100%;
+    height: 10vh;
+}
+
+.settingHandler {
+    width: 100%;
+    height: 90vh;
+}
+
+.playerCountHandler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+}
+
+.difficultyHandler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+}
+
+.playerCountText {
+    width: 25%;
+}
 
 /* Event 3: Game */
