@@ -120,11 +120,37 @@ footer address {
     background-color: white;
 }
 
-.cell {
-    width: 50px;
-    height: 50px;
+#event2 span {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#firstBlock {
+.cell {
+    width: 75px;
+    height: 75px;
+    border: 2px black solid;
+}
+
+#firstBlock,
+#secondBlock,
+#thirdBlock,
+#fourthBlock {
     display: flex;
+    width: fit-content;
+    height: fit-content;
+}
+
+#firstBlock,
+#thirdBlock {
+    flex-direction: row;
+}
+
+#secondBlock,
+#fourthBlock {
+    flex-direction: column;
+}
+
+#secondBlock {
+    justify-content: right;
 }

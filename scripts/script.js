@@ -113,19 +113,11 @@ function shareScreenCreation() {
     shareScreenSelect.appendChild(shareScreenCountOption2);
 }
 
-// let startingBudget = document.getElementById('startingBudgetSelect');
-// let playerBudget;
-// startingBudget.addEventListener('click', (e) => {
-//     document.getElementById('startingBudgetSelect').value = playerBudget;
-// });
-
-// (Temporary comment)
-let startingBudget = document.getElementById("startingBudgetSelect").value;
-    startingBudget.addEventListener("change", (e) =>startingBudgetFunction());
-
-    function startingBudgetFunction(){
-       var startingBudget = document.getElementById("startingBudgetSelect").value;
-    }
+let startingBudget = document.getElementById('startingBudgetSelect');
+let playerBudget;
+startingBudget.addEventListener('click', (e) => {
+    document.getElementById('startingBudgetSelect').value = playerBudget;
+});
 
 // Event 2: Settings / customizable options
 
@@ -383,12 +375,12 @@ playerAmount = playerCountSelect.value
 // Event 3: Game 
 let world = {
     worldEvent: 'none',
-     president: 'none'
+    president: 'none'
 }
 
 function startGame() {
     document.getElementById('event1').style.display = 'none';
-    document.getElementById('event2').style.display = 'none';
+    document.getElementById('event2').style.display = 'flex';
 }
 
     //daniel says holla
