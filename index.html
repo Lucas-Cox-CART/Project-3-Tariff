@@ -11,6 +11,7 @@
     <header>
     </header>
     <main id="main">
+        <!-- EVENT0: (Start button)  -->
         <section id="event0">
             <div id="introIcon">
                 <div class="Event1Container">
@@ -20,19 +21,90 @@
                 </div>
             </div>
         </section>
+        <!-- EVENT1: (Settings)  -->
         <section id="event1" class="event1Section">
             <div>
                 Settings
                 <span>
-                    Difficulty:
-                    <select id="difficultyOptions">
-                    </select>
+                    <div>
+                        <p>Difficulty:</p>
+                        <select id="difficultySelect">
+                        </select>
+                    </div>
+                    <div>
+                        <p>Player Count:</p>
+                        <select id="playerCountSelect">
+                        </select>
+                    </div>
+                    <div>
+                        <p>Share Screen:</p>
+                        <select id="shareScreenSelect">
+                        </select>
+                    </div>
+                    <div>
+                        <p>Starting Budget:</p>
+                        <input type="number" id="startingBudgetSelect">
+                    </input>
+                    </div>
 
-                    Player amount
-                    <select id="playerCountSelect">
-                    </select>
+                    <div>
+                        <button onclick="startGame()" id="startGameButton">
+                        Start Game!
+                        </button>
+                    </div>
                 </span>
             </div>
+        </section>
+        <!-- EVENT 2: (Game) -->
+        <section  id="event2" id="event2Section">
+            <article id="firstBlock">
+                <div class="cell" id="cell01"></div>
+                <div class="cell" id="cell02"></div>
+                <div class="cell" id="cell03"></div>
+                <div class="cell" id="cell04"></div>
+                <div class="cell" id="cell05"></div>
+                <div class="cell" id="cell06"></div>
+                <div class="cell" id="cell07"></div>
+                <div class="cell" id="cell08"></div>
+                <div class="cell" id="cell09"></div>
+                <div class="cell" id="cell10"></div>
+            </article>
+            <article id="secondBlock">
+                <div class="cell" id="cell11"></div>
+                <div class="cell" id="cell12"></div>
+                <div class="cell" id="cell13"></div>
+                <div class="cell" id="cell14"></div>
+                <div class="cell" id="cell15"></div>
+                <div class="cell" id="cell16"></div>
+                <div class="cell" id="cell17"></div>
+                <div class="cell" id="cell18"></div>
+                <div class="cell" id="cell19"></div>
+                <div class="cell" id="cell20"></div>
+            </article>
+            <article id="thirdBlock">
+                <div class="cell" id="cell21"></div>
+                <div class="cell" id="cell22"></div>
+                <div class="cell" id="cell23"></div>
+                <div class="cell" id="cell24"></div>
+                <div class="cell" id="cell25"></div>
+                <div class="cell" id="cell26"></div>
+                <div class="cell" id="cell27"></div>
+                <div class="cell" id="cell28"></div>
+                <div class="cell" id="cell29"></div>
+                <div class="cell" id="cell30"></div>
+            </article>
+            <article class="cell" id="fourthBlock">
+                <div class="cell" id="cell31"></div>
+                <div class="cell" id="cell32"></div>
+                <div class="cell" id="cell33"></div>
+                <div class="cell" id="cell34"></div>
+                <div class="cell" id="cell35"></div>
+                <div class="cell" id="cell36"></div>
+                <div class="cell" id="cell37"></div>
+                <div class="cell" id="cell38"></div>
+                <div class="cell" id="cell39"></div>
+                <div class="cell" id="cell40"></div>
+            </article>
         </section>
     </main>
     <footer id="footer">

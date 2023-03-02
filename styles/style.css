@@ -4,7 +4,7 @@
     font-size: 18px;
     padding: 0;
     margin: 0;
-    background-color: black; 
+    background-color: black;
 }
 
 main > section {
@@ -77,9 +77,10 @@ footer address {
     padding-left: 1%;
 }
 
-.event1Section > div{
-    height:90vh;
-    background-color: rgb(212, 212, 212);
+/* Event2: Settings */
+.event1Section > div {
+    height: 100vh;
+    background-color: white;
     width: 40vw;
     text-align: center;
     margin-left: 30vw;
@@ -88,13 +89,42 @@ footer address {
     font-size: 2em;
 }
 
-.event1Section span{
-    background-color: rgb(212, 212, 212);
+.event1Section span * {
+    background-color: white;
 }
 
-.event1Section span select{
+.event1Section span {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event1Section span div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    width: 100%;
+}
+
+.event1Section span select {
     width: 200px;
     background-color: aliceblue;
 }
 
 /* Event 3: Game */
+
+#event2 * {
+    background-color: white;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+}
+
+#firstBlock {
+    display: flex;
+}
