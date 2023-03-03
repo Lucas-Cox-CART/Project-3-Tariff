@@ -118,7 +118,6 @@ function shareScreenCreation() { // Displays clickable options inside "shareScre
     shareScreenSelect.appendChild(shareScreenCountOption2);
 }
 
-
 // ----------------------------------------
 // Event 1: Settings / customizable options
 // ----------------------------------------
@@ -164,261 +163,29 @@ let startingBudget = document.getElementById("startingBudgetSelect");  // Handle
         }
     }
 
+
 let AI = false;
 let playerAmount = 1;
 let players = [];
 
-playerAmount = playerCountSelect.value
-
-// for (let i = 0, I < playerAmount)
-
-// function playerCreation() {
-//     if (playerAmount == 1) {
-//         // CREATE PLAYER AND AI 
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         AI = true;
-//     } else if (playerAmount == 2) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 3) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 4) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 5) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player5 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 6) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player5 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player6 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 7) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player5 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player6 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player7 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 8) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player5 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player6 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player7 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player8 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         alert('Game has reached maximum player capacity.')
-//     } else if (playerAmount > 8) {  // (If Player count is greater than 8)
-//         players.push(player1);
-//         players.push(player2);
-//         players.push(player3);
-//         players.push(player4);
-//         players.push(player5);
-//         players.push(player6);
-//         players.push(player7);
-//         players.push(player8);
-//         alert('Game has reached maximum player capacity.')
-//     } else {
-//         alert('The PlayerAmount variable is not doing what it should.');
-//     }
-// }
+function playerCreation(a) {
+    playerAmount = playerCountSelect.value;
+    for (let i = 0; i < playerAmount; i++) {
+        players.push(player = {
+            budget: a,
+            property: 'none',
+            doubles: 0,
+            jailed: false
+        });
+    }
+    console.log(players)
+}
 
 // Event 3: Game 
 let world = {
     worldEvent: 'none',
-     president: 'none'
+    president: 'none',
+    goCounter: 0
 }
 
 // ----------------------------------------
@@ -428,6 +195,7 @@ let world = {
 function startGame() {
     document.getElementById('event1').style.display = 'none';
     document.getElementById('event2').style.display = 'none';
+    playerCreation(StartingBudget);
 }
 
     //daniel says holla
