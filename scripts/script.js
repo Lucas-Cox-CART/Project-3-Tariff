@@ -381,7 +381,40 @@ let world = {
 function startGame() {
     document.getElementById('event1').style.display = 'none';
     document.getElementById('event2').style.display = 'flex';
+
+    rollDice()
+    election()
 }
+
+function rollDice() {
+
+}
+
+let electionAlert;
+let electionSide;
+let electionSide1;
+let electionSide2;
+let gameBoard = document.getElementById('event2sub');
+
+function election() {
+    let electionAlert = document.createElement('div');
+    electionAlert.setAttribute('class', 'electionAlert');
+    gameBoard.appendChild(electionAlert);
+
+    let electionSide1 = document.createElement('div');
+    electionSide1.setAttribute('class', 'electionSide');
+    electionAlert.appendChild(electionSide1);
+
+    let electionSide2 = document.createElement('div');
+    electionSide2.setAttribute('class', 'electionSide');
+    electionAlert.appendChild(electionSide2);
+
+    if (true) {
+        electionSide1.setAttribute('class', 'PKirk');
+        electionSide2.setAttribute('class', 'POlsen');
+    }
+}
+
 
     //daniel says holla
     //Mason says salve

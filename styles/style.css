@@ -167,3 +167,40 @@ footer address {
 #secondBlock {
     flex-direction: column-reverse;
 }
+
+/* Presidential Elections */
+
+.electionAlert {
+    display: flex;
+    z-index: 9;
+    top: 100px;
+    position: fixed;
+    width: 66%;
+    height: 70%;
+    border: 10px black solid;
+}
+
+.electionSide {
+    z-index: 9;
+    width: 50%;
+    height: 100%;
+    border: 1px black solid;
+}
+
+/* Presidential Candidates */
+
+.PKirk {
+    content: url(../images/POTUS/KirkColbyCrop.png);
+    /* background-image: url(../images/POTUS/KirkColby.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.POlsen {
+    content: url(../images/POTUS/OlsenColbyCrop.png);
+    /* background-image: url(../images/POTUS/OlsenColby.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; */
+}
