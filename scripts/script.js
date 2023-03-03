@@ -183,7 +183,6 @@ function playerCreation(a) {
     console.log(players)
 }
 
-// Event 3: Game 
 let world = {
     worldEvent: 'none',
     president: 'none',
