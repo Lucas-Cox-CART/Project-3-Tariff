@@ -50,7 +50,11 @@ function difficultyCreation() {
     difficultySelect.appendChild(difficultyCountOption2);
     difficultySelect.appendChild(difficultyCountOption3);
     difficultySelect.appendChild(difficultyCountOption4);
+    difficultyStartingBudgetManager(); // This sets the default "easy" number value 
+    
 }
+
+   
 
 function optionCreation() {
     let playerCountOption1 = document.createElement('option');
@@ -113,21 +117,51 @@ function shareScreenCreation() {
     shareScreenSelect.appendChild(shareScreenCountOption2);
 }
 
-// let startingBudget = document.getElementById('startingBudgetSelect');
-// let playerBudget;
-// startingBudget.addEventListener('click', (e) => {
-//     document.getElementById('startingBudgetSelect').value = playerBudget;
-// });
 
-// (Temporary comment)
-let startingBudget = document.getElementById("startingBudgetSelect").value;
+
+// Event 2: Settings / customizable options
+
+let shareScreen = document.getElementById("shareScreenSelect");
+    shareScreen.addEventListener("change", (e) =>shareScreenFunction());
+
+    function shareScreenFunction(){
+        shareScreen = document.getElementById("shareScreenSelect").value;
+    }
+
+let difficulty = document.getElementById("difficultySelect");
+    difficulty.addEventListener("change", (e) =>difficultyFunction());
+    difficulty.addEventListener("change", (e) =>difficultyStartingBudgetManager());
+    function difficultyFunction(){
+        difficulty = document.getElementById("difficultySelect").value;
+    }
+
+let startingBudget = document.getElementById("startingBudgetSelect");
     startingBudget.addEventListener("change", (e) =>startingBudgetFunction());
 
     function startingBudgetFunction(){
-       var startingBudget = document.getElementById("startingBudgetSelect").value;
+        startingBudget = document.getElementById("startingBudgetSelect").value;
     }
 
-// Event 2: Settings / customizable options
+    document.getElementById("startingBudgetSelect").value = 600000;
+    startingBudget = 600000;
+
+    
+
+    function difficultyStartingBudgetManager(){ // default settings for difficulty 
+        if (difficulty == NaN || difficulty == 1) {
+            document.getElementById("startingBudgetSelect").value = 600000;
+            startingBudget = 600000;
+        } else if (difficulty == 2) {
+            document.getElementById("startingBudgetSelect").value = 400000;
+            startingBudget = 400000;
+        } else if (difficulty == 3) {
+            document.getElementById("startingBudgetSelect").value = 200000;
+            startingBudget = 200000;
+        } else if (difficulty == 4) {
+            document.getElementById("startingBudgetSelect").value = "";
+            startingBudget = "";
+        }
+    }
 
 let AI = false;
 let playerAmount = 1;
