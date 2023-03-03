@@ -119,16 +119,6 @@ startingBudget.addEventListener('change', (e) => {
     playerBudget = document.getElementById('startingBudgetSelect').value;
 });
 
-// (Temporary comment)
-// let startingBudget = document.getElementById("startingBudgetSelect").value;
-//     startingBudget.addEventListener("change", (e) => startingBudgetFunction());
-
-//     function startingBudgetFunction(){
-//        startingBudget = document.getElementById("startingBudgetSelect").value;
-//     }
-
-// Event 2: Settings / customizable options
-
 let AI = false;
 let playerAmount = 1;
 let players = [];
@@ -149,7 +139,8 @@ function playerCreation(a) {
 // Event 3: Game 
 let world = {
     worldEvent: 'none',
-    president: 'none'
+    president: 'none',
+    goCounter: 0
 }
 
 function startGame() {
