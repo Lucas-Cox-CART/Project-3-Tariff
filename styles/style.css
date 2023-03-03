@@ -20,11 +20,10 @@ option {
 /* Event 1: Intropage */
 
 #introIcon {
-    background-image: url(../images/LOGOS/MrEvilMonopoly.png);
+    background-image: url(../images/LOGOS/TarrifLogoFinal.PNG);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain; 
-    background-blend-mode: hard-light;
     width: 100vw;
     height: 96vh;
     display: flex;
@@ -37,18 +36,18 @@ option {
     justify-content: center;
     height: 25vh;
     width: fit-content;
+    background-color:rgba(157, 159, 123, 0);
 }
 
 #introIcon button  {
-    background-color: rgb(190, 209, 195);
+    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(222, 222, 193) 100%);
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2em;
     width: 300px;
-    border: solid rgb(163, 164, 146) 2px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 /* Footer */
@@ -80,7 +79,7 @@ footer address {
 /* Event2: Settings */
 .event1Section > div {
     height: 100vh;
-    background-color: white;
+    background-color: rgb(255, 254, 248);
     width: 40vw;
     text-align: center;
     margin-left: 30vw;
@@ -90,7 +89,35 @@ footer address {
 }
 
 .event1Section span * {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+}
+
+.event1Section input {
+    background-color: aliceblue;
+    margin-left: 20px;
+    margin-top: 5vh;
+}
+
+.event1Section p {
+    margin-top: 5vh;
+}
+
+.event1Section button {
+    background-color: aliceblue;
+    margin-top: 10vh;
+    padding: 20px;
+}
+
+.event1Section img {
+    margin-right: 50%;
+    background: none;
+}
+
+.event1Section span select {
+    width: 200px;
+    background-color: aliceblue;
+    margin-left: 20px;
+    margin-top: 5vh;
 }
 
 .event1Section span {
@@ -109,10 +136,7 @@ footer address {
     width: 100%;
 }
 
-.event1Section span select {
-    width: 200px;
-    background-color: aliceblue;
-}
+
 
 /* Event 3: Game */
 
