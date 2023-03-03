@@ -145,10 +145,8 @@ let startingBudget = document.getElementById("startingBudgetSelect");  // Handle
         startingBudget = document.getElementById("startingBudgetSelect").value;
     }
 
-    document.getElementById("startingBudgetSelect").value = 600000;
+    document.getElementById("startingBudgetSelect").value = 600000; // sets default value when event 1 starts 
     startingBudget = 600000;
-
-    
 
     function difficultyStartingBudgetManager(){ // default settings for difficulty, this code changes the "startingBudgetSelect" value when one of the presets are clicked. The starting budget will be left empty/blank when the "custom" value is set for difficulty 
         if (difficulty == NaN || difficulty == 1) {
