@@ -140,7 +140,7 @@ function playerCreation(a) {
             budget: a,
             property: 'none',
             doubles: 0,
-            jailed: true
+            jailed: false
         });
     }
     console.log(players)
