@@ -115,8 +115,8 @@ function shareScreenCreation() {
 
 let startingBudget = document.getElementById('startingBudgetSelect');
 let playerBudget;
-startingBudget.addEventListener('click', (e) => {
-    document.getElementById('startingBudgetSelect').value = playerBudget;
+startingBudget.addEventListener('change', (e) => {
+    playerBudget = document.getElementById('startingBudgetSelect').value;
 });
 
 // (Temporary comment)
@@ -133,16 +133,15 @@ let AI = false;
 let playerAmount = 1;
 let players = [];
 
-playerAmount = playerCountSelect.value
-
-function playerCreation() {
-    for ( i = 0; i < playerAmount; i++) {
+function playerCreation(a) {
+    playerAmount = playerCountSelect.value;
+    for (let i = 0; i < playerAmount; i++) {
         players.push(player = {
-            budget: startingBudget,
+            budget: a,
             property: 'none',
             doubles: 0,
             jailed: true
-        })
+        });
     }
     console.log(players)
 }
@@ -150,13 +149,13 @@ function playerCreation() {
 // Event 3: Game 
 let world = {
     worldEvent: 'none',
-     president: 'none'
+    president: 'none'
 }
 
 function startGame() {
     document.getElementById('event1').style.display = 'none';
     document.getElementById('event2').style.display = 'none';
-    playerCreation();
+    playerCreation(playerBudget);
 }
 
     //daniel says holla
