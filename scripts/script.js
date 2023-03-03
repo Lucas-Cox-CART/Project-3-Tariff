@@ -12,13 +12,14 @@ let gridBoard = [
 //more useful where x,y coordinates are used... battleship, tic-tac-toe... topleft space is gridBoard[0][0], bottom right is gridBoard[3][3] or think about it as gridBoard[y][x]
 //numbers in your arrays may be used to represent the 'state' of that board space... which player is there, what kind of space it is etc...
 
-// Preparing the game
-
+// ----------------------------------------
+// Event 0: Setting up the game & getting things ready
+// ----------------------------------------
 let difficultySliderSettings = false;
 document.getElementById('event1').style.display = 'none';
 document.getElementById('event2').style.display = 'none';
 
-let main = document.getElementById('main');
+let main = document.getElementById('main'); 
 function SettingsMenu() {
     difficultySliderSettings = true;
     document.getElementById('event0').style.display = 'none';
@@ -29,7 +30,7 @@ function SettingsMenu() {
     shareScreenCreation();
 }
 
-function difficultyCreation() {
+function difficultyCreation() {  // Displays clickable options inside "difficulty"
     let difficultyCountOption1 = document.createElement('option');
     difficultyCountOption1.setAttribute('value', 1);
     difficultyCountOption1.innerText = 'Easy';
@@ -56,7 +57,7 @@ function difficultyCreation() {
 
    
 
-function optionCreation() {
+function optionCreation() { // Displays clickable options inside "player". This one is subject to change
     let playerCountOption1 = document.createElement('option');
     playerCountOption1.setAttribute('value', 1);
     playerCountOption1.innerText = '1 Player';
@@ -99,7 +100,7 @@ function optionCreation() {
     playerCountSelect.appendChild(playerCountOption8);
 }
 
-function shareScreenCreation() {
+function shareScreenCreation() { // Displays clickable options inside "shareScreenCreation"
     let shareScreenCountNull = document.createElement('option');
     shareScreenCountNull.setAttribute('value', 1);
     shareScreenCountNull.innerText = '--', null;
@@ -118,24 +119,26 @@ function shareScreenCreation() {
 }
 
 
+// ----------------------------------------
+// Event 1: Settings / customizable options
+// ----------------------------------------
 
-// Event 2: Settings / customizable options
 
-let shareScreen = document.getElementById("shareScreenSelect");
+let shareScreen = document.getElementById("shareScreenSelect"); // Handles options for shareScreenSelect menu popup
     shareScreen.addEventListener("change", (e) =>shareScreenFunction());
 
     function shareScreenFunction(){
         shareScreen = document.getElementById("shareScreenSelect").value;
     }
 
-let difficulty = document.getElementById("difficultySelect");
+let difficulty = document.getElementById("difficultySelect");  // Handles options for difficultySelect menu popup
     difficulty.addEventListener("change", (e) =>difficultyFunction());
     difficulty.addEventListener("change", (e) =>difficultyStartingBudgetManager());
     function difficultyFunction(){
         difficulty = document.getElementById("difficultySelect").value;
     }
 
-let startingBudget = document.getElementById("startingBudgetSelect");
+let startingBudget = document.getElementById("startingBudgetSelect");  // Handles options for startingBudgetSelect menu popup
     startingBudget.addEventListener("change", (e) =>startingBudgetFunction());
 
     function startingBudgetFunction(){
@@ -147,7 +150,7 @@ let startingBudget = document.getElementById("startingBudgetSelect");
 
     
 
-    function difficultyStartingBudgetManager(){ // default settings for difficulty 
+    function difficultyStartingBudgetManager(){ // default settings for difficulty, this code changes the "startingBudgetSelect" value when one of the presets are clicked. The starting budget will be left empty/blank when the "custom" value is set for difficulty 
         if (difficulty == NaN || difficulty == 1) {
             document.getElementById("startingBudgetSelect").value = 600000;
             startingBudget = 600000;
@@ -419,6 +422,10 @@ let world = {
     worldEvent: 'none',
      president: 'none'
 }
+
+// ----------------------------------------
+// Event 2: Game starts
+// ----------------------------------------
 
 function startGame() {
     document.getElementById('event1').style.display = 'none';
