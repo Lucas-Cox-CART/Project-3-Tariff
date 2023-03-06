@@ -208,3 +208,41 @@ function startGame() {
 //Mason says salve
 //Lucas says SANCTUS DOMINUS
 //Mark says nyob zoo
+
+    // rollDice()
+    // election()
+
+function rollDice() {
+
+}
+
+let electionAlert;
+let electionSide;
+let electionSide1;
+let electionSide2;
+let gameBoard = document.getElementById('event2sub');
+
+function election() {
+    let electionAlert = document.createElement('div');
+    electionAlert.setAttribute('class', 'electionAlert');
+    gameBoard.appendChild(electionAlert);
+
+    let electionSide1 = document.createElement('div');
+    electionSide1.setAttribute('class', 'electionSide');
+    electionAlert.appendChild(electionSide1);
+
+    let electionSide2 = document.createElement('div');
+    electionSide2.setAttribute('class', 'electionSide');
+    electionAlert.appendChild(electionSide2);
+
+    if (true) {
+        electionSide1.setAttribute('class', 'PKirk');
+        electionSide2.setAttribute('class', 'POlsen');
+    }
+}
+
+
+    //daniel says holla
+    //Mason says salve
+    //Lucas says SANCTUS DOMINUS
+    //Mark says nyob

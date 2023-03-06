@@ -1,4 +1,4 @@
-/* Universal code: */
+/* Universal */
 
 * {
     font-size: 18px;
@@ -17,7 +17,9 @@ option {
     background-color: white;
 }
 
-/* Event 1: Intropage */
+/* ------------------------ */
+/* -- Event 1: Intropage -- */
+/* ------------------------ */
 
 #introIcon {
     background-image: url(../images/LOGOS/TarrifLogoFinal.PNG);
@@ -76,7 +78,10 @@ footer address {
     padding-left: 1%;
 }
 
-/* Event2: Settings */
+/* ----------------------- */
+/* -- Event 2: Settings -- */
+/* ----------------------- */
+
 .event1Section > div {
     height: 100vh;
     background-color: rgb(255, 254, 248);
@@ -138,22 +143,28 @@ footer address {
 
 
 
-/* Event 3: Game */
+/* ------------------- */
+/* -- Event 3: Game -- */
+/* ------------------- */
 
+/* Game Board */
 #event2 * {
     background-color: white;
+    max-height: 100%;
 }
 
 #event2 span {
-    width: 100%;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
+    width: 1355px;
 }
 
 .cell {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
     border: 2px black solid;
+    padding: 10px;
 }
 
 #firstBlock,
@@ -165,16 +176,55 @@ footer address {
     height: fit-content;
 }
 
-#firstBlock,
-#thirdBlock {
+#firstBlock {
     flex-direction: row;
 }
 
-#secondBlock,
 #fourthBlock {
+    flex-direction: row-reverse;
+}
+
+#thirdBlock {
     flex-direction: column;
 }
 
 #secondBlock {
-    justify-content: right;
+    flex-direction: column-reverse;
+}
+
+/* Presidential Elections */
+
+.electionAlert {
+    display: flex;
+    z-index: 9;
+    top: 100px;
+    position: fixed;
+    width: 66%;
+    height: 70%;
+    border: 10px black solid;
+}
+
+.electionSide {
+    z-index: 9;
+    width: 50%;
+    height: 100%;
+    border: 1px black solid;
+}
+
+/* Presidential Candidates */
+
+.PKirk {
+    content: url(../images/POTUS/KirkColbyCrop.png);
+    /* background-image: url(../images/POTUS/KirkColby.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.POlsen {
+    content: url(../images/POTUS/OlsenColbyCrop.png);
+    /* background-image: url(../images/POTUS/OlsenColby.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; */
 }
