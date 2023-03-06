@@ -196,7 +196,7 @@ let world = {
 function startGame() {
     document.getElementById('event1').style.display = 'none';
     document.getElementById('event2').style.display = 'none';
-    playerCreation(StartingBudget);
+    playerCreation(startingBudget);
 }
 
     //daniel says holla
