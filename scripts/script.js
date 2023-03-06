@@ -12,13 +12,14 @@ let gridBoard = [
 //more useful where x,y coordinates are used... battleship, tic-tac-toe... topleft space is gridBoard[0][0], bottom right is gridBoard[3][3] or think about it as gridBoard[y][x]
 //numbers in your arrays may be used to represent the 'state' of that board space... which player is there, what kind of space it is etc...
 
-// Preparing the game
-
+// ----------------------------------------
+// Event 0: Setting up the game & getting things ready
+// ----------------------------------------
 let difficultySliderSettings = false;
 document.getElementById('event1').style.display = 'none';
 document.getElementById('event2').style.display = 'none';
 
-let main = document.getElementById('main');
+let main = document.getElementById('main'); 
 function SettingsMenu() {
     difficultySliderSettings = true;
     document.getElementById('event0').style.display = 'none';
@@ -29,7 +30,7 @@ function SettingsMenu() {
     shareScreenCreation();
 }
 
-function difficultyCreation() {
+function difficultyCreation() {  // Displays clickable options inside "difficulty"
     let difficultyCountOption1 = document.createElement('option');
     difficultyCountOption1.setAttribute('value', 1);
     difficultyCountOption1.innerText = 'Easy';
@@ -50,8 +51,11 @@ function difficultyCreation() {
     difficultySelect.appendChild(difficultyCountOption2);
     difficultySelect.appendChild(difficultyCountOption3);
     difficultySelect.appendChild(difficultyCountOption4);
+    difficultyStartingBudgetManager(); // This sets the default "easy" number value 
+    
 }
 
+// Displays clickable options inside "player". This one is subject to change
 function optionCreation() {
     let playerCountOption1 = document.createElement('option');
     playerCountOption1.setAttribute('value', 1);
@@ -95,6 +99,7 @@ function optionCreation() {
     playerCountSelect.appendChild(playerCountOption8);
 }
 
+// Displays clickable options inside "shareScreenCreation"
 function shareScreenCreation() {
     let shareScreenCountNull = document.createElement('option');
     shareScreenCountNull.setAttribute('value', 1);
@@ -119,271 +124,87 @@ startingBudget.addEventListener('click', (e) => {
     document.getElementById('startingBudgetSelect').value = playerBudget;
 });
 
-// Event 2: Settings / customizable options
+// ----------------------------------------
+// Event 1: Settings / customizable options
+// ----------------------------------------
+
+let shareScreen = document.getElementById("shareScreenSelect"); // Handles options for shareScreenSelect menu popup
+shareScreen.addEventListener("change", (e) =>shareScreenFunction());
+
+function shareScreenFunction(){
+    shareScreen = document.getElementById("shareScreenSelect").value;
+}
+
+let difficulty = document.getElementById("difficultySelect");  // Handles options for difficultySelect menu popup
+difficulty.addEventListener("change", (e) =>difficultyFunction());
+difficulty.addEventListener("change", (e) =>difficultyStartingBudgetManager());
+function difficultyFunction(){
+    difficulty = document.getElementById("difficultySelect").value;
+}
+
+// Handles options for startingBudgetSelect menu popup
+startingBudget.addEventListener("change", (e) =>startingBudgetFunction());
+
+function startingBudgetFunction() {
+    startingBudget = document.getElementById("startingBudgetSelect").value;
+}
+
+// sets default value when event 1 starts 
+document.getElementById("startingBudgetSelect").value = 600000; 
+startingBudget = 600000;
+
+// default settings for difficulty, this code changes the "startingBudgetSelect" value when one of the presets are clicked. The starting budget will be left empty/blank when the "custom" value is set for difficulty.
+function difficultyStartingBudgetManager(){ 
+    if (difficulty == NaN || difficulty == 1) {
+        document.getElementById("startingBudgetSelect").value = 600000;
+        startingBudget = 600000;
+    } else if (difficulty == 2) {
+        document.getElementById("startingBudgetSelect").value = 400000;
+        startingBudget = 400000;
+    } else if (difficulty == 3) {
+        document.getElementById("startingBudgetSelect").value = 200000;
+        startingBudget = 200000;
+    } else if (difficulty == 4) {
+        document.getElementById("startingBudgetSelect").value = "";
+        startingBudget = "";
+    }
+}
 
 let AI = false;
 let playerAmount = 1;
 let players = [];
 
-playerAmount = playerCountSelect.value
+function playerCreation(a) {
+    playerAmount = playerCountSelect.value;
+    for (let i = 0; i < playerAmount; i++) {
+        players.push(player = {
+            budget: a,
+            property: 'none',
+            doubles: 0,
+            jailed: false
+        });
+    }
+    console.log(players)
+}
 
-// for (let i = 0, I < playerAmount)
-
-// function playerCreation() {
-//     if (playerAmount == 1) {
-//         // CREATE PLAYER AND AI 
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         AI = true;
-//     } else if (playerAmount == 2) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 3) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 4) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 5) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player5 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 6) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player5 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player6 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 7) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player5 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player6 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player7 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//     } else if (playerAmount == 8) {
-//         players.push(player1 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player2 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player3 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player4 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player5 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player6 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player7 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         players.push(player8 = {
-//             budget: startingBudget,
-//             property: 'none',
-//             doubles: 0,
-//             jailed: true
-//         });
-//         alert('Game has reached maximum player capacity.')
-//     } else if (playerAmount > 8) {  // (If Player count is greater than 8)
-//         players.push(player1);
-//         players.push(player2);
-//         players.push(player3);
-//         players.push(player4);
-//         players.push(player5);
-//         players.push(player6);
-//         players.push(player7);
-//         players.push(player8);
-//         alert('Game has reached maximum player capacity.')
-//     } else {
-//         alert('The PlayerAmount variable is not doing what it should.');
-//     }
-// }
-
-// Event 3: Game 
 let world = {
     worldEvent: 'none',
-    president: 'none'
+    president: 'none',
+    goCounter: 0
 }
+
+// ----------------------------------------
+// Event 2: Game starts
+// ----------------------------------------
 
 function startGame() {
     document.getElementById('event1').style.display = 'none';
     document.getElementById('event2').style.display = 'flex';
+    document.getElementById('event2').style.display = 'none';
+    playerCreation(StartingBudget);
 }
 
-    //daniel says holla
-    //Mason says salve
-    //Lucas says SANCTUS DOMINUS
-    //Mark says nyob zoo
+//daniel says holla
+//Mason says salve
+//Lucas says SANCTUS DOMINUS
+//Mark says nyob zoo
