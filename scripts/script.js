@@ -12,9 +12,8 @@ let gridBoard = [
 //more useful where x,y coordinates are used... battleship, tic-tac-toe... topleft space is gridBoard[0][0], bottom right is gridBoard[3][3] or think about it as gridBoard[y][x]
 //numbers in your arrays may be used to represent the 'state' of that board space... which player is there, what kind of space it is etc...
 
-// ----------------------------------------
-// Event 0: Setting up the game & getting things ready
-// ----------------------------------------
+// Preparing the game
+
 let difficultySliderSettings = false;
 document.getElementById('event1').style.display = 'none';
 document.getElementById('event2').style.display = 'none';
@@ -30,7 +29,10 @@ function SettingsMenu() {
     shareScreenCreation();
 }
 
-function difficultyCreation() {  // Displays clickable options inside "difficulty"
+// Event 2: Settings
+
+function difficultyCreation() {  
+    // Displays clickable options inside "difficulty"
     let difficultyCountOption1 = document.createElement('option');
     difficultyCountOption1.setAttribute('value', 1);
     difficultyCountOption1.innerText = 'Easy';
@@ -51,12 +53,13 @@ function difficultyCreation() {  // Displays clickable options inside "difficult
     difficultySelect.appendChild(difficultyCountOption2);
     difficultySelect.appendChild(difficultyCountOption3);
     difficultySelect.appendChild(difficultyCountOption4);
-    difficultyStartingBudgetManager(); // This sets the default "easy" number value 
+    difficultyStartingBudgetManager(); 
+    // This sets the default "easy" number value 
     
 }
 
-// Displays clickable options inside "player". This one is subject to change
-function optionCreation() {
+function optionCreation() { 
+    // Displays clickable options inside "player". This one is subject to change
     let playerCountOption1 = document.createElement('option');
     playerCountOption1.setAttribute('value', 1);
     playerCountOption1.innerText = '1 Player';
@@ -99,8 +102,8 @@ function optionCreation() {
     playerCountSelect.appendChild(playerCountOption8);
 }
 
-// Displays clickable options inside "shareScreenCreation"
-function shareScreenCreation() {
+function shareScreenCreation() { 
+    // Displays clickable options inside "shareScreenCreation"
     let shareScreenCountNull = document.createElement('option');
     shareScreenCountNull.setAttribute('value', 1);
     shareScreenCountNull.innerText = '--', null;
@@ -118,56 +121,126 @@ function shareScreenCreation() {
     shareScreenSelect.appendChild(shareScreenCountOption2);
 }
 
-let startingBudget = document.getElementById('startingBudgetSelect');
+let shareScreen = document.getElementById("shareScreenSelect"); 
+// Handles options for shareScreenSelect menu popup
+    shareScreen.addEventListener("change", (e) =>shareScreenFunction());
+
+    function shareScreenFunction(){
+        shareScreen = document.getElementById("shareScreenSelect").value;
+    }
+
+let difficulty = document.getElementById("difficultySelect");  
+// Handles options for difficultySelect menu popup
+    difficulty.addEventListener("change", (e) =>difficultyFunction());
+    difficulty.addEventListener("change", (e) =>difficultyStartingBudgetManager());
+    function difficultyFunction(){
+        difficulty = document.getElementById("difficultySelect").value;
+    }
+
+let startingBudget = document.getElementById("startingBudgetSelect");  
+// Handles options for startingBudgetSelect menu popup
+    startingBudget.addEventListener("change", (e) =>startingBudgetFunction());
+
+    function startingBudgetFunction(){
+        startingBudget = document.getElementById("startingBudgetSelect").value;
+    }
+
+let generalTax = document.getElementById("generalTaxSelect");  
+// Handles options for startingBudgetSelect menu popup
+    generalTax.addEventListener("change", (e) =>generalTaxFunction());
+
+
+document.getElementById("startingBudgetSelect").value = 600000; 
+// sets default value when event 1 starts 
+startingBudget = 600000;
+
+document.getElementById("generalTaxSelect").value = 9; 
+// sets default value when event 1 starts 
+generalTax = 0.09;
+
+shareScreen = 1;
+
+function startingBudgetFunction(){
+    startingBudget = document.getElementById("startingBudgetSelect").value;
+}
 let playerBudget;
 startingBudget.addEventListener('click', (e) => {
     document.getElementById('startingBudgetSelect').value = playerBudget;
 });
 
-// ----------------------------------------
-// Event 1: Settings / customizable options
-// ----------------------------------------
-
-let shareScreen = document.getElementById("shareScreenSelect"); // Handles options for shareScreenSelect menu popup
-shareScreen.addEventListener("change", (e) =>shareScreenFunction());
-
-function shareScreenFunction(){
-    shareScreen = document.getElementById("shareScreenSelect").value;
-}
-
-let difficulty = document.getElementById("difficultySelect");  // Handles options for difficultySelect menu popup
-difficulty.addEventListener("change", (e) =>difficultyFunction());
-difficulty.addEventListener("change", (e) =>difficultyStartingBudgetManager());
-function difficultyFunction(){
-    difficulty = document.getElementById("difficultySelect").value;
-}
-
-// Handles options for startingBudgetSelect menu popup
-startingBudget.addEventListener("change", (e) =>startingBudgetFunction());
-
-function startingBudgetFunction() {
-    startingBudget = document.getElementById("startingBudgetSelect").value;
-}
-
-// sets default value when event 1 starts 
-document.getElementById("startingBudgetSelect").value = 600000; 
+document.getElementById("startingBudgetSelect").value = 600000;
 startingBudget = 600000;
-
-// default settings for difficulty, this code changes the "startingBudgetSelect" value when one of the presets are clicked. The starting budget will be left empty/blank when the "custom" value is set for difficulty.
-function difficultyStartingBudgetManager(){ 
+function difficultyStartingBudgetManager(){ // default settings for difficulty and generalTax, this code changes the "startingBudgetSelect" value when one of the presets are clicked. The starting budget will be left empty/blank when the "custom" value is set for difficulty 
     if (difficulty == NaN || difficulty == 1) {
         document.getElementById("startingBudgetSelect").value = 600000;
         startingBudget = 600000;
+        document.getElementById("generalTaxSelect").value = 9;
+        generalTax = 0.09;
     } else if (difficulty == 2) {
         document.getElementById("startingBudgetSelect").value = 400000;
         startingBudget = 400000;
+        document.getElementById("generalTaxSelect").value = 12;
+        generalTax = 0.12;
     } else if (difficulty == 3) {
         document.getElementById("startingBudgetSelect").value = 200000;
         startingBudget = 200000;
+        document.getElementById("generalTaxSelect").value = 16;
+        generalTax = 0.16;
     } else if (difficulty == 4) {
         document.getElementById("startingBudgetSelect").value = "";
         startingBudget = "";
+        document.getElementById("generalTaxSelect").value = "";
+        generalTax = "";
     }
+}
+
+let funnyCounter = 0;
+function generalTaxFunction(){ 
+    //Handles options for the generalTax variable, and also has a funny thing I made during break
+    generalTax = document.getElementById("generalTaxSelect").value / 100;
+    
+    if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 1) {
+        alert("SERIOUSLY?");
+        alert("DO YOU VALUE SELF-PAIN THAT MUCH??");
+        alert("I AM WARNING YOU.");
+        alert("YOU SHOULD NOT DO THAT.");
+        alert("HERE. HERE IS A CHALLENGE.");
+        alert("I HOPE YOU ARE HAPPY WITH YOURSELF.");
+        document.getElementById("generalTaxSelect").value = 35;
+        generalTax = 0.35;
+        funnyCounter = 2;
+    } else if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 0) {
+        alert("WHOAH WHOAH WHOAH")
+        alert("WHY WOULD YOU DO THIS TO YOURSELF??")
+        alert("I AM NOT ALLOWING THAT. YOU DO NOT PUT YOURSELF THROUGH THAT");
+        document.getElementById("generalTaxSelect").value = 25;
+        generalTax = 0.25;
+        alert("I AM CHANGING THIS. DON'T YOU EVER DO THAT AGAIN.")
+        alert("YOU CAN THANK ME LATER.")
+        funnyCounter = 1;
+    } else if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 2) {
+        alert("Bruh.")
+        alert("I don't get it.")
+        alert("I KEEP TRYING TO WARN YOU.")
+        alert("THIS IS MY LAST WARNING.")
+        alert("STOP.")
+        alert("DOING.")
+        alert("THAT.")
+        alert("I WILL RAISE IT TO 40%. AND THAT IS FINAL.")
+        document.getElementById("generalTaxSelect").value = 40;
+        generalTax = 0.40;
+        funnyCounter = 3;
+    } else if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 3) {
+        alert("Alright.")
+        alert("I see how it is.")
+        alert("Fine.")
+        alert("No more changing it.")
+        alert("You clearly don't want to listen to me.")
+        alert("No general tax for you.")
+        document.getElementById("generalTaxSelect").value = 1;
+        generalTax = 1;
+        document.getElementById('funnyHiddenThing').style.display = 'none';
+    } 
 }
 
 let AI = false;
@@ -181,16 +254,21 @@ function playerCreation(a) {
             budget: a,
             property: 'none',
             doubles: 0,
-            jailed: false
+            jailed: false,
+            goCounter: 0,
+            playerPosition: 0,
         });
     }
     console.log(players)
 }
 
+playerAmount = playerCountSelect.value;
+
+// Event 3: Game 
 let world = {
+    worldEventCooldown: false,
     worldEvent: 'none',
-    president: 'none',
-    goCounter: 0
+    president: 'none'
 }
 
 // ----------------------------------------
@@ -198,30 +276,24 @@ let world = {
 // ----------------------------------------
 
 function startGame() {
-    document.getElementById('event1').style.display = 'none';
-    document.getElementById('event2').style.display = 'flex';
-    document.getElementById('event2').style.display = 'none';
-    playerCreation(StartingBudget);
+    if (shareScreen == 1) {
+        alert("You need to select an option for Share Screen.");
+    } else {
+        document.getElementById('event1').style.display = 'none';
+        document.getElementById('event2').style.display = 'flex';
+        playerCreation(StartingBudget);
+
+        rollDice()
+        election()
+    }
+    
 }
-
-//daniel says holla
-//Mason says salve
-//Lucas says SANCTUS DOMINUS
-//Mark says nyob zoo
-
-    // rollDice()
-    // election()
 
 function rollDice() {
 
 }
 
-let electionAlert;
-let electionSide;
-let electionSide1;
-let electionSide2;
 let gameBoard = document.getElementById('event2sub');
-
 function election() {
     let electionAlert = document.createElement('div');
     electionAlert.setAttribute('class', 'electionAlert');
@@ -240,7 +312,6 @@ function election() {
         electionSide2.setAttribute('class', 'POlsen');
     }
 }
-
 
     //daniel says holla
     //Mason says salve
