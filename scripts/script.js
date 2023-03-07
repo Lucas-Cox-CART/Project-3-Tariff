@@ -164,7 +164,7 @@ function startingBudgetFunction(){
     startingBudget = document.getElementById("startingBudgetSelect").value;
 }
 let playerBudget;
-startingBudget.addEventListener('click', (e) => {
+startingBudgetSelect.addEventListener('click', (e) => {
     document.getElementById('startingBudgetSelect').value = playerBudget;
 });
 
@@ -281,7 +281,7 @@ function startGame() {
     } else {
         document.getElementById('event1').style.display = 'none';
         document.getElementById('event2').style.display = 'flex';
-        playerCreation(StartingBudget);
+        playerCreation(startingBudget);
 
         rollDice()
         election()
