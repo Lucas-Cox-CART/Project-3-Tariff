@@ -177,7 +177,8 @@ function playerCreation(a) {
             budget: a,
             property: 'none',
             doubles: 0,
-            jailed: false
+            jailed: false,
+            goCounter: 0
         });
     }
     console.log(players)
@@ -186,7 +187,6 @@ function playerCreation(a) {
 let world = {
     worldEvent: 'none',
     president: 'none',
-    goCounter: 0
 }
 
 // ----------------------------------------
