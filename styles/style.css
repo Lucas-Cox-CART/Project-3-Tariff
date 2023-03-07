@@ -17,6 +17,34 @@ option {
     background-color: white;
 }
 
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 10px 5px 5px black;
+}
+
+h1 {
+    font-family: 'Tilt Prism', cursive;
+    font-weight: lighter;
+    font-size: 7rem;
+    height: 11vh;
+    color: white;
+    background-color: transparent;
+}
+
+nav p {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    color: white;
+    background-color: transparent;
+}
+
+
 /* ------------------------ */
 /* -- Event 1: Intropage -- */
 /* ------------------------ */
@@ -37,8 +65,9 @@ option {
     background-size: contain; 
     background-blend-mode: hard-light;
     width: 100%;
-    height: 96vh;
+    height: 77vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -84,12 +113,35 @@ option {
     height: 15%;
 }
 
+#event0 > article * {
+    background-color: white;
+}
+
 #event0 > article #leftShift {
     align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 #event0 > article #rightShift {
     align-self: flex-end;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#event0 > article div h3 {
+    width: 80%;
+    font-size: 2rem;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+#event0 > article div p {
+    width: 80%;
+    font-size: 1.4rem;
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 /* Footer */
@@ -101,21 +153,26 @@ footer {
 
 footer section {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer a {
     color: white;
     text-decoration: none;
-}
-
-footer p {
-    width: 33%;
+    font-size: 0.9rem;
 }
 
 footer address {
-    width: 67%;
     padding-bottom: 1%;
     padding-left: 1%;
+    font-size: 0.9rem;
+}
+
+footer p {
+    padding-bottom: 1%;
+    padding-left: 1%;
+    font-size: 0.9rem;
 }
 
 /* ----------------------- */
@@ -163,6 +220,11 @@ footer address {
 /* ------------------- */
 
 /* Game Board */
+
+#event2 {
+    align-items: center;
+}
+
 #event2 * {
     background-color: white;
     max-height: 100%;
@@ -235,4 +297,28 @@ footer address {
 
 .POlsen {
     content: url(../images/POTUS/OlsenColbyCrop.png);
+}
+
+.PCox {
+    content: url(../images/POTUS/CoxLucasCrop.png);
+}
+
+.PEthan {
+    content: url(../images/POTUS/EthanCropped.png);
+}
+
+.PZach {
+    content: url(../images/POTUS/GhosophZachCropped.png);
+}
+
+.PMason {
+    content: url(../images/POTUS/MasonPetersCropped.png);
+}
+
+.PPaul {
+    content: url(../images/POTUS/EthanCropped.png);
+}
+
+.PJustus {
+    content: url(../images/POTUS/PettitJustusCropped.png);
 }
