@@ -178,13 +178,15 @@ function playerCreation(a) {
             property: 'none',
             doubles: 0,
             jailed: false,
-            goCounter: 0
+            goCounter: 0,
+            playerPosition: 0,
         });
     }
     console.log(players)
 }
 
 let world = {
+    worldEventCooldown: false,
     worldEvent: 'none',
     president: 'none',
 }
@@ -198,6 +200,8 @@ function startGame() {
     document.getElementById('event2').style.display = 'none';
     playerCreation(startingBudget);
 }
+
+// function
 
     //daniel says holla
     //Mason says salve
