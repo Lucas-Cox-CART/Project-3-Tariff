@@ -199,7 +199,16 @@ function generalTaxFunction(){
     //Handles options for the generalTax variable, and also has a funny thing I made during break
     generalTax = document.getElementById("generalTaxSelect").value / 100;
     
-    if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 1) {
+    if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 0) {
+        alert("WHOAH WHOAH WHOAH")
+        alert("WHY WOULD YOU DO THIS TO YOURSELF??")
+        alert("I AM NOT ALLOWING THAT. YOU DO NOT PUT YOURSELF THROUGH THAT");
+        document.getElementById("generalTaxSelect").value = 25;
+        generalTax = 0.25;
+        alert("I AM CHANGING THIS. DON'T YOU EVER DO THAT AGAIN.")
+        alert("YOU CAN THANK ME LATER.")
+        funnyCounter = 1;
+    } else if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 1) {
         alert("SERIOUSLY?");
         alert("DO YOU VALUE SELF-PAIN THAT MUCH??");
         alert("I AM WARNING YOU.");
@@ -209,15 +218,6 @@ function generalTaxFunction(){
         document.getElementById("generalTaxSelect").value = 35;
         generalTax = 0.35;
         funnyCounter = 2;
-    } else if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 0) {
-        alert("WHOAH WHOAH WHOAH")
-        alert("WHY WOULD YOU DO THIS TO YOURSELF??")
-        alert("I AM NOT ALLOWING THAT. YOU DO NOT PUT YOURSELF THROUGH THAT");
-        document.getElementById("generalTaxSelect").value = 25;
-        generalTax = 0.25;
-        alert("I AM CHANGING THIS. DON'T YOU EVER DO THAT AGAIN.")
-        alert("YOU CAN THANK ME LATER.")
-        funnyCounter = 1;
     } else if (document.getElementById("generalTaxSelect").value >= 80 && funnyCounter == 2) {
         alert("Bruh.")
         alert("I don't get it.")
