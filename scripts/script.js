@@ -170,7 +170,8 @@ startingBudgetSelect.addEventListener('click', (e) => {
 
 document.getElementById("startingBudgetSelect").value = 600000;
 startingBudget = 600000;
-function difficultyStartingBudgetManager(){ // default settings for difficulty and generalTax, this code changes the "startingBudgetSelect" value when one of the presets are clicked. The starting budget will be left empty/blank when the "custom" value is set for difficulty 
+function difficultyStartingBudgetManager(){ 
+    //When a difficulty is selected, it sets these predetermined values. (General tax and starting budget)
     if (difficulty == NaN || difficulty == 1) {
         document.getElementById("startingBudgetSelect").value = 600000;
         startingBudget = 600000;
