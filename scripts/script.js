@@ -284,7 +284,6 @@ function startGame() {
         document.getElementById('event2').style.display = 'flex';
         playerCreation(startingBudget);
 
-        rollDice()
         election()
     }
     
@@ -324,7 +323,7 @@ function playerMove(x) {
 
 function playerTurnEnd(x) {
     if (players[x].jailed = true) {
-        players[x].playerPosition = 0
+        players[x].playerPosition = 0 //jail position
     }
     turnCycle = turnCycle + 1;
     if (turnCycle > playerAmount) {
