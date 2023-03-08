@@ -246,6 +246,7 @@ function generalTaxFunction(){
 let AI = false;
 let playerAmount = 1;
 let players = [];
+let turnCycle = 1;
 
 function playerCreation(a) {
     playerAmount = playerCountSelect.value;
@@ -289,8 +290,46 @@ function startGame() {
     
 }
 
-function rollDice() {
+let dicevalue1;
+let dicevalue2;
+let movement;
 
+function rollDice(x) {
+    dicevalue1 = (Math.random(1-6) * 6).toFixed(0);
+    dicevalue2 = (Math.random(1-6) * 6).toFixed(0);
+    if (players[x].jailed = true) {
+        if (dicevalue1 == dicevalue2) {
+            playerMove
+        } else {
+        playerTurnEnd
+        }
+    } else {
+        playerMove
+    }
+}
+
+function playerMove(x) {
+    movement = dicevalue1 + dicevalue2;
+    players[x].playerPosition = players[x].playerPosition + movement;
+    if (dicevalue1 == dicevalue2) {
+        players[x].doubles = players[x].doubles + 1
+    } else {
+        playerTurnEnd
+    }
+    if (players[x].doubles = 3) {
+        players[x].jailed = true
+        playerTurnEnd
+    }
+}
+
+function playerTurnEnd(x) {
+    if (players[x].jailed = true) {
+        players[x].playerPosition = 0
+    }
+    turnCycle = turnCycle + 1;
+    if (turnCycle > playerAmount) {
+    turnCycle = 1
+    }
 }
 
 let gameBoard = document.getElementById('event2sub');
