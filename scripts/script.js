@@ -283,8 +283,10 @@ function startGame() {
         document.getElementById('event2').style.display = 'flex';
         playerCreation(startingBudget);
 
-        rollDice()
-        election()
+        rollDice();
+        if (goCounter = 4) {
+            election();
+        }
     }
     
 }
@@ -296,21 +298,90 @@ function rollDice() {
 let gameBoard = document.getElementById('event2sub');
 function election() {
     let electionAlert = document.createElement('div');
-    electionAlert.setAttribute('class', 'electionAlert');
+    electionAlert.classList.add('electionAlert');
     gameBoard.appendChild(electionAlert);
 
     let electionSide1 = document.createElement('div');
-    electionSide1.setAttribute('class', 'electionSide');
+    electionSide1.classList.add('electionSide');
     electionAlert.appendChild(electionSide1);
 
     let electionSide2 = document.createElement('div');
-    electionSide2.setAttribute('class', 'electionSide');
+    electionSide2.classList.add('electionSide');
     electionAlert.appendChild(electionSide2);
 
-    if (true) {
-        electionSide1.setAttribute('class', 'PKirk');
-        electionSide2.setAttribute('class', 'POlsen');
+    let electionSide1D = document.createElement('div');
+    electionSide1D.classList.add('electionDescription');
+    electionAlert.appendChild(electionSide1D);
+
+    let electionSide2D = document.createElement('div');
+    electionSide2D.classList.add('electionDescription');
+    electionAlert.appendChild(electionSide2D);
+
+    let CandidateOne;
+    function C1Maker() {
+        let CandidateOne = Math.floor(Math.random() * 7);
+        if (CandidateOne == 0 && CandidateTwo != 0) {
+            electionSide1.classList.add('PKirk');
+            electionSide1D.innerText = "Colby Kirk";
+        } else if (CandidateOne == 1 && CandidateTwo != 1) {
+            electionSide1.classList.add('POlsen');
+            electionSide1D.innerText = "Colby Olsen";
+        } else if (CandidateOne == 2 && CandidateTwo != 2) {
+            electionSide1.classList.add('PCox');
+            electionSide1D.innerText = "Lucas Cox";
+        } else if (CandidateOne == 3 && CandidateTwo != 3) {
+            electionSide1.classList.add('PEthan');
+            electionSide1D.innerText = "Ethan";
+        } else if (CandidateOne == 4 && CandidateTwo != 4) {
+            electionSide1.classList.add('PZach');
+            electionSide1D.innerText = "Zach Ghosoph";
+        } else if (CandidateOne == 5 && CandidateTwo != 5) {
+            electionSide1.classList.add('PMason');
+            electionSide1D.innerText = "Mason Peters";
+        } else if (CandidateOne == 6 && CandidateTwo != 6) {
+            electionSide1.classList.add('PPaul');
+            electionSide1D.innerText = "Paul Z.";
+        } else if (CandidateOne == 7 && CandidateTwo != 7) {
+            electionSide1.classList.add('PJustus');
+            electionSide1D.innerText = "Justus Pettit";
+        } else {
+            C1Maker();
+        }
     }
+
+    let CandidateTwo;
+    function C2Maker() {
+        let CandidateTwo = Math.floor(Math.random() * 7);
+        if (CandidateTwo == 0 && CandidateOne != 0) {
+            electionSide2.classList.add('PKirk');
+            electionSide2D.innerText = "Colby Kirk";
+        } else if (CandidateTwo == 1 && CandidateOne != 1) {
+            electionSide2.classList.add('POlsen');
+                        electionSide2D.innerText = "Colby Olsen";
+        } else if (CandidateTwo == 2 && CandidateOne != 2) {
+            electionSide2.classList.add('PCox');
+                        electionSide2D.innerText = "Lucas Cox";
+        } else if (CandidateTwo == 3 && CandidateOne != 3) {
+            electionSide2.classList.add('PEthan');
+                        electionSide2D.innerText = "Ethan";
+        } else if (CandidateTwo == 4 && CandidateOne != 4) {
+            electionSide2.classList.add('PZach');
+                        electionSide2D.innerText = "Zach Ghosoph";
+        } else if (CandidateTwo == 5 && CandidateOne != 5) {
+            electionSide2.classList.add('PMason');
+                        electionSide2D.innerText = "Mason Peters";
+        } else if (CandidateTwo == 6 && CandidateOne != 6) {
+            electionSide2.classList.add('PPaul');
+                        electionSide2D.innerText = "Paul Z.";
+        } else if (CandidateTwo == 7 && CandidateOne != 7) {
+            electionSide2.classList.add('PJustus');
+                        electionSide2D.innerText = "Justus Pettit";
+        } else {
+            C2Maker();
+        }
+    }
+    C1Maker();
+    C2Maker();
 }
 
     //daniel says holla

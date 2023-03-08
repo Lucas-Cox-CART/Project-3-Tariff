@@ -304,54 +304,74 @@ footer p {
 
 /* Presidential Elections */
 
+#electD {
+    display: none;
+    z-index: 9;
+}
+
 .electionAlert {
     display: flex;
+    flex-wrap: wrap;
     z-index: 9;
     top: 100px;
-    left: 345px;
-    position: fixed;
-    width: 65.2%;
+    left: 21.5%;
+    position: absolute;
     height: 70%;
+    max-height: 70%;
+    max-width: 57%;
     border: 10px black solid;
 }
 
 .electionSide {
     z-index: 9;
-    width: 50%;
-    height: 100%;
-    border: 1px black solid;
+    width: 49.65%;
+    height: 60vh;
+    border: 5px black solid;
+    margin: -3px;
+}
+
+.electionDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 9;
+    width: 49.65%;
+    height: 13%;
+    border: 5px black solid;
+    margin: -3px;
 }
 
 /* Presidential Candidates */
 
 .PKirk {
-    content: url(../images/POTUS/KirkColbyCrop.png);
+    content: url(../images/POTUS/ColbyK.jpg);
 }
 
 .POlsen {
-    content: url(../images/POTUS/OlsenColbyCrop.png);
+    content: url(../images/POTUS/ColbyO.jpg);
 }
 
 .PCox {
-    content: url(../images/POTUS/CoxLucasCrop.png);
+    content: url(../images/POTUS/LucasC.jpg);
 }
 
 .PEthan {
-    content: url(../images/POTUS/EthanCropped.png);
+    content: url(../images/POTUS/Ethan.jpg);
 }
 
 .PZach {
-    content: url(../images/POTUS/GhosophZachCropped.png);
+    content: url(../images/POTUS/ZachG.jpg);
 }
 
 .PMason {
-    content: url(../images/POTUS/MasonPetersCropped.png);
+    content: url(../images/POTUS/MasonP.jpg);
 }
 
 .PPaul {
-    content: url(../images/POTUS/EthanCropped.png);
+    content: url(../images/POTUS/PaulZ.jpg);
 }
 
 .PJustus {
-    content: url(../images/POTUS/PettitJustusCropped.png);
+    content: url(../images/POTUS/JustusP.jpg);
 }
