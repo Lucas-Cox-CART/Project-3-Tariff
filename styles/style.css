@@ -304,7 +304,14 @@ footer p {
 
 /* Presidential Elections */
 
-#electD {
+#event2 > #electD > #KD,
+#event2 > #electD > #OD,
+#event2 > #electD > #RD,
+#event2 > #electD > #PTD,
+#event2 > #electD > #CD,
+#event2 > #electD > #PSD,
+#event2 > #electD > #ZD,
+#event2 > #electD > #GD {
     display: none;
     z-index: 9;
 }
@@ -320,6 +327,16 @@ footer p {
     max-height: 70%;
     max-width: 57%;
     border: 10px black solid;
+}
+
+.electionAlert div:not(.electionSide) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: fit-content;
+    line-height: 30px;
 }
 
 .electionSide {
