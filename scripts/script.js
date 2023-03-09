@@ -246,7 +246,7 @@ function generalTaxFunction(){
 let AI = false;
 let playerAmount = 1;
 let players = [];
-let turnCycle = 1;
+let turnCycle = 0;
 
 function playerCreation(a) {
     playerAmount = playerCountSelect.value;
@@ -261,9 +261,12 @@ function playerCreation(a) {
         });
     }
     console.log(players)
+    // for(let player of players){
+    //     player.goCounter = 3;
+    //     console.log(player.goCounter);
+    // }
 }
 
-playerAmount = playerCountSelect.value;
 
 // Event 3: Game 
 let world = {
@@ -298,12 +301,12 @@ function rollDice(x) {
     dicevalue2 = (Math.random(1-6) * 6).toFixed(0);
     if (players[x].jailed = true) {
         if (dicevalue1 == dicevalue2) {
-            playerMove
+            playerMove(turnCycle)
         } else {
-        playerTurnEnd
+            goCheck(turnCycle)
         }
     } else {
-        playerMove
+        playerMove(turnCycle)
     }
 }
 
@@ -313,15 +316,49 @@ function playerMove(x) {
     if (dicevalue1 == dicevalue2) {
         players[x].doubles = players[x].doubles + 1
     } else {
-        playerTurnEnd
+        goCheck(turnCycle)
     }
     if (players[x].doubles = 3) {
         players[x].jailed = true
-        playerTurnEnd
+        goCheck(turnCycle)
     }
 }
 
+function goCheck(x) {
+    if (players[x].goCounter = 2) {
+        if (world.worldEventCooldown = false) {
+            beginEvent();
+            world.worldEventCooldown = true
+        } else {
+            playerTurnEnd(turnCycle)
+        }
+    } else if (players[x].goCounter = 4) {
+        for (let player of players) {
+            player.goCounter = 0;
+        }
+        for (let player of players) {
+            player.playerPosition = 0;
+        }
+        beginElection();
+    } else {
+        playerTurnEnd(x)
+    }
+}
+
+function beginEvent() {
+
+}
+
+function beginElection() {
+
+}
+
 function playerTurnEnd(x) {
+    console.log(players[x].goCounter)
+    console.log(players[x].playerPosition)
+    console.log(players[x].budget)
+    console.log(players[x].jailed)
+    console.log(players[x].doubles)
     if (players[x].jailed = true) {
         players[x].playerPosition = 0 //jail position
     }

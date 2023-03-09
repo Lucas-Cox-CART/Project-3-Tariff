@@ -250,3 +250,7 @@
 //     }
 
 // Event 2: Settings / customizable options
+
+for (let a = players['length']; a != 0; a--) {
+            players[a].goCounter = 0
+        }
