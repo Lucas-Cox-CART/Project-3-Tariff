@@ -285,7 +285,7 @@ function startGame() {
 
         rollDice();
         if (goCounter = 4) {
-            election();
+            // election();
         }
     }
     
@@ -315,35 +315,35 @@ function election() {
     let electCandidates = [
         { 
             name: `Colby Kirk`,
-            quote: `"Science Rules!" - Bill Nye, The Science Guy`
+            quote: `" Science Rules! " - Bill Nye, The Science Guy`
         },
         {
             name: 'Colby Olsen',
-            quote: `"Every child should own a gun."`
+            quote: `" Every child should own a gun. "`
         },
         {
             name: 'Lucas Cox',
-            quote: "free juicer crocs fr fr no cap on god cuh"
+            quote: `" free juicer crocs fr fr no cap on god cuh "`
         },
         {
             name: 'Ethan Racca',
-            quote: "anything for murica'"
+            quote: ` "anything for murica' "`
         },
         {
             name: 'Zach Ghosoph',
-            quote: "anything for hivemind'"
+            quote: `" anything for hivemind' "`
         },
         {
             name: 'Mason Peters',
-            quote: "mass-cloning? mass-workers :)"
+            quote: `" mass-cloning? mass-workers :) "`
         },
         {
             name: 'Paul Ziowalski',
-            quote: "anarchy."
+            quote: `" anarchy. "`
         },
         {
             name: 'Justus Pettit',
-            quote: "how much gold for that rock?"
+            quote: `" how much gold for that rock? "`
         }
     ]
 

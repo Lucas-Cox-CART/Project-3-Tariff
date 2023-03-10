@@ -81,7 +81,7 @@ nav p {
 }
 
 #introIcon button  {
-    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(222, 222, 193) 100%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(119, 119, 119, 0.8) 100%);
     animation-duration: 4s;
     animation-name: buttonHover;
     opacity: 97%;
@@ -92,6 +92,8 @@ nav p {
     font-size: 2em;
     width: 300px;
     border-radius: 20px 20px 20px 20px;
+    border: 2px black solid;
+    font-family: 'Goblin One', cursive;
 }
 
 #introIcon button:hover  {
@@ -114,6 +116,7 @@ nav p {
     display: flex;
     justify-content: space-evenly;
     background-color: white;
+    box-shadow: 0px 0px 50px 5px white;
     border: 1px solid black;
     border-radius: 15px;
     width: 70%;
@@ -223,7 +226,7 @@ footer p {
     background: none;
 }
 
-.event1Section span select {
+.event1Section span select:not(.customButton) {
     width: 200px;
     background-color: aliceblue;
     margin-left: 20px;
@@ -246,7 +249,15 @@ footer p {
     width: 100%;
 }
 
+input[type="checkbox"] {
+   visibility: hidden;
+}
 
+span div label .customButton {
+    height: 20px;
+    width: 20px;
+    background-color: red;
+}
 
 /* ------------------- */
 /* -- Event 3: Game -- */
@@ -267,12 +278,12 @@ footer p {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 1355px;
+    width: 1025px;
 }
 
 .cell {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border: 2px black solid;
     padding: 10px;
 }
