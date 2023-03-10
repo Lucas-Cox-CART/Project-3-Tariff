@@ -314,9 +314,13 @@ function playerMove(x) {
     movement = dicevalue1 + dicevalue2;
     players[x].playerPosition = players[x].playerPosition + movement;
     if (dicevalue1 == dicevalue2) {
-        players[x].doubles = players[x].doubles + 1
+        players[x].doubles = players[x].doubles + 1;
     } else {
         goCheck(turnCycle)
+    }
+    if (players[x].playerPosition >= 40) {
+        players[x].playerPosition = players[x].playerPosition - 40;
+        players[x].goCounter = players[x].goCounter + 1;
     }
     if (players[x].doubles = 3) {
         players[x].jailed = true
@@ -328,7 +332,7 @@ function goCheck(x) {
     if (players[x].goCounter = 2) {
         if (world.worldEventCooldown = false) {
             beginEvent();
-            world.worldEventCooldown = true
+            world.worldEventCooldown = true;
         } else {
             playerTurnEnd(turnCycle)
         }
@@ -341,7 +345,7 @@ function goCheck(x) {
         }
         beginElection();
     } else {
-        playerTurnEnd(x)
+        playerTurnEnd(x);
     }
 }
 
@@ -359,13 +363,14 @@ function playerTurnEnd(x) {
     console.log(players[x].budget)
     console.log(players[x].jailed)
     console.log(players[x].doubles)
-    if (players[x].jailed = true) {
-        players[x].playerPosition = 0 //jail position
-    }
     turnCycle = turnCycle + 1;
     if (turnCycle > playerAmount) {
-    turnCycle = 1
+    turnCycle = 0;
     }
+    if (players[x].jailed = true) {
+        players[x].playerPosition = 10 //jail position
+    }
+    players[x].doubles = 0;
 }
 
 let gameBoard = document.getElementById('event2sub');
