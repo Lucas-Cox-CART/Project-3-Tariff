@@ -247,6 +247,7 @@ function generalTaxFunction(){
 let AI = false;
 let playerAmount = 1;
 let players = [];
+let turnCycle = 0;
 
 function playerCreation(a) {
     playerAmount = playerCountSelect.value;
@@ -261,9 +262,12 @@ function playerCreation(a) {
         });
     }
     console.log(players)
+    // for(let player of players){
+    //     player.goCounter = 3;
+    //     console.log(player.goCounter);
+    // }
 }
 
-playerAmount = playerCountSelect.value;
 
 // Event 3: Game 
 let world = {
@@ -284,34 +288,232 @@ function startGame() {
         document.getElementById('event2').style.display = 'flex';
         playerCreation(startingBudget);
 
-        rollDice()
-        election()
+        rollDice();
+        if (goCounter = 4) {
+            // election();
+        }
+        election();
     }
     
 }
 
-function rollDice() {
+let diceValue1;
+let diceValue2;
+let movement;
 
+function rollDice(x) {
+    diceValue1 = (Math.random(1-6) * 6).toFixed(0);
+    diceValue2 = (Math.random(1-6) * 6).toFixed(0);
+    if (players[x].jailed == true) {
+        if (diceValue1 == diceValue2) {
+            playerMove(x)
+        } else {
+            goCheck(x)
+        }
+    } else {
+        playerMove(x)
+    }
+}
+
+function playerMove(x) {
+    movement = diceValue1 + diceValue2;
+    players[x].playerPosition = players[x].playerPosition + movement;
+    if (diceValue1 == diceValue2) {
+        players[x].doubles = players[x].doubles + 1;
+    } else {
+        goCheck(x)
+    }
+    if (players[x].playerPosition >= 40) { 
+        for (i = players[x].playerPositon; i >= 40; players[x].playerPosition = players[x].playerPosition - 40) {
+            players[x].goCounter = players[x].goCounter + 1;
+        }
+    }
+    // if (players[x].playerPosition >= 40) {
+    //     players[x].playerPosition = players[x].playerPosition - 40;
+    //     players[x].goCounter = players[x].goCounter + 1;
+    if (players[x].doubles == 3) {
+        players[x].jailed = true;
+        goCheck(x);
+    }
+}
+
+function goCheck(x) {
+    if (players[x].goCounter == 2) {
+        if (world.worldEventCooldown == false) {
+            beginEvent();
+            world.worldEventCooldown = true;
+        } else {
+            playerTurnEnd(turnCycle);
+        }
+    } else if (players[x].goCounter == 4) {
+        for (let player of players) {
+            player.goCounter = 0;
+        }
+        for (let player of players) {
+            player.playerPosition = 0;
+        }
+        beginElection();
+    } else {
+        playerTurnEnd(x);
+    }
+}
+
+function beginEvent() {
+
+}
+
+function beginElection() {
+
+}
+
+function playerTurnEnd(x) {
+    console.log(players[x].goCounter)
+    console.log(players[x].playerPosition)
+    console.log(players[x].budget)
+    console.log(players[x].jailed)
+    console.log(players[x].doubles)
+    turnCycle = turnCycle + 1;
+    if (turnCycle == playerAmount) {
+        turnCycle = 0;
+    }
+    if (players[x].jailed == true) {
+        players[x].playerPosition = 10 //jail position
+    }
+    players[x].doubles = 0;
+    diceValue1 = 0;
+    diceValue2 = 0;
 }
 
 let gameBoard = document.getElementById('event2sub');
 function election() {
     let electionAlert = document.createElement('div');
-    electionAlert.setAttribute('class', 'electionAlert');
+    electionAlert.classList.add('electionAlert');
     gameBoard.appendChild(electionAlert);
 
     let electionSide1 = document.createElement('div');
-    electionSide1.setAttribute('class', 'electionSide');
+    electionSide1.classList.add('electionSide');
     electionAlert.appendChild(electionSide1);
 
     let electionSide2 = document.createElement('div');
-    electionSide2.setAttribute('class', 'electionSide');
+    electionSide2.classList.add('electionSide');
     electionAlert.appendChild(electionSide2);
 
-    if (true) {
-        electionSide1.setAttribute('class', 'PKirk');
-        electionSide2.setAttribute('class', 'POlsen');
+    let electDiv = [];
+    // let electHead = [];
+    // let electCont = [];
+    let electCandidates = [
+        { 
+            name: `Colby Kirk`,
+            quote: `" Science Rules! " - Bill Nye, The Science Guy`
+        },
+        {
+            name: 'Colby Olsen',
+            quote: `" Every child should own a gun. "`
+        },
+        {
+            name: 'Lucas Cox',
+            quote: `" free juicer crocs fr fr no cap on god cuh "`
+        },
+        {
+            name: 'Ethan Racca',
+            quote: ` "anything for murica' "`
+        },
+        {
+            name: 'Zach Ghosoph',
+            quote: `" anything for hivemind' "`
+        },
+        {
+            name: 'Mason Peters',
+            quote: `" mass-cloning? mass-workers :) "`
+        },
+        {
+            name: 'Paul Ziowalski',
+            quote: `" anarchy. "`
+        },
+        {
+            name: 'Justus Pettit',
+            quote: `" how much gold for that rock? "`
+        }
+    ]
+
+    for (let i = 0; i <= 7; i++) {
+        electDiv[i] = document.createElement('div');
+        let electHead = document.createElement('h3');
+        let electCont = document.createElement('p');
+            electHead.innerText = electCandidates[i].name;
+            electCont.innerText = electCandidates[i].quote;
+        
+        electDiv[i].appendChild(electHead);
+        electDiv[i].appendChild(electCont);
+        electDiv[i].style.display = 'none';
+        electionAlert.appendChild(electDiv[i]);
     }
+
+    let CandidateOne;
+    function C1Maker() {
+        let CandidateOne = Math.floor(Math.random() * 8);
+        if (CandidateOne == 0 && CandidateTwo != 0) {
+            electionSide1.classList.add('PKirk');
+            electDiv[0].style.display = 'flex';
+        } else if (CandidateOne == 1 && CandidateTwo != 1) {
+            electionSide1.classList.add('POlsen');
+            electDiv[1].style.display = 'flex';
+        } else if (CandidateOne == 2 && CandidateTwo != 2) {
+            electionSide1.classList.add('PCox');
+            electDiv[2].style.display = 'flex';
+        } else if (CandidateOne == 3 && CandidateTwo != 3) {
+            electionSide1.classList.add('PEthan');
+            electDiv[3].style.display = 'flex';
+        } else if (CandidateOne == 4 && CandidateTwo != 4) {
+            electionSide1.classList.add('PZach');
+            electDiv[4].style.display = 'flex';
+        } else if (CandidateOne == 5 && CandidateTwo != 5) {
+            electionSide1.classList.add('PMason');
+            electDiv[5].style.display = 'flex';
+        } else if (CandidateOne == 6 && CandidateTwo != 6) {
+            electionSide1.classList.add('PPaul');
+            electDiv[6].style.display = 'flex';
+        } else if (CandidateOne == 7 && CandidateTwo != 7) {
+            electionSide1.classList.add('PJustus');
+            electDiv[7].style.display = 'flex';
+        } else {
+            C1Maker();
+        }
+    }
+
+    let CandidateTwo;
+    function C2Maker() {
+        let CandidateTwo = Math.floor(Math.random() * 7);
+        if (CandidateTwo == 0 && CandidateOne != 0) {
+            electionSide2.classList.add('PKirk');
+            electDiv[0].style.display = 'flex';
+        } else if (CandidateTwo == 1 && CandidateOne != 1) {
+            electionSide2.classList.add('POlsen');
+            electDiv[1].style.display = 'flex';
+        } else if (CandidateTwo == 2 && CandidateOne != 2) {
+            electionSide2.classList.add('PCox');
+            electDiv[2].style.display = 'flex';
+        } else if (CandidateTwo == 3 && CandidateOne != 3) {
+            electionSide2.classList.add('PEthan');
+            electDiv[3].style.display = 'flex';
+        } else if (CandidateTwo == 4 && CandidateOne != 4) {
+            electionSide2.classList.add('PZach');
+            electDiv[4].style.display = 'flex';
+        } else if (CandidateTwo == 5 && CandidateOne != 5) {
+            electionSide2.classList.add('PMason');
+            electDiv[5].style.display = 'flex';
+        } else if (CandidateTwo == 6 && CandidateOne != 6) {
+            electionSide2.classList.add('PPaul');
+            electDiv[6].style.display = 'flex';
+        } else if (CandidateTwo == 7 && CandidateOne != 7) {
+            electionSide2.classList.add('PJustus');
+            electDiv[7].style.display = 'flex';
+        } else {
+            C2Maker();
+        }
+    }
+    C1Maker();
+    C2Maker();
 }
 
     //daniel says holla

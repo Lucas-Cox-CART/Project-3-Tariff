@@ -84,7 +84,7 @@ nav p {
 }
 
 #introIcon button  {
-    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(222, 222, 193) 100%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(119, 119, 119, 0.8) 100%);
     animation-duration: 4s;
     animation-name: buttonHover;
     opacity: 97%;
@@ -95,6 +95,8 @@ nav p {
     font-size: 2em;
     width: 300px;
     border-radius: 20px 20px 20px 20px;
+    border: 2px black solid;
+    font-family: 'Goblin One', cursive;
 }
 
 #introIcon button:hover  {
@@ -117,6 +119,7 @@ nav p {
     display: flex;
     justify-content: space-evenly;
     background-color: white;
+    box-shadow: 0px 0px 50px 5px white;
     border: 1px solid black;
     border-radius: 15px;
     width: 70%;
@@ -226,7 +229,7 @@ footer p {
     background: none;
 }
 
-.event1Section span select {
+.event1Section span select:not(.customButton) {
     width: 200px;
     background-color: aliceblue;
     margin-left: 20px;
@@ -249,7 +252,15 @@ footer p {
     width: 100%;
 }
 
+input[type="checkbox"] {
+   visibility: hidden;
+}
 
+span div label .customButton {
+    height: 20px;
+    width: 20px;
+    background-color: red;
+}
 
 /* ------------------- */
 /* -- Event 3: Game -- */
@@ -259,6 +270,8 @@ footer p {
 
 #event2 {
     align-items: center;
+    display: flex;
+    flex-direction: row;
 }
 
 #event2 * {
@@ -270,12 +283,12 @@ footer p {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 1355px;
+    width: 1025px;
 }
 
 .cell {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border: 2px black solid;
     padding: 10px;
 }
@@ -305,56 +318,104 @@ footer p {
     flex-direction: column-reverse;
 }
 
+#diceButton {
+    background-color: white;
+    width: 125px;
+    height: 125px;
+    border: 2px black solid;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
 /* Presidential Elections */
+
+#event2 > #electD > #KD,
+#event2 > #electD > #OD,
+#event2 > #electD > #RD,
+#event2 > #electD > #PTD,
+#event2 > #electD > #CD,
+#event2 > #electD > #PSD,
+#event2 > #electD > #ZD,
+#event2 > #electD > #GD {
+    display: none;
+    z-index: 9;
+}
 
 .electionAlert {
     display: flex;
+    flex-wrap: wrap;
     z-index: 9;
     top: 100px;
-    left: 345px;
-    position: fixed;
-    width: 65.2%;
+    left: 21.5%;
+    position: absolute;
     height: 70%;
+    max-height: 70%;
+    max-width: 57%;
     border: 10px black solid;
+}
+
+.electionAlert div:not(.electionSide) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: fit-content;
+    line-height: 30px;
 }
 
 .electionSide {
     z-index: 9;
-    width: 50%;
-    height: 100%;
-    border: 1px black solid;
+    width: 49.65%;
+    height: 60vh;
+    border: 5px black solid;
+    margin: -3px;
+}
+
+.electionDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 9;
+    width: 49.65%;
+    height: 13%;
+    border: 5px black solid;
+    margin: -3px;
 }
 
 /* Presidential Candidates */
 
 .PKirk {
-    content: url(../images/POTUS/KirkColbyCrop.png);
+    content: url(../images/POTUS/ColbyK.jpg);
 }
 
 .POlsen {
-    content: url(../images/POTUS/OlsenColbyCrop.png);
+    content: url(../images/POTUS/ColbyO.jpg);
 }
 
 .PCox {
-    content: url(../images/POTUS/CoxLucasCrop.png);
+    content: url(../images/POTUS/LucasC.jpg);
 }
 
 .PEthan {
-    content: url(../images/POTUS/EthanCropped.png);
+    content: url(../images/POTUS/Ethan.jpg);
 }
 
 .PZach {
-    content: url(../images/POTUS/GhosophZachCropped.png);
+    content: url(../images/POTUS/ZachG.jpg);
 }
 
 .PMason {
-    content: url(../images/POTUS/MasonPetersCropped.png);
+    content: url(../images/POTUS/MasonP.jpg);
 }
 
 .PPaul {
-    content: url(../images/POTUS/EthanCropped.png);
+    content: url(../images/POTUS/PaulZ.jpg);
 }
 
 .PJustus {
-    content: url(../images/POTUS/PettitJustusCropped.png);
+    content: url(../images/POTUS/JustusP.jpg);
 }
