@@ -294,25 +294,186 @@ function rollDice() {
 
 }
 
-let gameBoard = document.getElementById('event2sub');
-function election() {
-    let electionAlert = document.createElement('div');
-    electionAlert.setAttribute('class', 'electionAlert');
-    gameBoard.appendChild(electionAlert);
+// world events 
+let technologicalInventionPlayerChooser;
+function technologicalInventionWorldEvent() { // random player gets 2x budget multiplier every other other player gets budget reduced by 20%
+    technologicalInventionPlayerChooser = (Math.random(0-playerAmount -1) * 10).toFixed(0); 
+    console.log("Function started")
 
-    let electionSide1 = document.createElement('div');
-    electionSide1.setAttribute('class', 'electionSide');
-    electionAlert.appendChild(electionSide1);
-
-    let electionSide2 = document.createElement('div');
-    electionSide2.setAttribute('class', 'electionSide');
-    electionAlert.appendChild(electionSide2);
-
-    if (true) {
-        electionSide1.setAttribute('class', 'PKirk');
-        electionSide2.setAttribute('class', 'POlsen');
+        if (technologicalInventionPlayerChooser == 0 ) {
+            players[0].budget = players[0].budget * 2;
+            players[1].budget = players[1].budget * 0.20;
+            players[2].budget = players[2].budget * 0.20;
+            players[3].budget = players[3].budget * 0.20;
+            players[4].budget = players[4].budget * 0.20;
+            players[5].budget = players[5].budget * 0.20;
+            players[6].budget = players[6].budget * 0.20;
+            players[7].budget = players[7].budget * 0.20;
+            console.log("PLAYER 0 GETS MONEY")
+        } else if (technologicalInventionPlayerChooser == 1) {
+            players[1].budget = players[1].budget * 2;
+            players[0].budget = players[0].budget * 0.20;
+            players[2].budget = players[2].budget * 0.20;
+            players[3].budget = players[3].budget * 0.20;
+            players[4].budget = players[4].budget * 0.20;
+            players[5].budget = players[5].budget * 0.20;
+            players[6].budget = players[6].budget * 0.20;
+            players[7].budget = players[7].budget * 0.20;
+            console.log("PLAYER 1 GETS MONEY")
+        } else if (technologicalInventionPlayerChooser == 2) {
+            players[2].budget = players[2].budget * 2;
+            players[0].budget = players[0].budget * 0.20;
+            players[1].budget = players[1].budget * 0.20;
+            players[3].budget = players[3].budget * 0.20;
+            players[4].budget = players[4].budget * 0.20;
+            players[5].budget = players[5].budget * 0.20;
+            players[6].budget = players[6].budget * 0.20;
+            players[7].budget = players[7].budget * 0.20;
+            console.log("PLAYER 2 GETS MONEY")
+        } else if (technologicalInventionPlayerChooser == 3) {
+            players[3].budget = players[3].budget * 2;
+            players[0].budget = players[0].budget * 0.20;
+            players[1].budget = players[1].budget * 0.20;
+            players[2].budget = players[2].budget * 0.20;
+            players[4].budget = players[4].budget * 0.20;
+            players[5].budget = players[5].budget * 0.20;
+            players[6].budget = players[6].budget * 0.20;
+            players[7].budget = players[7].budget * 0.20;
+            console.log("PLAYER 3 GETS MONEY")
+        } else if (technologicalInventionPlayerChooser == 4) {
+            players[4].budget = players[4].budget * 2;
+            players[0].budget = players[0].budget * 0.20;
+            players[1].budget = players[1].budget * 0.20;
+            players[2].budget = players[2].budget * 0.20;
+            players[3].budget = players[3].budget * 0.20;
+            players[5].budget = players[5].budget * 0.20;
+            players[6].budget = players[6].budget * 0.20;
+            players[7].budget = players[7].budget * 0.20;
+            console.log("PLAYER 4 GETS MONEY")
+        } else if (technologicalInventionPlayerChooser == 5) {
+            players[5].budget = players[5].budget * 2;
+            players[0].budget = players[0].budget * 0.20;
+            players[1].budget = players[1].budget * 0.20;
+            players[2].budget = players[2].budget * 0.20;
+            players[3].budget = players[3].budget * 0.20;
+            players[4].budget = players[4].budget * 0.20;
+            players[6].budget = players[6].budget * 0.20;
+            players[7].budget = players[7].budget * 0.20;
+            console.log("PLAYER 5 GETS MONEY")
+        } else if (technologicalInventionPlayerChooser == 6) {
+            players[6].budget = players[6].budget * 2;
+            players[0].budget = players[0].budget * 0.20;
+            players[1].budget = players[1].budget * 0.20;
+            players[2].budget = players[2].budget * 0.20;
+            players[3].budget = players[3].budget * 0.20;
+            players[4].budget = players[4].budget * 0.20;
+            players[5].budget = players[5].budget * 0.20;
+            players[7].budget = players[7].budget * 0.20;
+            console.log("PLAYER 6 GETS MONEY")
+        } else if (technologicalInventionPlayerChooser == 7) {
+            players[7].budget = players[7].budget * 2;
+            players[0].budget = players[0].budget * 0.20;
+            players[1].budget = players[1].budget * 0.20;
+            players[2].budget = players[2].budget * 0.20;
+            players[3].budget = players[3].budget * 0.20;
+            players[4].budget = players[4].budget * 0.20;
+            players[5].budget = players[5].budget * 0.20;
+            players[6].budget = players[6].budget * 0.20;
+            console.log("PLAYER 7 GETS MONEY")
+        } else {
+            technologicalInventionWorldEvent();
+        }
     }
-}
+   
+let bullMarketActive = false;
+let bullMarketCounter;
+let bullMarketCounterLimit;
+// W I P
+function bullMarketWorldEvent() { //After the end of any player's turn, the price of stock goes up anywhere between 5% - 20%, lasts 2-8 passes of go. 
+    bullMarketActive = true;
+    bullMarketCounterLimit = (Math.random() * (8 - 2) + 2).toFixed(0); //Picks random number ranging between 2-8
+    while (bullMarketCounter != bullMarketCounterLimit) {
+        if (bullMarketCounter != bullMarketCounterLimit) {
+            bullMarketActive = true;
+        } else {
+            bullMarketActive = false
+        }
+    } 
+ }
+
+ //Properties
+
+
+ const propertyData = [
+                   //[name, rent, house1, house2, house3, house4, hotel, mortgage, pricehouse,pricehotel]
+                 ['CandyLand', 500, 2500, 7500, 22500, 40000, 62500, 7500, 12500, 50000],
+            ['CornDog Castle', 1000, 5000, 15000, 45000, 80000, 112500, 7500, 12500, 50000],
+      ['Mount President Face', 1500, 7500, 22500, 67500, 100000, 137500, 12500, 12500, 50000],
+         ['Statue of Liberty', 1500, 7500, 22500, 67500, 100000, 137500, 12500, 12500, 50000],
+              ['Pearl Harbor', 2000, 10000, 25000, 75000, 112000, 150000, 15000, 12500, 50000],
+            ['MY Tech Center', 2500, 12500, 37500, 112500, 156300, 187500, 17500, 25000, 100000],
+              ['MP Architect', 2500, 12500, 37500, 112500, 156300, 187500, 17500, 25000, 100000],
+                 ['LC Clinic', 3000, 15000, 45000, 125000, 175000, 225000, 20000, 25000, 100000],
+             ['Ceasar Palace', 3500, 17500, 50000, 137500, 187500, 237500, 22500, 25000, 100000],
+           ['Sun City Casino', 3500, 17500, 50000, 137500, 187500, 237500, 22500, 25000, 100000],
+    ['AG Turtle Preservation', 4000, 20000, 55000, 150000, 200000, 250000, 25000, 25000, 100000],
+                     ['NORAD', 4500, 22500, 62500, 175000, 218750, 262500, 27500, 37500, 150000],
+              ['The Pentagon', 4500, 22500, 62500, 175000, 218750, 262500, 37500, 37500, 150000],
+                    ['Area51', 5000, 25000, 75000, 187500, 231250, 275000, 30000, 37500, 150000],
+      ['Col. Corn Lighthouse', 5500, 27500, 82500, 200000, 243800, 287500, 32500, 37500, 150000],
+     ['Fredbear Family Diner', 5500, 27500, 82500, 200000, 243800, 287500, 32500, 37500, 150000],
+           ['Pious Sanctuary', 6000, 30000, 90000, 212500, 256500, 256300, 35000, 37500, 150000],
+               ['Fast Fusion', 6500, 32500, 97500, 225000, 275000, 318800, 37500, 50000, 200000],
+            ['MA Solar Field', 6500, 32500, 97500, 225000, 275000, 318800, 37500, 50000, 200000],
+          ['DeLaRosa Atomic ', 7000, 37500, 112500, 250000, 300000, 350000, 40000, 50000, 200000],
+              ['Trump Tower ', 8700, 43800, 125000, 275000, 325000, 375000, 43700, 50000, 200000],
+    ['Empire State Building ', 12500, 50000, 150000, 350000, 425000, 500000, 50000, 50000, 200000]
+ ]
+
+ const chanceCardData = [
+    ['candyLane', 'Advance to Candylane'],
+    ['bail', 'Get out of jail free card.'],
+    ['capitalGains', '+10,000 capital! You made so much money this year that you need to spend it before the IRS takes it! You must spend 10,000 dollars before the next passing go or else you have to pay interest...'],
+    ['bigSneeze', 'ACHOOO. You sneezed to hard you moved back 3 spaces.'],
+    ['whaleFishing', 'YOU\'VE BEEN TROLLED! You lost 5000.'],
+    ['generalRepairs', 'This one sucks late game... pay 15000 capital for each owned building'],
+    ['gospelOfWealth', 'Your kind soul decided to give some money to charity. You donated 10000 capital to one. You lost 10000. How strange.'],
+    ['taxEvasion', 'Next time you pass go, there is a 50% chance you will avoid taxes, but also a 50% you get sent to jail.'],
+    ['takingRide', 'Move to the nearest transportation tile.'],
+    ['biteOf87', '\" WAS THAT THE BITE OF 87???"\ Advance to Fredbear\'s Family Diner.']
+ ]
+
+ const chestCardData = [
+    ['framing', '\" IT WAS HIM. I SAW HIM VENT."\ Send one player of your choice to jail.'],
+    ['emptyChest', 'Wow. the chest hates you so much it didn\'t even give you any content! Sucks to be you!'],
+    ['jailBreak', 'If you are ever in jail, use this and you can get out for free!'],
+    ['setBacks', 'You sucked so bad at capitalism that now you have to move back 3 tiles. '],
+    ['inheritance', 'Your uncle died. CONGRATS! You inherit 15,000 capital!'],
+    ['bigTower', 'LOOK AT YOU GOING BIG!! Advance to the Empire State Building. Do not pass go.'],
+    ['opportunist', 'Take a chance card. No questions asked.'],
+    ['caughtLackin', 'Timeout corner for you buster.'],
+    ['leapYear', 'Advance to go and instantly gain your annual income.']
+ ]
+
+// let gameBoard = document.getElementById('event2sub');
+// function election() {
+//     let electionAlert = document.createElement('div');
+//     electionAlert.setAttribute('class', 'electionAlert');
+//     gameBoard.appendChild(electionAlert);
+
+//     let electionSide1 = document.createElement('div');
+//     electionSide1.setAttribute('class', 'electionSide');
+//     electionAlert.appendChild(electionSide1);
+
+//     let electionSide2 = document.createElement('div');
+//     electionSide2.setAttribute('class', 'electionSide');
+//     electionAlert.appendChild(electionSide2);
+
+//     if (true) {
+//         electionSide1.setAttribute('class', 'PKirk');
+//         electionSide2.setAttribute('class', 'POlsen');
+//     }
+// }
 
     //daniel says holla
     //Mason says salve
