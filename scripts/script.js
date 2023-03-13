@@ -253,7 +253,7 @@ function playerCreation(a) {
     for (let i = 0; i < playerAmount; i++) {
         players.push(player = {
             budget: a,
-            property: 'none',
+            property: [],
             doubles: 0,
             jailed: false,
             goCounter: 0,
@@ -457,10 +457,62 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
 
 
  let chanceAffectedPlayer;
+ let chanceCard;
+ let capitalGainsTimer;
+ let taxEvasionTimer;
  function performChanceCard() {
-    chanceAffectedPlayer = Math.floor(Math.random() * (playerAmount - 0) + 0);
-    
-    
+    chanceAffectedPlayer = //turnCounter;
+    chanceCard = Math.floor(Math.random() * (10 - 1) + 1);
+    if (chanceCard == 1) {
+        //candy Lane
+        players[chanceAffectedPlayer].playerPosition = document.getElementById("cell31");
+    } else if (chanceCard == 2) {
+        //bail
+        // I can not write this yet
+    } else if (chanceCard == 3) {
+        //Capital Gains
+        players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget + 10000;
+        capitalGainsTimer = players[chanceAffectedPlayer].goCounter
+        while (capitalGainsTimer != capitalGainsTimer + 1) { //while the player still has not passed go, check if they have.
+        if (capitalGainsTimer != capitalGainsTimer + 1) {
+                //Do nothing
+        } else {
+                if (players[chanceAffectedPlayer].budget < players [chanceAffectedPlayer].budget + 10000) {
+                    //The good ending
+                } else {
+                    players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - (10000 * generalTax)
+                    //The bad ending
+                }
+            }
+        }
+    } else if (chanceCard == 4) {
+        //Big Sneeze
+        players[chanceAffectedPlayer].playerPosition = players[chanceAffectedPlayer].playerPosition - 3;
+    } else if (chanceCard == 5) {
+        //Whale Fishing
+        players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - 5000;
+    } else if (chanceCard == 6) {
+        //General Repairs
+        if (players[chanceAffectedPlayer].property['length'] == 0) {
+            //Do nothing
+        } else {
+            players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - (15000 * players[chanceAffectedPlayer].property['length']); 
+        }
+    } else if (chanceCard == 7) {
+        //Gospel of Wealth
+        players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - 10000
+    } else if (chanceCard == 8) {
+        //Tax Evasion
+        taxEvasionTimer = players[chanceAffectedPlayer].budget;
+        while (players[chanceAffectedPlayer].goCounter === taxEvasionTimer) {
+            if (players[chanceAffectedPlayer].goCounter != taxEvasionTimer) {
+                if ((Math.floor(Math.random() * (100 - 1) + 1)) <= 50) {
+                    players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget * generalTax.toFixed(0)
+                    //Make it so they don't get taxes. 
+                }
+            }
+        }
+    }
 
  }
 
