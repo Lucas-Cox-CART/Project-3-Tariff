@@ -267,8 +267,6 @@ function playerCreation(a) {
     // }
 }
 
-
-// Event 3: Game 
 let world = {
     worldEventCooldown: false,
     worldEvent: 'none',
@@ -276,7 +274,7 @@ let world = {
 }
 
 // ----------------------------------------
-// Event 2: Game starts
+// ---------Event 2: Game starts-----------
 // ----------------------------------------
 
 function startGame() {
@@ -287,13 +285,23 @@ function startGame() {
         document.getElementById('event2').style.display = 'flex';
         playerCreation(startingBudget);
 
-        rollDice();
-        if (goCounter = 4) {
-            // election();
-        }
-        election();
+        ini();
     }
     
+}
+
+// let pCBar = document.getElementById('playerBar');
+// let pCLogo = [];
+// for (let i = 2; i <= playerAmount; i++) {
+//     pCLogo[i] = document.createElement('div');
+//     pCLogo[i].setAttribute('class', 'frog');
+//     pCBar.appendChild(pCLogo[i]);
+// }
+
+
+
+function ini() {
+
 }
 
 let diceValue1;
@@ -358,10 +366,6 @@ function goCheck(x) {
 }
 
 function beginEvent() {
-
-}
-
-function beginElection() {
 
 }
 

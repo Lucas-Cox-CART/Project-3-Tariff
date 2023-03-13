@@ -250,7 +250,7 @@ footer p {
 }
 
 input[type="checkbox"] {
-   visibility: hidden;
+    visibility: hidden;
 }
 
 span div label .customButton {
@@ -269,18 +269,31 @@ span div label .customButton {
     align-items: center;
     display: flex;
     flex-direction: row;
+    justify-content: right;
 }
 
-#event2 * {
+#event2 *:not(#event2sup *) {
     background-color: white;
     max-height: 100%;
 }
 
-#event2 span {
+#event2sup *:not(.active) {
+    background-color: white;
+}
+
+#event2 #event2sub {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     width: 1025px;
+    height: 98.3vh;
+}
+
+#event2 #event2sup {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 98.3vh;
 }
 
 .cell {
@@ -415,4 +428,69 @@ span div label .customButton {
 
 .PJustus {
     content: url(../images/POTUS/JustusP.jpg);
+}
+
+/* Player Bar */
+
+#event2sup > .PBHolder {
+    display: flex;
+    justify-content: center;
+    height: 7%;
+    width: 100%;
+    padding: 10px 0px 0px 0px;
+}
+
+#playerBar {
+    display: flex;
+    border: 2px solid aqua;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(0, 255, 0, 0.7), rgba(128, 255, 212, 0.7));
+}
+
+#playerBar * {
+    background-color: transparent;
+}
+
+/* Current Player */
+
+#event2sup > .currentPC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: auto;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+#currentPC {
+    font-family: 'Goblin One', cursive;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+/* Player Characters */
+
+.active {
+    content-visibility: visible;
+    width: 80px;
+    height: 80px;
+}
+
+.inactive {
+    width: 80px;
+    height: 80px;
+    content-visibility: hidden;
+}
+
+.dragon {
+    content: url(../images/PC-PIECES/DragonCharacter.gif);
+}
+
+.frog {
+    content: url(../images/PC-PIECES/FrogCharacter.gif);
+}
+
+.herm {
+    content: url(../images/PC-PIECES/HermCrabCharacter.gif);
 }
