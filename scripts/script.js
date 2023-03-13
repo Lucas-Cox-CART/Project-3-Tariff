@@ -455,6 +455,15 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
     ['leapYear', 'Advance to go and instantly gain your annual income.']
  ]
 
+
+ let chanceAffectedPlayer;
+ function performChanceCard() {
+    chanceAffectedPlayer = Math.floor(Math.random() * (playerAmount - 0) + 0);
+    
+    
+
+ }
+
 // let gameBoard = document.getElementById('event2sub');
 // function election() {
 //     let electionAlert = document.createElement('div');
