@@ -12,6 +12,9 @@ main > section {
     justify-content: center;
     flex-direction: column;
 }
+strong {
+    font-size: 23px;
+}
 
 option {
     background-color: white;
