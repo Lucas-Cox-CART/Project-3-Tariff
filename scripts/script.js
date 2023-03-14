@@ -425,11 +425,13 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
  }
 
  function recessionWorldEvent() {
+    generalTax = generalTax + 0.15;
     //Pending
  } 
 
  function warWorldEvent() {
     //Pending
+    generalTax // = generalTax + President tax value
  }
 
  function impendingDoom() {
