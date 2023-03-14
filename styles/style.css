@@ -45,10 +45,7 @@ nav p {
 }
 
 
-/* ------------------------ */
-/* -- Event 1: Intropage -- */
-/* ------------------------ */
-
+/* Event 1: Intro Page */
 #event0 {
     display: flex;
     flex-direction: column;
@@ -127,7 +124,7 @@ nav p {
     background-color: white;
 }
 
-#event0 > article #leftShift {
+#event0 > article .leftShift {
     align-self: flex-start;
     display: flex;
     flex-direction: column;
@@ -135,7 +132,7 @@ nav p {
     justify-content: space-evenly;
 }
 
-#event0 > article #rightShift {
+#event0 > article .rightShift {
     align-self: flex-end;
     flex-direction: column;
     align-items: center;
@@ -154,8 +151,7 @@ nav p {
     font-family: 'Nanum Myeongjo', serif;
 }
 
-/* Footer */
-
+/* Event 1: Footer */
 footer {
     background-color: black;
     color: white;
@@ -186,10 +182,7 @@ footer p {
     font-size: 0.9rem;
 }
 
-/* ----------------------- */
-/* -- Event 2: Settings -- */
-/* ----------------------- */
-
+/* Event 2: Settings Menu */
 .event1Section > div {
     height: 100vh;
     background-color: rgb(255, 254, 248);
@@ -259,12 +252,9 @@ span div label .customButton {
     background-color: red;
 }
 
-/* ------------------- */
-/* -- Event 3: Game -- */
-/* ------------------- */
+/* Event 3: Game */
 
 /* Game Board */
-
 #event2 {
     align-items: center;
     display: flex;
@@ -397,7 +387,6 @@ span div label .customButton {
 }
 
 /* Presidential Candidates */
-
 .PKirk {
     content: url(../images/POTUS/ColbyK.jpg);
 }
@@ -431,7 +420,6 @@ span div label .customButton {
 }
 
 /* Player Bar */
-
 #event2sup > .PBHolder {
     display: flex;
     justify-content: center;
@@ -452,7 +440,6 @@ span div label .customButton {
 }
 
 /* Current Player */
-
 #event2sup > .currentPC {
     display: flex;
     justify-content: center;
@@ -470,7 +457,6 @@ span div label .customButton {
 }
 
 /* Player Characters */
-
 .active {
     content-visibility: visible;
     width: 80px;

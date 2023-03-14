@@ -27,31 +27,31 @@
                 </div>
             </div>
             <article class="instructions">
-                <div id="leftShift">
+                <div class="leftShift">
                     <h3>Base Monopoly Rules</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam architecto libero asperiores facilis culpa laboriosam quam veritatis, quia autem molestias at accusantium sit! Quidem voluptatibus tenetur nisi sapiente delectus?
                     </p>
                 </div>
-                <div id="rightShift">
+                <div class="rightShift">
                     <h3>Tax Rules</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, eum incidunt quo, cum atque laboriosam corrupti labore nisi, accusantium aspernatur cumque non dolor error quae recusandae aliquid libero ullam. Nostrum.
                     </p>
                 </div>
-                <div id="leftShift">
+                <div class="leftShift">
                     <h3>Presidential Elections</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, eum incidunt quo, cum atque laboriosam corrupti labore nisi, accusantium aspernatur cumque non dolor error quae recusandae aliquid libero ullam. Nostrum.
                     </p>
                 </div>
-                <div id="rightShift">
+                <div class="rightShift">
                     <h3>World Events</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, eum incidunt quo, cum atque laboriosam corrupti labore nisi, accusantium aspernatur cumque non dolor error quae recusandae aliquid libero ullam. Nostrum.
                     </p>
                 </div>
-                <div id="leftShift">
+                <div class="leftShift">
                     <h3>Other Modifications</h3>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, eum incidunt quo, cum atque laboriosam corrupti labore nisi, accusantium aspernatur cumque non dolor error quae recusandae aliquid libero ullam. Nostrum.
@@ -66,16 +66,31 @@
                     <div>
                         <p>Difficulty:</p>
                         <select id="difficultySelect">
+                            <option value="1">Easy</option>
+                            <option value="2">Normal</option>
+                            <option value="3">Hard</option>
+                            <option value="4">Custom</option>
                         </select>
                     </div>
                     <div>
                         <p>Player Count:</p>
                         <select id="playerCountSelect">
+                            <option value="1">1 Player</option>
+                            <option value="2">2 Players</option>
+                            <option value="3">3 Players</option>
+                            <option value="4">4 Players</option>
+                            <option value="5">5 Players</option>
+                            <option value="6">6 Players</option>
+                            <option value="7">7 Players</option>
+                            <option value="8">8 Players</option>
                         </select>
                     </div>
                     <div>
                         <p>Share Screen:</p>
                         <select id="shareScreenSelect">
+                            <option value="null">--</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
                         </select>
                     </div>
                     <div>
@@ -190,6 +205,9 @@
             <p>Copyright 2023 by Web Application Development Team. All Rights Reserved.</p>
         </section>
     </footer>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/dice+board.js"></script>
+    <script src="scripts/world+potus.js"></script>
+    <script src="scripts/funny.js"></script>
 </body>
 </html>

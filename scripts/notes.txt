@@ -1,1 +1,0 @@
-incorperate the goCounter checks into the playerEndTurn function
