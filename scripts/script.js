@@ -295,6 +295,36 @@ function rollDice() {
 }
 
 // world events 
+
+const worldEvents = [
+    ["Pandemic 1", "The pandemic has started! Lucky for you you get a 15000 stimulus, but... inflation is up 10%. Tread lightly. "],
+    ["Pandemic 2", "Well that is not good... 5% inflation.... and you get only half your annual income!"],
+    ["Bull Market", "At the end of every player's turn, the price of all stats on properties rise by 5-20%."],
+    ["Recession", "OH NOES! The economy inflated by 15%, and now all properties produce 10% less!"],
+    ["Waste of an event", "Some twitter person started up a whole conspiracy where something bad was going to happen. This is stupid. Nothing bad is ever going to happen."],
+    ["War", "Some genius decided war is a good idea. This is super good for you! You get +20% extra on annual income... but be careful: Taxes are up."],
+    ["Impending doom", "What did you guys do??? You idiots! Now you have to work together to solve this stupid problem. Everyone needs to work together to pitch in a total of 250,000 to fund a defense."],
+    ["Technological Revolution", "A revolutionary new invention was just made! One player dominated the market and nearly doubled their income! Every other player wasted valuable resources and lost 20% of their wealth."],
+    ["Government Engineering Project" ] //No info given yet
+]
+
+function pandemic1() {
+    players[0].budget = players[0].budget + 15000
+    players[1].budget = players[1].budget + 15000
+    players[2].budget = players[2].budget + 15000
+    players[3].budget = players[3].budget + 15000
+    players[4].budget = players[4].budget + 15000
+    players[5].budget = players[5].budget + 15000
+    players[6].budget = players[6].budget + 15000
+    players[7].budget = players[7].budget + 15000
+    generalTax = generalTax + 0.1
+}
+
+function pandemic2() {
+    generalTax = generalTax + 0.05
+    //Pending
+}
+
 let technologicalInventionPlayerChooser;
 function technologicalInventionWorldEvent() { // random player gets 2x budget multiplier every other other player gets budget reduced by 20%
     technologicalInventionPlayerChooser = (Math.random(0-playerAmount -1) * 10).toFixed(0); 
@@ -384,21 +414,26 @@ function technologicalInventionWorldEvent() { // random player gets 2x budget mu
             technologicalInventionWorldEvent();
         }
     }
-   
-let bullMarketActive = false;
-let bullMarketCounter;
-let bullMarketCounterLimit;
+
+function wasteOfAnEventWorldEvent() {
+    //What did you expect was going to happen?
+}
+
 // W I P
 function bullMarketWorldEvent() { //After the end of any player's turn, the price of stock goes up anywhere between 5% - 20%, lasts 2-8 passes of go. 
-    bullMarketActive = true;
-    bullMarketCounterLimit = (Math.random() * (8 - 2) + 2).toFixed(0); //Picks random number ranging between 2-8
-    while (bullMarketCounter != bullMarketCounterLimit) {
-        if (bullMarketCounter != bullMarketCounterLimit) {
-            bullMarketActive = true;
-        } else {
-            bullMarketActive = false
-        }
-    } 
+    //Waiting for code pull
+ }
+
+ function recessionWorldEvent() {
+    //Pending
+ } 
+
+ function warWorldEvent() {
+    //Pending
+ }
+
+ function impendingDoom() {
+    //Pending
  }
 
  //Properties
@@ -439,7 +474,7 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
     ['generalRepairs', 'This one sucks late game... pay 15000 capital for each owned building'],
     ['gospelOfWealth', 'Your kind soul decided to give some money to charity. You donated 10000 capital to one. You lost 10000. How strange.'],
     ['taxEvasion', 'Next time you pass go, there is a 50% chance you will avoid taxes, but also a 50% you get sent to jail.'],
-    ['takingRide', 'Move to the nearest transportation tile.'],
+    ['takingRide', 'Move to the nearest transportation tile in front of you.'],
     ['biteOf87', '\" WAS THAT THE BITE OF 87???"\ Advance to Fredbear\'s Family Diner.']
  ]
 
@@ -450,9 +485,10 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
     ['setBacks', 'You sucked so bad at capitalism that now you have to move back 3 tiles. '],
     ['inheritance', 'Your uncle died. CONGRATS! You inherit 15,000 capital!'],
     ['bigTower', 'LOOK AT YOU GOING BIG!! Advance to the Empire State Building. Do not pass go.'],
-    ['opportunist', 'Take a chance card. No questions asked.'],
+    ['opportunist', 'Advance to the closest chance card, and take a card.'],
     ['caughtLackin', 'Timeout corner for you buster.'],
     ['leapYear', 'Advance to go and instantly gain your annual income.']
+    ['tardisTax', 'The TARDIS requests tax for a disclosed reason. -20000 capital. ']
  ]
 
 
@@ -507,13 +543,78 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
         while (players[chanceAffectedPlayer].goCounter === taxEvasionTimer) {
             if (players[chanceAffectedPlayer].goCounter != taxEvasionTimer) {
                 if ((Math.floor(Math.random() * (100 - 1) + 1)) <= 50) {
-                    players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget * generalTax.toFixed(0)
-                    //Make it so they don't get taxes. 
+                    players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget * (generalTax + 1)
+                    //No taxes next round
+                } else {
+                    players[chanceAffectedPlayer].playerPosition = document.getElementById("cell00"); //Go to jail
                 }
             }
         }
+    } else if (chanceCard == 9) {
+        //Takin' a ride
+        if (players[chanceAffectedPlayer].playerPosition == document.getElementById("cell38")) {
+            players[chanceAffectedPlayer].playerPosition = document.getElementById("cell05");
+        } else if (players[chanceAffectedPlayer].playerPosition == document.getElementById("cell12")) {
+            players[chanceAffectedPlayer].playerPosition = document.getElementById("cell15");
+        } else if (players[chanceAffectedPlayer].playerPosition == document.getElementById("cell26")) {
+            players[chanceAffectedPlayer].playerPosition = document.getElementById("cell35");
+        } else {
+            console.log("Something is going wrong with the takin a ride chance card")
+        }
+        //Player advances to closest transportation tile
+    } else if (chanceCard == 10) {
+        //WAS THAT THE BITE OF 87????????
+        players[chanceAffectedPlayer].playerPosition = document.getElementById("cell17"); 
+        //Player is advanced to Fredbear's family diner
     }
 
+ }
+let chestAffectedPlayer;
+let chestCard;
+ function performChestCard() {
+    chestAffectedPlayer = //turnCounter;
+    chestCard = Math.floor(Math.random() * (10 - 1) + 1);
+    if (chestCard == 1) {
+        //Framing
+        //I can not do this at this current time
+    } else if (chestCard == 2) {
+        //Empty chest
+        //LITTERALLY NOTHING HAPPENS
+    } else if (chestCard == 3) {
+        //jailbreak
+        //I can not do this at this current time 
+    } else if (chestCard == 4) {
+        //Set backs
+        players[chestAffectedPlayer].playerPosition = players[chestAffectedPlayer].playerPosition - 3;
+    } else if (chestCard == 5) {
+        //Inheritance
+        players[chestAffectedPlayer].budget = players[chestAffectedPlayer].budget + 15000;
+    } else if (chestCard = 6) {
+        //Big Tower 
+        players[chestAffectedPlayer].playerPosition = document.getElementById("cell29");
+    } else if (chestCard = 7) {
+        //Opportunist
+        if (players[chestAffectedPlayer].playerPosition == document.getElementById("cell33")) {
+            players[chestAffectedPlayer].playerPosition = document.getElementById("cell38");
+        } else if (players[chestAffectedPlayer].playerPosition == document.getElementById("cell07")) {
+            players[chestAffectedPlayer].playerPosition = document.getElementById("cell12");
+        } else if (players[chanceAffectedPlayer].playerPosition == document.getElementById("cell23")) {
+            players[chestAffectedPlayer].playerPosition = document.getElementById("cell26");
+        } else {
+            console.log("Something is going wrong with the opportunist card")
+        }
+    } else if (chestCard = 8) {
+        //CaughtLackin'
+        players[chestAffectedPlayer].jailed = true;
+        players[chestAffectedPlayer].playerPosition = document.getElementById("cell00");
+    } else if (chestCard = 9) {
+        //Leap Year
+        players[chestAffectedPlayer].playerPosition = document.getElementById("cell30");
+        // CAN NOT FINISH THIS BECAUSE WE DONT HAVE AN ANNUAL INCOME VARIABLE YET. 
+    } else if (chestCard = 10) {
+        //Tardis Taxes
+        players[chestAffectedPlayer].budget = players[chestAffectedPlayer].budget - 20000;
+    }
  }
 
 // let gameBoard = document.getElementById('event2sub');
