@@ -326,7 +326,7 @@ function pandemic2() {
 }
 
 let technologicalInventionPlayerChooser;
-function technologicalInventionWorldEvent() { // random player gets 2x budget multiplier every other other player gets budget reduced by 20%
+function technologicalInventionWorldEvent() { 
     technologicalInventionPlayerChooser = (Math.random(0-playerAmount -1) * 10).toFixed(0); 
     console.log("Function started")
 
@@ -413,14 +413,13 @@ function technologicalInventionWorldEvent() { // random player gets 2x budget mu
         } else {
             technologicalInventionWorldEvent();
         }
-    }
+}
 
 function wasteOfAnEventWorldEvent() {
     //What did you expect was going to happen?
 }
 
-// W I P
-function bullMarketWorldEvent() { //After the end of any player's turn, the price of stock goes up anywhere between 5% - 20%, lasts 2-8 passes of go. 
+function bullMarketWorldEvent() {
     //Waiting for code pull
  }
 
@@ -437,9 +436,6 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
  function impendingDoom() {
     //Pending
  }
-
- //Properties
-
 
  const propertyData = [
                    //[name, rent, house1, house2, house3, house4, hotel, mortgage, pricehouse,pricehotel]
@@ -468,6 +464,7 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
  ]
 
  const chanceCardData = [
+    //There are 10 chance cards
     ['candyLane', 'Advance to Candylane'],
     ['bail', 'Get out of jail free card.'],
     ['capitalGains', '+10,000 capital! You made so much money this year that you need to spend it before the IRS takes it! You must spend 10,000 dollars before the next passing go or else you have to pay interest...'],
@@ -481,7 +478,8 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
  ]
 
  const chestCardData = [
-    ['framing', '\" IT WAS HIM. I SAW HIM VENT."\ Send one player of your choice to jail.'],
+    // There are 10 chest cards
+    ['framing', '\"IT WAS HIM. I SAW HIM VENT."\ Send one player of your choice to jail.'],
     ['emptyChest', 'Wow. the chest hates you so much it didn\'t even give you any content! Sucks to be you!'],
     ['jailBreak', 'If you are ever in jail, use this and you can get out for free!'],
     ['setBacks', 'You sucked so bad at capitalism that now you have to move back 3 tiles. '],
@@ -492,7 +490,6 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
     ['leapYear', 'Advance to go and instantly gain your annual income.']
     ['tardisTax', 'The TARDIS requests tax for a disclosed reason. -20000 capital. ']
  ]
-
 
  let chanceAffectedPlayer;
  let chanceCard;
@@ -571,6 +568,7 @@ function bullMarketWorldEvent() { //After the end of any player's turn, the pric
     }
 
  }
+
 let chestAffectedPlayer;
 let chestCard;
  function performChestCard() {
