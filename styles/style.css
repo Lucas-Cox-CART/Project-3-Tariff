@@ -12,6 +12,7 @@ main > section {
     justify-content: center;
     flex-direction: column;
 }
+
 strong {
     font-size: 23px;
 }
@@ -270,7 +271,7 @@ span div label .customButton {
     max-height: 100%;
 }
 
-#event2sup *:not(.active) {
+#event2sup *:not(.active, #event2sup div:nth-child(2) p, #event2sup div:nth-child(3) p) {
     background-color: white;
 }
 
@@ -279,12 +280,13 @@ span div label .customButton {
     justify-content: space-between;
     flex-wrap: wrap;
     width: 1025px;
-    height: 98.3vh;
+    height: 98.3%;
 }
 
 #event2 #event2sup {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     width: 50%;
     height: 98.3vh;
 }
@@ -322,14 +324,19 @@ span div label .customButton {
 }
 
 #diceButton {
-    background-color: white;
-    width: 125px;
-    height: 125px;
-    border: 2px black solid;
+    width: 100%;
+    height: 10vh;
+    border: 3px black solid;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
     padding: 10px;
     text-align: center;
     display: flex;
     align-items: center;
+}
+
+#diceButton p {
+    background-color: transparent;
 }
 
 /* Presidential Elections */
@@ -423,10 +430,10 @@ span div label .customButton {
 }
 
 /* Player Bar */
-#event2sup > .PBHolder {
+#event2sup .PBHolder {
     display: flex;
     justify-content: center;
-    height: 7%;
+    height: 7.5vh;
     width: 100%;
     padding: 10px 0px 0px 0px;
 }
@@ -443,7 +450,7 @@ span div label .customButton {
 }
 
 /* Current Player */
-#event2sup > .currentPC {
+#event2sup .currentPC {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -459,9 +466,85 @@ span div label .customButton {
     font-weight: lighter;
 }
 
+/* Player Inventory */
+#event2 span div:nth-child(2):not(.buttonandother, .buttonandother *) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.playerInventory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 60vh;
+    border: 3px black solid;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+.buttonandother {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 60vh;
+}
+
+.placeholder {
+    width: 100%;
+    height: 50vh;
+}
+
+/* Current Event */
+span div:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+}
+
+.currentEvent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px black solid;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+    width: 50%;
+    height: 20vh;
+}
+
+.currentEvent p {
+    background-color: transparent;
+}
+
+/* Current POTUS*/
+.currentPOTUS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px black solid;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+    width: 41%;
+    height: 20vh;
+}
+
+.currentPOTUS p {
+    background-color: transparent;
+}
+
+#event2 span:not(#event2sub) div:nth-child(3):not(#playerBar *) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 /* Player Characters */
 .active {
-    content-visibility: visible;
     width: 80px;
     height: 80px;
 }
@@ -469,7 +552,6 @@ span div label .customButton {
 .inactive {
     width: 80px;
     height: 80px;
-    content-visibility: hidden;
 }
 
 .dragon {
