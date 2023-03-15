@@ -73,7 +73,7 @@ generalTax = 0.09;
 
 shareScreen = 1;
 let AI = false;
-let playerAmount = 1;
+let playerAmount = "";
 let players = [];
 let turnCycle = 0;
 
@@ -94,4 +94,12 @@ function playerCreation(a) {
     //     player.goCounter = 3;
     //     console.log(player.goCounter);
     // }
+}
+
+function pcLogo() {
+    var players = document.querySelectorAll('.player');
+    for (var i = 0; i < playerAmount.length && i < players.length; i++) {
+        players[i].classList.add('active');
+        players[i].classList.remove('inactive');
+    }
 }

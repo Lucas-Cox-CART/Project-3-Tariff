@@ -271,10 +271,6 @@ span div label .customButton {
     max-height: 100%;
 }
 
-#event2sup *:not(.active, #event2sup div:nth-child(2) p, #event2sup div:nth-child(3) p) {
-    background-color: white;
-}
-
 #event2 #event2sub {
     display: flex;
     justify-content: space-between;
@@ -289,6 +285,10 @@ span div label .customButton {
     justify-content: space-evenly;
     width: 50%;
     height: 98.3vh;
+}
+
+#event2sup *:not(.lowsupFather *, .diceFather *, .pIFather *, .placeholder *) {
+    background-color: white;
 }
 
 .cell {
@@ -321,18 +321,6 @@ span div label .customButton {
 
 #secondBlock {
     flex-direction: column-reverse;
-}
-
-#diceButton {
-    width: 100%;
-    height: 10vh;
-    border: 3px black solid;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
 }
 
 #diceButton p {
@@ -396,6 +384,186 @@ span div label .customButton {
     margin: -3px;
 }
 
+.lowsupFather *, .diceFather *, .pIFather *, .placeholder * {
+    background-color: transparent;
+}
+
+/* Top Sup */
+.topsup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 17vh;
+    width: 100%;
+}
+
+#playerBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    width: min-content;
+    background-image: linear-gradient(90deg, rgba(0, 255, 0, 0.7), rgba(128, 255, 212, 0.7));
+    border: 2px solid aqua;
+    border-radius: 20px;
+    margin: 20px 0px 0px 0px;
+}
+
+#event2sup .topsup #playerBar * {
+    background-color: unset;
+}
+
+.cPCFather {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 100%;
+}
+
+#currentPC {
+    font-family: 'Goblin One', cursive;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+/* Mid Sup */
+.midsup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60vh;
+    width: 100%;
+}
+
+.midsup p {
+    background-color: transparent;
+}
+
+.pIFather {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 45%;
+height: 60vh;
+border: 3px solid black;
+border-radius: 20px;
+background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+#playerInventory {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.test {
+    height: 30vh;
+    width: 100%;
+    background-color: white;
+}
+
+.midsupsub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 60vh;
+}
+
+.chestFather {
+    width: 100%;
+    height: 50vh;
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 48vh;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+.diceFather {
+    width: 100%;
+    height: 10vh;
+    border: 3px black solid;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bottom Sup */
+.lowsup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 17vh;
+    width: 100%;
+}
+
+.lowsup p {
+    background-color: transparent ;
+}
+
+.lowsupFather {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 100%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+#currentEvent {
+
+}
+
+#currentPOTUS {
+
+}
+
+/* Player Characters */
+.active {
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+}
+
+.inactive {
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    filter: grayscale(100%) opacity(80%);
+}
+
+.dragon {
+    content: url(../images/PC-PIECES/DragonCharacter.gif);
+}
+
+.frog {
+    content: url(../images/PC-PIECES/FrogCharacter.gif);
+}
+
+.herm {
+    content: url(../images/PC-PIECES/HermCrabCharacter.gif);
+}
+
 /* Presidential Candidates */
 .PKirk {
     content: url(../images/POTUS/ColbyK.jpg);
@@ -427,141 +595,4 @@ span div label .customButton {
 
 .PJustus {
     content: url(../images/POTUS/JustusP.jpg);
-}
-
-/* Player Bar */
-#event2sup .PBHolder {
-    display: flex;
-    justify-content: center;
-    height: 7.5vh;
-    width: 100%;
-    padding: 10px 0px 0px 0px;
-}
-
-#playerBar {
-    display: flex;
-    border: 2px solid aqua;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(0, 255, 0, 0.7), rgba(128, 255, 212, 0.7));
-}
-
-#playerBar * {
-    background-color: transparent;
-}
-
-/* Current Player */
-#event2sup .currentPC {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5vh;
-    width: auto;
-    margin: 5px;
-    box-sizing: border-box;
-}
-
-#currentPC {
-    font-family: 'Goblin One', cursive;
-    font-size: 2rem;
-    font-weight: lighter;
-}
-
-/* Player Inventory */
-#event2 span div:nth-child(2):not(.buttonandother, .buttonandother *) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.playerInventory {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 60vh;
-    border: 3px black solid;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-}
-
-.buttonandother {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 40%;
-    height: 60vh;
-}
-
-.placeholder {
-    width: 100%;
-    height: 50vh;
-}
-
-/* Current Event */
-span div:nth-child(3) {
-    display: flex;
-    flex-direction: row;
-}
-
-.currentEvent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px black solid;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-    width: 50%;
-    height: 20vh;
-}
-
-.currentEvent p {
-    background-color: transparent;
-}
-
-/* Current POTUS*/
-.currentPOTUS {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px black solid;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-    width: 41%;
-    height: 20vh;
-}
-
-.currentPOTUS p {
-    background-color: transparent;
-}
-
-#event2 span:not(#event2sub) div:nth-child(3):not(#playerBar *) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-/* Player Characters */
-.active {
-    width: 80px;
-    height: 80px;
-}
-
-.inactive {
-    width: 80px;
-    height: 80px;
-}
-
-.dragon {
-    content: url(../images/PC-PIECES/DragonCharacter.gif);
-}
-
-.frog {
-    content: url(../images/PC-PIECES/FrogCharacter.gif);
-}
-
-.herm {
-    content: url(../images/PC-PIECES/HermCrabCharacter.gif);
 }

@@ -147,15 +147,15 @@ const worldEvents = [
 ]
 
 function pandemic1() {
-    players[0].budget = players[0].budget + 15000
-    players[1].budget = players[1].budget + 15000
-    players[2].budget = players[2].budget + 15000
-    players[3].budget = players[3].budget + 15000
-    players[4].budget = players[4].budget + 15000
-    players[5].budget = players[5].budget + 15000
-    players[6].budget = players[6].budget + 15000
-    players[7].budget = players[7].budget + 15000
-    generalTax = generalTax + 0.1
+    players[0].budget = players[0].budget + 15000;
+    players[1].budget = players[1].budget + 15000;
+    players[2].budget = players[2].budget + 15000;
+    players[3].budget = players[3].budget + 15000;
+    players[4].budget = players[4].budget + 15000;
+    players[5].budget = players[5].budget + 15000;
+    players[6].budget = players[6].budget + 15000;
+    players[7].budget = players[7].budget + 15000;
+    generalTax = generalTax + 0.1;
 }
 
 function pandemic2() {
@@ -168,89 +168,16 @@ function technologicalInventionWorldEvent() {
     technologicalInventionPlayerChooser = (Math.random(0-playerAmount -1) * 10).toFixed(0); 
     console.log("Function started")
 
-        if (technologicalInventionPlayerChooser == 0 ) {
-            players[0].budget = players[0].budget * 2;
-            players[1].budget = players[1].budget * 0.20;
-            players[2].budget = players[2].budget * 0.20;
-            players[3].budget = players[3].budget * 0.20;
-            players[4].budget = players[4].budget * 0.20;
-            players[5].budget = players[5].budget * 0.20;
-            players[6].budget = players[6].budget * 0.20;
-            players[7].budget = players[7].budget * 0.20;
-            console.log("PLAYER 0 GETS MONEY")
-        } else if (technologicalInventionPlayerChooser == 1) {
-            players[1].budget = players[1].budget * 2;
-            players[0].budget = players[0].budget * 0.20;
-            players[2].budget = players[2].budget * 0.20;
-            players[3].budget = players[3].budget * 0.20;
-            players[4].budget = players[4].budget * 0.20;
-            players[5].budget = players[5].budget * 0.20;
-            players[6].budget = players[6].budget * 0.20;
-            players[7].budget = players[7].budget * 0.20;
-            console.log("PLAYER 1 GETS MONEY")
-        } else if (technologicalInventionPlayerChooser == 2) {
-            players[2].budget = players[2].budget * 2;
-            players[0].budget = players[0].budget * 0.20;
-            players[1].budget = players[1].budget * 0.20;
-            players[3].budget = players[3].budget * 0.20;
-            players[4].budget = players[4].budget * 0.20;
-            players[5].budget = players[5].budget * 0.20;
-            players[6].budget = players[6].budget * 0.20;
-            players[7].budget = players[7].budget * 0.20;
-            console.log("PLAYER 2 GETS MONEY")
-        } else if (technologicalInventionPlayerChooser == 3) {
-            players[3].budget = players[3].budget * 2;
-            players[0].budget = players[0].budget * 0.20;
-            players[1].budget = players[1].budget * 0.20;
-            players[2].budget = players[2].budget * 0.20;
-            players[4].budget = players[4].budget * 0.20;
-            players[5].budget = players[5].budget * 0.20;
-            players[6].budget = players[6].budget * 0.20;
-            players[7].budget = players[7].budget * 0.20;
-            console.log("PLAYER 3 GETS MONEY")
-        } else if (technologicalInventionPlayerChooser == 4) {
-            players[4].budget = players[4].budget * 2;
-            players[0].budget = players[0].budget * 0.20;
-            players[1].budget = players[1].budget * 0.20;
-            players[2].budget = players[2].budget * 0.20;
-            players[3].budget = players[3].budget * 0.20;
-            players[5].budget = players[5].budget * 0.20;
-            players[6].budget = players[6].budget * 0.20;
-            players[7].budget = players[7].budget * 0.20;
-            console.log("PLAYER 4 GETS MONEY")
-        } else if (technologicalInventionPlayerChooser == 5) {
-            players[5].budget = players[5].budget * 2;
-            players[0].budget = players[0].budget * 0.20;
-            players[1].budget = players[1].budget * 0.20;
-            players[2].budget = players[2].budget * 0.20;
-            players[3].budget = players[3].budget * 0.20;
-            players[4].budget = players[4].budget * 0.20;
-            players[6].budget = players[6].budget * 0.20;
-            players[7].budget = players[7].budget * 0.20;
-            console.log("PLAYER 5 GETS MONEY")
-        } else if (technologicalInventionPlayerChooser == 6) {
-            players[6].budget = players[6].budget * 2;
-            players[0].budget = players[0].budget * 0.20;
-            players[1].budget = players[1].budget * 0.20;
-            players[2].budget = players[2].budget * 0.20;
-            players[3].budget = players[3].budget * 0.20;
-            players[4].budget = players[4].budget * 0.20;
-            players[5].budget = players[5].budget * 0.20;
-            players[7].budget = players[7].budget * 0.20;
-            console.log("PLAYER 6 GETS MONEY")
-        } else if (technologicalInventionPlayerChooser == 7) {
-            players[7].budget = players[7].budget * 2;
-            players[0].budget = players[0].budget * 0.20;
-            players[1].budget = players[1].budget * 0.20;
-            players[2].budget = players[2].budget * 0.20;
-            players[3].budget = players[3].budget * 0.20;
-            players[4].budget = players[4].budget * 0.20;
-            players[5].budget = players[5].budget * 0.20;
-            players[6].budget = players[6].budget * 0.20;
-            console.log("PLAYER 7 GETS MONEY")
-        } else {
-            technologicalInventionWorldEvent();
+    if (technologicalInventionPlayerChooser >= 0 && technologicalInventionPlayerChooser < players.length) {
+        for (let i = 0; i < players.length; i++) {
+            if (i === technologicalInventionPlayerChooser) {
+                players[i].budget *= 2;
+                console.log("PLAYER " + i + " GETS MONEY");
+            } else {
+                players[i].budget *= 0.20;
+            }
         }
+    }
 }
 
 function wasteOfAnEventWorldEvent() {

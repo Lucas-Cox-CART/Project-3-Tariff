@@ -16,7 +16,7 @@ function startGame() {
 
         ini();
     }
-    
+    pcLogo();
 }
 
 function ini() {
