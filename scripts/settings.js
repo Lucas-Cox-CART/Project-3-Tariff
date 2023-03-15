@@ -25,7 +25,6 @@ startingBudget.addEventListener("change", (e) => {
     startingBudget = document.getElementById("startingBudgetSelect").value;
 });
 
-
 // Default Settings for Easy, Normal, and Hard Difficulties.
 difficulty.addEventListener("change", (e) => {
         if (difficulty == NaN || difficulty == 1) {

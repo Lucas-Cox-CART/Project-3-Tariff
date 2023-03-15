@@ -314,6 +314,12 @@ span div label .customButton {
     background-color: rgb(241, 241, 241);
 }
 
+.cell img {
+    background-color: rgb(241, 241, 241);
+    width: 75%;
+    padding: 0;
+}
+
 #firstBlock,
 #secondBlock,
 #thirdBlock,
@@ -340,10 +346,9 @@ span div label .customButton {
 }
 
 /* I am sure there are better ways to do this, but this is the "names" and bars for each cell. */
-#cell31 div, #cell33 div, #cell34 div, #cell35 div, #cell36 div, #cell37 div, #cell39 div {
+#cell31 div, #cell33 div, #cell34 div, #cell36 div, #cell37 div, #cell39 div {
     font-size: 0.7em;
     padding: 2px;
-    background-color: red;
     height: 20%;
     transform: rotate(90deg);
     width: 100%;
@@ -356,7 +361,6 @@ span div label .customButton {
 #cell01 div, #cell03 div, #cell04 div, #cell06 div, #cell08 div, #cell09 div {
     font-size: 0.7em;
     padding: 2px;
-    background-color: red;
     height: 20%;
     width: 100%;
     margin-right:20px;
@@ -368,7 +372,6 @@ span div label .customButton {
 #cell11 div, #cell13 div, #cell14 div, #cell16 div, #cell17 div, #cell19 div {
     font-size: 0.7em;
     padding: 2px;
-    background-color: red;
     height: 20%;
     transform: rotate(-90deg);
     width: 100%;
@@ -381,7 +384,6 @@ span div label .customButton {
 #cell29 div, #cell27 div, #cell26 div, #cell24 div, #cell22 div, #cell21 div {
     font-size: 0.7em;
     padding: 2px;
-    background-color: red;
     height: 20%;
     width: 100%;
     margin-right:20px;
@@ -389,6 +391,59 @@ span div label .customButton {
     font-weight: bolder;
     margin-top: 62px;
 }  
+
+#cell31 div, #cell33 div {
+    /* Brown Properties */
+    background-color: rgb(165, 130, 42);
+}
+#cell36 div, #cell37 div, #cell39 div {
+    /* Sky Blue Properties */
+    background-color: rgb(178, 220, 237);
+}
+#cell01 div, #cell03 div, #cell04 div {
+    /* Brownish Red Properties */
+    background-color: rgb(208, 108, 108);
+}
+#cell06 div, #cell08 div, #cell09 div {
+    /* Orange Properties */
+    background-color: orange;
+}
+#cell29 div, #cell27 div {
+    /* Blue Properties */
+    background-color: rgb(121, 132, 251);
+}
+#cell24 div, #cell22 div, #cell21 div {
+    /* Green Properties */
+    background-color: greenyellow;
+}
+#cell11 div, #cell13 div, #cell14 div {
+    /* Red Properties */
+    background-color: red;
+}
+#cell16 div, #cell17 div, #cell19 div {
+    /* Yellow Properties */
+    background-color: yellow;
+}
+#cell35, #cell05, #cell15, #cell25 {
+    /* Transportation */
+    background-color: rgb(165, 133, 255);
+}
+#cell35 div, #cell05 div, #cell15 div, #cell25 div{ 
+    /*Also Transportation */
+    background-color: rgb(165, 133, 255);
+}
+#cell02, #cell34, #cell18, #cell28 {
+    /* Extra tiles (water works, elec bill, etc) */
+    background-color: aliceblue;
+}
+#cell07, #cell32, #cell23 {
+    /* Chest tiles */
+    background-color: khaki;
+}
+#cell38, #cell12, #cell26 {
+    /* chance tiles  */
+    background-color: pink;
+}
 
 #diceButton {
     width: 100%;
