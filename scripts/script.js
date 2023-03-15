@@ -297,8 +297,8 @@ let diceValue2;
 let movement;
 
 function rollDice(x) {
-    diceValue1 = (Math.random(1-6) * 6).toFixed(0);
-    diceValue2 = (Math.random(1-6) * 6).toFixed(0);
+    diceValue1 = Math.round((Math.random(1-6) * 6));
+    diceValue2 = Math.round((Math.random(1-6) * 6));
     if (players[x].jailed == true) {
         if (diceValue1 == diceValue2) {
             playerMove(x)
@@ -313,15 +313,14 @@ function rollDice(x) {
 function playerMove(x) {
     movement = diceValue1 + diceValue2;
     players[x].playerPosition = players[x].playerPosition + movement;
+    if (players[x].playerPosition >= 40) { 
+        players[x].playerPosition = players[x].playerPosition - 40;
+        players[x].goCounter = players[x].goCounter + 1
+    }
     if (diceValue1 == diceValue2) {
         players[x].doubles = players[x].doubles + 1;
     } else {
         goCheck(x)
-    }
-    if (players[x].playerPosition >= 40) { 
-        for (i = players[x].playerPositon; i >= 40; players[x].playerPosition = players[x].playerPosition - 40) {
-            players[x].goCounter = players[x].goCounter + 1;
-        }
     }
     // if (players[x].playerPosition >= 40) {
     //     players[x].playerPosition = players[x].playerPosition - 40;
