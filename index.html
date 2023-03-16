@@ -119,7 +119,7 @@
                         Start Game!
                         </button>
                     </div>
-                    <img src="/images/LOGOS/monopolyManQuestioningExistence - Copy.png" alt="">
+                    <img src="images/LOGOS/monopolyManQuestioningExistence - Copy.png" alt="">
                 </span>
             </div>
         </section>
@@ -137,7 +137,7 @@
                         <div id="player8" class="frog inactive"></div>
                     </div>
                     <div class="cPCFather">
-                        <h2 id="currentPC">MRRRR BEASSTSSSS</h2>
+                        <h2 id="currentPC">Monopoly</h2>
                     </div>
                 </article>
                 <article class="midsup">
@@ -152,8 +152,8 @@
                         <div class="chestFather">
                             <div class="placeholder"></div>
                         </div>
-                        <div class="diceFather">
-                            <div id="diceButton" onclick="rollDice(turnCycle)">
+                        <div type="button" onclick="rollDice(turnCycle)" onkeyup="buyProperty()" class="diceFather">
+                            <div id="diceButton">
                                 <p>Click to Roll Dice?</p>
                             </div>
                         </div>
@@ -174,51 +174,52 @@
             </span>
             <span id="event2sub">
                 <article id="firstBlock">
-                    <div class="cell" id="cell00"></div>
-                    <div class="cell" id="cell01"></div>
-                    <div class="cell" id="cell02"></div>
-                    <div class="cell" id="cell03"></div>
-                    <div class="cell" id="cell04"></div>
-                    <div class="cell" id="cell05"></div>
-                    <div class="cell" id="cell06"></div>
-                    <div class="cell" id="cell07"></div>
-                    <div class="cell" id="cell08"></div>
-                    <div class="cell" id="cell09"></div>
-                    <div class="cell" id="cell10"></div>
+                    <div class="cell" id="cell0">Jail</div>
+                    <div class="cell" id="cell1"><div>MY T.</div></div>
+                    <div class="cell" id="cell2">Elec. Bill</div>
+                    <div class="cell" id="cell3"><div>Mason Arct.</div></div>
+                    <div class="cell" id="cell4"><div>Lucas Clin.</div></div>
+                    <div class="cell" id="cell5"><div>Sputnik Ex.</div></div>
+                    <div class="cell" id="cell6"><div>Caesar's P.</div></div>
+                    <div class="cell" id="cell7">Chest</div>
+                    <div class="cell" id="cell8"><div>S.C. Casino</div></div>
+                    <div class="cell" id="cell9"><div>AG Turtle P.</div></div>
+                    <div class="cell" id="cell10">Bank Loan</div>
                 </article>
                 <article id="secondBlock">
-                    <div class="cell" id="cell31"></div>
-                    <div class="cell" id="cell32"></div>
-                    <div class="cell" id="cell33"></div>
-                    <div class="cell" id="cell34"></div>
-                    <div class="cell" id="cell35"></div>
-                    <div class="cell" id="cell36"></div>
-                    <div class="cell" id="cell37"></div>
-                    <div class="cell" id="cell38"></div>
-                    <div class="cell" id="cell39"></div>
+                    <div class="cell" id="cell31"><div>Candy Land</div></div>
+                    <div class="cell" id="cell32">Chest</div>
+                    <div class="cell" id="cell33"><div>Corndog</div></div>
+                    <div class="cell" id="cell34">IRS Audit</div>
+                    <div class="cell" id="cell35"><div>Delta AirLn.</div></div>
+                    <div class="cell" id="cell36"><div>Mt. P. Face</div></div>
+                    <div class="cell" id="cell37"><div>S.O.L.</div></div>
+                    <div class="cell" id="cell38">Chance</div>
+                    <div class="cell" id="cell39"><div>Pearl Hbr.</div></div>
                 </article>
+                <img class="boardLogoImage" src="images/LOGOS/TarrifLogoFinal.PNG" alt="">
                 <article id="thirdBlock">
-                    <div class="cell" id="cell11"></div>
-                    <div class="cell" id="cell12"></div>
-                    <div class="cell" id="cell13"></div>
-                    <div class="cell" id="cell14"></div>
-                    <div class="cell" id="cell15"></div>
-                    <div class="cell" id="cell16"></div>
-                    <div class="cell" id="cell17"></div>
-                    <div class="cell" id="cell18"></div>
-                    <div class="cell" id="cell19"></div>
+                    <div class="cell" id="cell11"><div>NORAD</div></div>
+                    <div class="cell" id="cell12">Chance</div>
+                    <div class="cell" id="cell13"><div>Pentagon</div></div>
+                    <div class="cell" id="cell14"><div>Area 51</div></div>
+                    <div class="cell" id="cell15"><div>USS Montana</div></div>
+                    <div class="cell" id="cell16"><div>Col. Corn L.</div></div>
+                    <div class="cell" id="cell17"><div>F.B.F Diner</div></div>
+                    <div class="cell" id="cell18">Water Works</div>
+                    <div class="cell" id="cell19"><div>Pious S.</div></div>
                 </article>
                 <article id="fourthBlock">
-                    <div class="cell" id="cell20"></div>
-                    <div class="cell" id="cell21"></div>
-                    <div class="cell" id="cell22"></div>
-                    <div class="cell" id="cell23"></div>
-                    <div class="cell" id="cell24"></div>
-                    <div class="cell" id="cell25"></div>
-                    <div class="cell" id="cell26"></div>
-                    <div class="cell" id="cell27"></div>
-                    <div class="cell" id="cell28"></div>
-                    <div class="cell" id="cell29"></div>
+                    <div class="cell" id="cell20 johnBlowsWhistle">Go to Jail</div>
+                    <div class="cell" id="cell21"><div>Fast Fusion</div></div>
+                    <div class="cell" id="cell22"><div>MA Solar</div></div>
+                    <div class="cell" id="cell23">Chest</div>
+                    <div class="cell" id="cell24"><div>DeLaRosa</div></div>
+                    <div class="cell" id="cell25"><div>American Ambulance</div></div>
+                    <div class="cell" id="cell26">Chance</div>
+                    <div class="cell" id="cell27"><div>T. Tower</div></div>
+                    <div class="cell" id="cell28">Luxury Tax</div>
+                    <div class="cell" id="cell29"><div>Empire S. B.</div></div>
                     <div class="cell" id="cell30">GO</div>
                 </article>
             </span>
@@ -239,5 +240,6 @@
     <script src="scripts/dice+board.js"></script>
     <script src="scripts/world+potus.js"></script>
     <script src="scripts/funny.js"></script>
+    <script src="scripts/properties.js"></script>
 </body>
 </html>

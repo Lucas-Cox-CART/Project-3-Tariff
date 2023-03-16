@@ -4,7 +4,6 @@
     font-size: 18px;
     padding: 0;
     margin: 0;
-    background-color: black;
 }
 
 main > section {
@@ -57,6 +56,7 @@ nav p {
     align-items: center;
     width: 100%;
     box-sizing: border-box;
+    background-color: black;
 }
 
 #introIcon {
@@ -159,31 +159,35 @@ nav p {
 footer {
     background-color: black;
     color: white;
-    height: 2vh;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer section {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 footer a {
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 footer address {
-    padding-bottom: 1%;
     padding-left: 1%;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    width: 35%;
 }
 
 footer p {
-    padding-bottom: 1%;
     padding-left: 1%;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    width: 25%;
 }
 
 /* Event 2: Settings Menu */
@@ -259,6 +263,18 @@ span div label .customButton {
 /* Event 3: Game */
 
 /* Game Board */
+#cell0 {
+    content: url(../images/GameResources/bankLoan.gif);
+}
+
+#cell20 {
+    content: url(../images/GameResources/John.gif);
+}
+
+#cell30 {
+    /* content: url(../images/GameResources/GOSymbol.gif); */
+}
+
 #event2 {
     align-items: center;
     display: flex;
@@ -267,7 +283,7 @@ span div label .customButton {
 }
 
 #event2 *:not(#event2sup *) {
-    background-color: white;
+    /* background-color: white; */
     max-height: 100%;
 }
 
@@ -277,6 +293,7 @@ span div label .customButton {
     flex-wrap: wrap;
     width: 1025px;
     height: 98.3%;
+    background-color: rgb(227, 227, 227);
 }
 
 #event2 #event2sup {
@@ -291,11 +308,124 @@ span div label .customButton {
     background-color: white;
 }
 
+.cell img {
+    background-color: rgb(241, 241, 241);
+    width: 75%;
+    padding: 0;
+}
+
+.boardLogoImage {
+    transform: rotate(20deg);
+    height: 25%;
+    align-self: center;
+    border: 2px solid black;
+    opacity: 50%;
+    border-radius: 20px 20px 20px 20px;
+}
+
 .cell {
     width: 70px;
     height: 70px;
     border: 2px black solid;
     padding: 10px;
+    background-color: rgb(241, 241, 241);
+    position: relative;
+    z-index: 1;
+}
+
+#cell31 div:not(.active), #cell33 div:not(.active), #cell34 div:not(.active), #cell36 div:not(.active), #cell37 div:not(.active), #cell39 div:not(.active) {
+    font-size: 0.7em;
+    padding: 2px;
+    transform: rotate(90deg);
+    width: 100%;
+    margin-left: 33px;
+    margin-top: 26px;
+    text-align: center;
+    font-weight: bolder;
+}  
+
+#cell1 div:not(.active), #cell3 div:not(.active), #cell4 div:not(.active), #cell6 div:not(.active), #cell8 div:not(.active), #cell9 div:not(.active) {
+    font-size: 0.7em;
+    padding: 2px;
+    width: 100%;
+    margin-right:20px;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 62px;
+}  
+
+#cell11 div:not(.active), #cell13 div:not(.active), #cell14 div:not(.active), #cell16 div:not(.active), #cell17 div:not(.active), #cell19 div:not(.active) {
+    font-size: 0.7em;
+    padding: 2px;
+    transform: rotate(-90deg);
+    width: 100%;
+    margin-left: -38px;
+    margin-top: 26px;
+    text-align: center;
+    font-weight: bolder;
+}  
+
+#cell29 div:not(.active), #cell27 div:not(.active), #cell26 div:not(.active), #cell24 div:not(.active), #cell22 div:not(.active), #cell21 div:not(.active) {
+    font-size: 0.7em;
+    padding: 2px;
+    width: 100%;
+    margin-right:20px;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 62px;
+}  
+
+#cell31 div, #cell33 div {
+    /* Brown Properties */
+    background-color: rgb(165, 130, 42);
+}
+#cell36 div, #cell37 div, #cell39 div {
+    /* Sky Blue Properties */
+    background-color: rgb(178, 220, 237);
+}
+#cell1 div, #cell3 div, #cell4 div {
+    /* Brownish Red Properties */
+    background-color: rgb(208, 108, 108);
+}
+#cell6 div, #cell8 div, #cell9 div {
+    /* Orange Properties */
+    background-color: orange;
+}
+#cell29 div, #cell27 div {
+    /* Blue Properties */
+    background-color: rgb(121, 132, 251);
+}
+#cell24 div, #cell22 div, #cell21 div {
+    /* Green Properties */
+    background-color: greenyellow;
+}
+#cell11 div, #cell13 div, #cell14 div {
+    /* Red Properties */
+    background-color: red;
+}
+#cell16 div, #cell17 div, #cell19 div {
+    /* Yellow Properties */
+    background-color: yellow;
+}
+#cell35, #cell5, #cell15, #cell25 {
+    /* Transportation */
+    background-color: rgb(165, 133, 255);
+}
+#cell35 div, #cell5 div, #cell15 div, #cell25 div{ 
+    /*Also Transportation */
+    background-color: rgb(165, 133, 255);
+}
+#cell2, #cell34, #cell18, #cell28 {
+    /* Extra tiles (water works, elec bill, etc) */
+    background-color: rgb(242, 249, 255);
+}
+#cell7, #cell32, #cell23 {
+    /* Chest tiles */
+    background-color: khaki;
+}
+#cell38, #cell12, #cell26 {
+    /* chance tiles  */
+    background-color: pink;
 }
 
 #firstBlock,
@@ -325,6 +455,11 @@ span div label .customButton {
 
 #diceButton p {
     background-color: transparent;
+    font-size: 3rem;
+}
+
+#diceButton p::selection {
+    background-color: unset;
 }
 
 /* Presidential Elections */
@@ -386,6 +521,21 @@ span div label .customButton {
 
 .lowsupFather *, .diceFather *, .pIFather *, .placeholder * {
     background-color: transparent;
+}
+
+/* Purchase Alert */
+.purchaseAlert {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 9;
+    top: 100px;
+    left: 21.5%;
+    position: absolute;
+    height: 70%;
+    max-height: 70%;
+    width: 57%;
+    border: 10px black solid;
+    background-color: white;
 }
 
 /* Top Sup */
@@ -503,6 +653,10 @@ background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.diceFather:active {
+    background-image: linear-gradient(180deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
 }
 
 /* Bottom Sup */
