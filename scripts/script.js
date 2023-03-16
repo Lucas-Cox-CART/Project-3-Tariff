@@ -170,8 +170,7 @@ startingBudgetSelect.addEventListener('click', (e) => {
 
 document.getElementById("startingBudgetSelect").value = 600000;
 startingBudget = 600000;
-function difficultyStartingBudgetManager(){ 
-    //When a difficulty is selected, it sets these predetermined values. (General tax and starting budget)
+function difficultyStartingBudgetManager(){ // default settings for difficulty and generalTax, this code changes the "startingBudgetSelect" value when one of the presets are clicked. The starting budget will be left empty/blank when the "custom" value is set for difficulty 
     if (difficulty == NaN || difficulty == 1) {
         document.getElementById("startingBudgetSelect").value = 600000;
         startingBudget = 600000;
@@ -247,6 +246,7 @@ function generalTaxFunction(){
 let AI = false;
 let playerAmount = 1;
 let players = [];
+let turnCycle = 0;
 
 function playerCreation(a) {
     playerAmount = playerCountSelect.value;
