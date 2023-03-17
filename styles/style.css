@@ -455,7 +455,7 @@ span div label .customButton {
 
 #diceButton p {
     background-color: transparent;
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 
 #diceButton p::selection {
@@ -643,8 +643,16 @@ background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 
     background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
 }
 
-.diceFather {
+.diceHolder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+}
+
+.diceFather {
+    width: 50%;
     height: 10vh;
     border: 3px black solid;
     border-radius: 20px;
@@ -657,6 +665,20 @@ background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 
 
 .diceFather:active {
     background-image: linear-gradient(180deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+.diceLogoDad {
+    width: 50%;
+    height: 10vh;
+    border: 3px black solid;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#diceLogo {
+    width: 50%;
 }
 
 /* Bottom Sup */
@@ -749,4 +771,46 @@ background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 
 
 .PJustus {
     content: url(../images/POTUS/JustusP.jpg);
+}
+
+#dL1 {
+    height: 100%;
+    width: 100%;
+}
+
+#dL1::selection {
+    background-color: unset;
+}
+
+#dL2 {
+    height: 100%;
+    width: 100%;
+}
+
+#dL2::selection {
+    background-color: unset;
+}
+
+.D1 {
+    content: url(../images/DiceLogo/One.png);
+}
+
+.D2 {
+    content: url(../images/DiceLogo/Two.png);    
+}
+
+.D3 {
+    content: url(../images/DiceLogo/Three.png);    
+}
+
+.D4 {
+    content: url(../images/DiceLogo/Four.png);    
+}
+
+.D5 {
+    content: url(../images/DiceLogo/Five.png);    
+}
+
+.D6 {
+    content: url(../images/DiceLogo/Six.png);    
 }

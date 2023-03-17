@@ -23,48 +23,98 @@ for (let i = 0; i < 40; i++) {
     cell[i] = document.getElementById(`cell${i}`);
 }
 
+
+let dL1 = document.getElementById('dL1');
+let dL2 = document.getElementById('dL2');
 let diceValue1;
 let diceValue2;
 let movement;
 
 function rollDice(x) {
-    diceValue1 = Math.round(Math.random() * 5) + 1;
-    diceValue2 = Math.round(Math.random() * 5) + 1;
+    diceValue1 = Math.floor(Math.random() * (6 - 1) + 1);
+    diceValue2 = Math.floor(Math.random() * (6 - 1) + 1);
     if (players[x].jailed == true) {
         if (diceValue1 == diceValue2) {
-            playerMove(x)
+            playerMove(x);
+            dL1.classList.remove(`D${1-6}`);
+            dL2.classList.remove(`D${1-6}`);
         }
     } else {
-        playerMove(x)
+        playerMove(x);
     }
+
+    function diceAnim() {
+        switch (diceValue1) {
+            case 1: 
+                dL1.classList.add('D1');
+                break;
+            case 2:
+                dL1.classList.add('D2');
+                break;
+            case 3:
+                dL1.classList.add('D3');
+                break;
+            case 4:
+                dL1.classList.add('D4');
+                break;
+            case 5:
+                dL1.classList.add('D5');
+                break;
+            case 6:
+                dL1.classList.add('D6');
+                break;
+        }
+        switch (diceValue2) {
+            case 1: 
+                dL2.classList.add('D1');
+                break;
+            case 2:
+                dL2.classList.add('D2');
+                break;
+            case 3:
+                dL2.classList.add('D3');
+                break;
+            case 4:
+                dL2.classList.add('D4');
+                break;
+            case 5:
+                dL2.classList.add('D5');
+                break;
+            case 6:
+                dL2.classList.add('D6');
+                break;
+        }
+    }
+    diceAnim();
 }
 
-let playerIcon;
+let playerIcon = document.createElement('div');
 function createPlayers() {
-    playerIcon = document.createElement('div');
     playerIcon.classList.add('active', 'frog');
     cell[30].appendChild(playerIcon);
 }
 
-function playerMove(x) {
+function playerMove(x) { 
     movement = diceValue1 + diceValue2;
     players[x].playerPosition = (players[x].playerPosition + movement) % 40;
     let newPosition = players[x].playerPosition;
     
     cell[newPosition].appendChild(playerIcon);
-    if (cell[x]) {
-        cell[x].removeChild(playerIcon);
-    }
+    // if (cell[x]) {
+    //     cell[x].removeChild(playerIcon);
+    // }
     
     if (diceValue1 == diceValue2) {
         players[x].doubles = players[x].doubles + 1;
     } else {
-        goCheck(x)
+        goCheck(x);
     }    
     if (players[x].doubles == 3) {
+        if (cell[x].hasChildNodes()) {
+            cell[x].removeChild(playerIcon); 
+        }
         players[x].jailed = true;
-        cell[x].removeChild(playerIcon);
-        cell[0].appendChild(playerIcon);
+        cell[0].appendChild(playerIcon);  
         players[x].doubles = 10;
     }
 }
@@ -97,32 +147,28 @@ function goCheck(x) {
         }
         election();
     } else {
-        buyProperty();
+        playerTurnEnd();
     }
 }
 
 function playerTurnEnd(x) {
-    console.log(players[x].goCounter)
-    console.log(players[x].playerPosition)
-    console.log(players[x].budget)
-    console.log(players[x].jailed)
-    console.log(players[x].doubles)
+    console.log(players[x].goCounter);
+    console.log(players[x].playerPosition);
+    console.log(players[x].budget);
+    console.log(players[x].jailed);
+    console.log(players[x].doubles);
     turnCycle = turnCycle + 1;
     if (turnCycle == playerAmount) {
         turnCycle = 0;
     }
     if (players[x].jailed == true) {
-        players[x].playerPosition = 10 //jail position
+        players[x].playerPosition = 10; // jail positionasdasdashdnasdfhyiaf
     }
     if (diceValue1 != diceValue2) {
-        players[x].doubles = 0
+        players[x].doubles = 0;
     }
     diceValue1 = 0;
     diceValue2 = 0;
-    chanceDetect()
-    chestDetect()
+    chanceDetect(x);
+    chestDetect(x);
 }
-
-/* Board Information */
-//multi-dimensional array
-//The midday sun can elminate the dark of night. It can happen either way. Night dreams of day, and light dreams of darkness, and the sun is a giant ignorant mass of gas. It releases a huge amount of hot energy to track down and set ablaze every shadow... eventually burning up all of itself

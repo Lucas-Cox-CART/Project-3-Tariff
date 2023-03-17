@@ -15,7 +15,7 @@ function election() {
     let electCandidates = [
         { 
             name: `Colby Kirk`,
-            quote: `" Science Rules! " - Bill Nye, The Science Guy`
+            quote: `" Science demands we blow up the sun. "`
         },
         {
             name: 'Colby Olsen',
@@ -199,11 +199,12 @@ function warWorldEvent() {
 }
 
 function impendingDoom() {
-    //Pending
+    for (i = 4; i > 3; i++) {
+    alert('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
+    }
 }
 
 const propertyData = [
-    //Pork = Blank filler
     //[name, rent, house1, house2, house3, house4, hotel, mortgage, pricehouse, pricehotel, purchaseCost]
     ['Go'],
     ['CandyLand', 500, 2500, 7500, 22500, 40000, 62500, 7500, 12500, 50000, 15000],
@@ -279,7 +280,7 @@ let chanceCard;
 let capitalGainsTimer;
 let taxEvasionTimer;
 function performChanceCard() {
-    chanceAffectedPlayer = //turnCounter;
+    chanceAffectedPlayer = turnCycle;
     chanceCard = Math.floor(Math.random() * (10 - 1) + 1);
     if (chanceCard == 1) {
         //candy Lane
@@ -354,26 +355,32 @@ function performChanceCard() {
 let chestAffectedPlayer;
 let chestCard;
 function performChestCard() {
-    chestAffectedPlayer = //turnCounter;
+    console.log("Chest Card started");
+    chestAffectedPlayer = turnCycle;
     chestCard = Math.floor(Math.random() * (10 - 1) + 1);
     if (chestCard == 1) {
         //Framing
         //I can not do this at this current time
+        console.log("Framing");
     } else if (chestCard == 2) {
         //Empty chest
         //LITTERALLY NOTHING HAPPENS
+        console.log("Nothing happens");
     } else if (chestCard == 3) {
         //jailbreak
         //I can not do this at this current time 
     } else if (chestCard == 4) {
         //Set backs
         players[chestAffectedPlayer].playerPosition = players[chestAffectedPlayer].playerPosition - 3;
+        console.log("Set backs");
     } else if (chestCard == 5) {
         //Inheritance
         players[chestAffectedPlayer].budget = players[chestAffectedPlayer].budget + 15000;
+        console.log("Inhertance");
     } else if (chestCard = 6) {
         //Big Tower 
         players[chestAffectedPlayer].playerPosition = document.getElementById("cell29");
+        console.log("Big tower");
     } else if (chestCard = 7) {
         //Opportunist
         if (players[chestAffectedPlayer].playerPosition == document.getElementById("cell33")) {
@@ -389,12 +396,17 @@ function performChestCard() {
         //CaughtLackin'
         players[chestAffectedPlayer].jailed = true;
         players[chestAffectedPlayer].playerPosition = document.getElementById("cell00");
+        console.log("Caught Lackin");
     } else if (chestCard = 9) {
         //Leap Year
         players[chestAffectedPlayer].playerPosition = document.getElementById("cell30");
         // CAN NOT FINISH THIS BECAUSE WE DONT HAVE AN ANNUAL INCOME VARIABLE YET. 
+        console.log("Leap year");
     } else if (chestCard = 10) {
         //Tardis Taxes
         players[chestAffectedPlayer].budget = players[chestAffectedPlayer].budget - 20000;
+        console.log("Tardis Taxes");
+    } else {
+        console.log("Weird.");
     }
-}
+} 

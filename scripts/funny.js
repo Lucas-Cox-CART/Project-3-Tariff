@@ -41,6 +41,7 @@ function generalTaxFunction(){
         alert("No more changing it.")
         alert("You clearly don't want to listen to me.")
         alert("No general tax for you.")
+        alert("https://www.youtube.com/watch?v=o-YBDTqX_ZU")
         document.getElementById("generalTaxSelect").value = 1;
         generalTax = 1;
         document.getElementById('funnyHiddenThing').style.display = 'none';

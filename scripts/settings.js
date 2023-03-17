@@ -18,10 +18,11 @@ difficulty.addEventListener("change", (e) => {
 });
 
 document.getElementById("startingBudgetSelect").value = 600000; 
-let startingBudget = document.getElementById("startingBudgetSelect");  
+let startingBudgetDocument = document.getElementById("startingBudgetSelect");  
+let startingBudget = 600000;
 
 // Handles options for startingBudgetSelect menu popup
-startingBudget.addEventListener("change", (e) => {
+startingBudgetDocument.addEventListener("change", (e) => {
     startingBudget = document.getElementById("startingBudgetSelect").value;
 });
 
