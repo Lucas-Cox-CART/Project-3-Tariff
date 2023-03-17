@@ -81,7 +81,7 @@ function playerCreation(a) {
     for (let i = 0; i < playerAmount; i++) {
         players.push(player = {
             budget: a,
-            property: 'none',
+            property: [],
             doubles: 0,
             jailed: false,
             goCounter: 0,

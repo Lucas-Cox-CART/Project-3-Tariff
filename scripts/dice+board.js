@@ -4,7 +4,7 @@ let world = {
     worldEventCooldown: false,
     worldEvent: 'none',
     president: 'none'
-}
+};
 
 function startGame() {
     if (shareScreen == 1) {
@@ -13,14 +13,14 @@ function startGame() {
         document.getElementById('event1').style.display = 'none';
         document.getElementById('event2').style.display = 'flex';
         playerCreation(startingBudget);
-
-        ini();
     }
     pcLogo();
+    createPlayers();
 }
 
-function ini() {
-
+let cell = [];
+for (let i = 0; i < 40; i++) {
+    cell[i] = document.getElementById(`cell${i}`);
 }
 
 let diceValue1;
@@ -28,46 +28,63 @@ let diceValue2;
 let movement;
 
 function rollDice(x) {
-    diceValue1 = (Math.random(1-6) * 6).toFixed(0);
-    diceValue2 = (Math.random(1-6) * 6).toFixed(0);
+    diceValue1 = Math.round(Math.random() * 5) + 1;
+    diceValue2 = Math.round(Math.random() * 5) + 1;
     if (players[x].jailed == true) {
         if (diceValue1 == diceValue2) {
             playerMove(x)
-        } else {
-            goCheck(x)
         }
     } else {
         playerMove(x)
     }
 }
 
+let playerIcon;
+function createPlayers() {
+    playerIcon = document.createElement('div');
+    playerIcon.classList.add('active', 'frog');
+    cell[30].appendChild(playerIcon);
+}
+
 function playerMove(x) {
     movement = diceValue1 + diceValue2;
-    players[x].playerPosition = players[x].playerPosition + movement;
+    players[x].playerPosition = (players[x].playerPosition + movement) % 40;
+    let newPosition = players[x].playerPosition;
+    
+    cell[newPosition].appendChild(playerIcon);
+    if (cell[x]) {
+        cell[x].removeChild(playerIcon);
+    }
+    
     if (diceValue1 == diceValue2) {
         players[x].doubles = players[x].doubles + 1;
     } else {
         goCheck(x)
-    }
-    if (players[x].playerPosition >= 40) { 
-        for (i = players[x].playerPositon; i >= 40; players[x].playerPosition = players[x].playerPosition - 40) {
-            players[x].goCounter = players[x].goCounter + 1;
-        }
-    }
-    // if (players[x].playerPosition >= 40) {
-    //     players[x].playerPosition = players[x].playerPosition - 40;
-    //     players[x].goCounter = players[x].goCounter + 1;
+    }    
     if (players[x].doubles == 3) {
         players[x].jailed = true;
-        goCheck(x);
+        cell[x].removeChild(playerIcon);
+        cell[0].appendChild(playerIcon);
+        players[x].doubles = 10;
     }
+}
+
+function buyProperty() {
+    let purchaseAlert = document.createElement('div');
+    purchaseAlert.classList.add('purchaseAlert');
+    gameBoard.appendChild(purchaseAlert);
+    
+    if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10])) {
+        players[turnCycle].property.push(propertyData[players[turnCycle].playerPostion]);
+    } 
+    playerTurnEnd(x);
 }
 
 function goCheck(x) {
     if (players[x].goCounter == 2) {
         if (world.worldEventCooldown == false) {
             beginEvent();
-            world.worldEventCooldown = true;
+            world.worldEventCooldown = true; // Cooldown will be turned false when the worldEvent ends
         } else {
             playerTurnEnd(turnCycle);
         }
@@ -78,9 +95,9 @@ function goCheck(x) {
         for (let player of players) {
             player.playerPosition = 0;
         }
-        beginElection();
+        election();
     } else {
-        playerTurnEnd(x);
+        buyProperty();
     }
 }
 
@@ -97,21 +114,15 @@ function playerTurnEnd(x) {
     if (players[x].jailed == true) {
         players[x].playerPosition = 10 //jail position
     }
-    players[x].doubles = 0;
+    if (diceValue1 != diceValue2) {
+        players[x].doubles = 0
+    }
     diceValue1 = 0;
     diceValue2 = 0;
+    chanceDetect()
+    chestDetect()
 }
-
-let tiles = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 /* Board Information */
 //multi-dimensional array
-let gridBoard = [
-    [0,0,0,0,0,0,0,0,0,0], // y 0, x 0-9
-    [0,0,0,0,0,0,0,0,0,0], // y 1, x 0-9
-    [0,0,0,0,0,0,0,0,0,0], // y 2, x 0-9
-    [0,0,0,0,0,0,0,0,0,0]  // y 3, x 0-9 
-];
-
-//more useful where x,y coordinates are used... battleship, tic-tac-toe... topleft space is gridBoard[0][0], bottom right is gridBoard[3][3] or think about it as gridBoard[y][x]
-//numbers in your arrays may be used to represent the 'state' of that board space... which player is there, what kind of space it is etc...
+//The midday sun can elminate the dark of night. It can happen either way. Night dreams of day, and light dreams of darkness, and the sun is a giant ignorant mass of gas. It releases a huge amount of hot energy to track down and set ablaze every shadow... eventually burning up all of itself
