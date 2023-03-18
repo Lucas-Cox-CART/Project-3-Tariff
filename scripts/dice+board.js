@@ -30,7 +30,7 @@ let diceValue1;
 let diceValue2;
 let movement;
 
-function rollDice(x) {
+function rollDice(x) { 
     diceValue1 = Math.floor(Math.random() * (6 - 1) + 1);
     diceValue2 = Math.floor(Math.random() * (6 - 1) + 1);
     if (players[x].jailed == true) {
@@ -119,6 +119,8 @@ function playerMove(x) {
     }
 }
 
+
+
 function buyProperty() {
     let purchaseAlert = document.createElement('div');
     purchaseAlert.classList.add('purchaseAlert');
@@ -129,6 +131,8 @@ function buyProperty() {
     } 
     playerTurnEnd(x);
 }
+
+//Everything above is good and clear
 
 function goCheck(x) {
     if (players[x].goCounter == 2) {
@@ -151,21 +155,21 @@ function goCheck(x) {
     }
 }
 
-function playerTurnEnd(x) {
-    console.log(players[x].goCounter);
-    console.log(players[x].playerPosition);
-    console.log(players[x].budget);
-    console.log(players[x].jailed);
-    console.log(players[x].doubles);
+function playerTurnEnd(turnCycle) {
+    console.log(players[turnCycle].goCounter);
+    console.log(players[turnCycle].playerPosition);
+    console.log(players[turnCycle].budget);
+    console.log(players[turnCycle].jailed);
+    console.log(players[turnCycle].doubles);
     turnCycle = turnCycle + 1;
     if (turnCycle == playerAmount) {
         turnCycle = 0;
     }
-    if (players[x].jailed == true) {
-        players[x].playerPosition = 10; // jail positionasdasdashdnasdfhyiaf
+    if (players[turnCycle].jailed == true) {
+        players[turnCycle].playerPosition = 10; // jail positionasdasdashdnasdfhyiaf
     }
     if (diceValue1 != diceValue2) {
-        players[x].doubles = 0;
+        players[turnCycle].doubles = 0;
     }
     diceValue1 = 0;
     diceValue2 = 0;
