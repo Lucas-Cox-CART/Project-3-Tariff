@@ -76,7 +76,6 @@ shareScreen = 1;
 let AI = false;
 let playerAmount = "";
 let players = [];
-let turnCycle = 0;
 
 function playerCreation(a) {
     playerAmount = playerCountSelect.value;

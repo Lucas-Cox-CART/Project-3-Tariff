@@ -27,17 +27,17 @@ function payRent(x) {
     players[x].budget = players[x].budget - (propertyData[players[x].playerPostion][1]) //Current Player pays rent on whatever property they are on
 }
 
-function chanceDetect(x) {
-    if (players[x].playerPosition  == 38 || players[x].playerPosition == 12 || players[x].playerPosition == 26){ // If player is on chance tile or chest tile
+function chanceDetect(turnCycle) {
+    if (players[turnCycle].playerPosition  == 38 || players[turnCycle].playerPosition == 12 || players[turnCycle].playerPosition == 26){ // If player is on chance tile or chest tile
             performChanceCard();
             console.log("It works");
     } else {
-        console.log("Something is wrong with the player landing on a chance ANGERY");
+        console.log("The Code does not recognize the player is on a chance card");
     }
 }
 
-function chestDetect(x) {
-    if (players[x].playerPosition == 7 || players[x].playerPosition == 32 || players[x].playerPosition == 23) {
+function chestDetect(turnCycle) {
+    if (players[turnCycle].playerPosition == 7 || players[turnCycle].playerPosition == 32 || players[turnCycle].playerPosition == 23) {
         performChestCard();
         console.log("It works")
     } else {

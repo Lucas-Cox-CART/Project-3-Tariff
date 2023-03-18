@@ -29,6 +29,7 @@ let dL2 = document.getElementById('dL2');
 let diceValue1;
 let diceValue2;
 let movement;
+let turnCycle = 0;
 
 function rollDice(x) { 
     diceValue1 = Math.floor(Math.random() * (6 - 1) + 1);
@@ -135,14 +136,14 @@ function buyProperty() {
 //Everything above is good and clear
 
 function goCheck(x) {
-    if (players[x].goCounter == 2) {
+    if (players[turnCycle].goCounter == 2) {
         if (world.worldEventCooldown == false) {
             beginEvent();
             world.worldEventCooldown = true; // Cooldown will be turned false when the worldEvent ends
         } else {
             playerTurnEnd(turnCycle);
         }
-    } else if (players[x].goCounter == 4) {
+    } else if (players[turnCycle].goCounter == 4) {
         for (let player of players) {
             player.goCounter = 0;
         }
@@ -155,13 +156,14 @@ function goCheck(x) {
     }
 }
 
-function playerTurnEnd(turnCycle) {
+function playerTurnEnd(x) {
     console.log(players[turnCycle].goCounter);
     console.log(players[turnCycle].playerPosition);
     console.log(players[turnCycle].budget);
     console.log(players[turnCycle].jailed);
     console.log(players[turnCycle].doubles);
     turnCycle = turnCycle + 1;
+    console.log("The current player is player", turnCycle)
     if (turnCycle == playerAmount) {
         turnCycle = 0;
     }
@@ -173,6 +175,6 @@ function playerTurnEnd(turnCycle) {
     }
     diceValue1 = 0;
     diceValue2 = 0;
-    chanceDetect(x);
-    chestDetect(x);
+    chanceDetect(turnCycle);
+    chestDetect(turnCycle);
 }
