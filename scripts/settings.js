@@ -24,6 +24,7 @@ let startingBudget = 600000;
 // Handles options for startingBudgetSelect menu popup
 startingBudgetDocument.addEventListener("change", (e) => {
     startingBudget = document.getElementById("startingBudgetSelect").value;
+    startingBudget = Math.floor(startingBudget);
 });
 
 

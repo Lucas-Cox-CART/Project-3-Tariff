@@ -126,29 +126,35 @@ function buyProperty() {
     let purchaseAlert = document.createElement('div');
     purchaseAlert.classList.add('purchaseAlert');
     gameBoard.appendChild(purchaseAlert);
-    
-    if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10])) {
+    if (bullMarket == true) {
+        if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10] * bullMarketMultiplier)) {
+            players[turnCycle].property.push(propertyData[players[turnCycle].playerPostion]);
+        } 
+    } else if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10])) {
         players[turnCycle].property.push(propertyData[players[turnCycle].playerPostion]);
     } 
+
     playerTurnEnd(x);
 }
 
 //Everything above is good and clear
 
 function goCheck(x) {
-    if (players[turnCycle].goCounter == 2) {
+    if (players[turnCycle].goCounter == 2) { //If the player has passed go twice start a world event
         if (world.worldEventCooldown == false) {
+            console.log("World Event started")
             beginEvent();
             world.worldEventCooldown = true; // Cooldown will be turned false when the worldEvent ends
         } else {
             playerTurnEnd(turnCycle);
         }
-    } else if (players[turnCycle].goCounter == 4) {
+    } else if (players[turnCycle].goCounter == 4) { //If the player has passed go 4 times start an election
         for (let player of players) {
             player.goCounter = 0;
+            player.budget = player.budget + ((50000 + (player.property['length'] * ( 50000 * 0.33))) - ((50000 + (player.property['length'] * ( 50000 * 0.33))) * generalTax));
         }
         for (let player of players) {
-            player.playerPosition = 0;
+            player.playerPosition = cell[0];
         }
         election();
     } else {
@@ -157,6 +163,20 @@ function goCheck(x) {
 }
 
 function playerTurnEnd(x) {
+    if (players[turnCycle].playerPosition > 30 || (players[turnCycle].playerPosition > 0 && players[turnCycle].playerPosition <= 2)) { //If the player has passed go this turn
+        players[turnCycle].goCounter = players[turnCycle].goCounter + 1
+        if (recession == true) {
+            players[turnCycle].budget = players[turnCycle].budget + ((50000 + (players[turnCycle].property['length'] * ( 50000 * 0.20))) - ((50000 + (players[turnCycle].property['length'] * ( 50000 * 0.20))) * generalTax)) 
+        //If Recession is active there is a slight decrease in annual income. 
+        } else {
+             players[turnCycle].budget = players[turnCycle].budget + ((50000 + (players[turnCycle].property['length'] * ( 50000 * 0.20))) - ((50000 + (players[turnCycle].property['length'] * ( 50000 * 0.20))) * generalTax)) 
+        }
+       
+        //Annual income (Players get more annual income depending on how many properties they own.) The default is 50,000$.
+    }
+    if (bullMarket == true) {
+        bullMarketMultiplier = bullMarketMultiplier + 0.05
+    }
     console.log(players[turnCycle].goCounter);
     console.log(players[turnCycle].playerPosition);
     console.log(players[turnCycle].budget);
@@ -168,13 +188,13 @@ function playerTurnEnd(x) {
         turnCycle = 0;
     }
     if (players[turnCycle].jailed == true) {
-        players[turnCycle].playerPosition = 10; // jail positionasdasdashdnasdfhyiaf
+        players[turnCycle].playerPosition = cell[0]; // jail position
     }
     if (diceValue1 != diceValue2) {
         players[turnCycle].doubles = 0;
     }
     diceValue1 = 0;
     diceValue2 = 0;
-    chanceDetect(turnCycle);
-    chestDetect(turnCycle);
+    chanceDetect(turnCycle); //Checks if the player is on a chance tile
+    chestDetect(turnCycle); //Checks if the player is on a chest tile
 }

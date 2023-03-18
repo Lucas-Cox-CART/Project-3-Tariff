@@ -127,9 +127,26 @@ function election() {
     C1Maker();
     C2Maker();
 }
-
+let worldEventChooser = 0;
 function beginEvent() {
-
+  worldEventChooser = Math.floor(Math.random() * (8 - 1) + 1);
+  if (worldEventChooser == 1) {
+    pandemic1();
+  } else if (worldEventChooser == 2) {
+    pandemic2();
+  } else if (worldEventChooser == 3) {
+    bullMarket();
+  } else if (worldEventChooser == 4) {
+    recessionWorldEvent();
+  } else if (worldEventChooser == 5) {
+    technologicalInventionWorldEvent();
+  } else if (worldEventChooser == 6) {
+    warWorldEvent();
+  } else if (worldEventChooser == 7) {
+    impendingDoom();
+  } else if (worldEventChooser == 8) {
+    wasteOfAnEventWorldEvent();
+  } 
 }
 
 // world events 
@@ -143,7 +160,6 @@ const worldEvents = [
     ["War", "Some genius decided war is a good idea. This is super good for you! You get +20% extra on annual income... but be careful: Taxes are up."],
     ["Impending doom", "What did you guys do??? You idiots! Now you have to work together to solve this stupid problem. Everyone needs to work together to pitch in a total of 250,000 to fund a defense."],
     ["Technological Revolution", "A revolutionary new invention was just made! One player dominated the market and nearly doubled their income! Every other player wasted valuable resources and lost 20% of their wealth."],
-    ["Government Engineering Project" ] //No info given yet
 ]
 
 function pandemic1() {
@@ -159,13 +175,13 @@ function pandemic1() {
 }
 
 function pandemic2() {
-    generalTax = generalTax + 0.05
+    generalTax = generalTax + 0.05;
     //Pending
 }
 
 let technologicalInventionPlayerChooser;
 function technologicalInventionWorldEvent() { 
-    technologicalInventionPlayerChooser = (Math.random(0-playerAmount -1) * 10).toFixed(0); 
+    technologicalInventionPlayerChooser = Math.floor(Math.random() * (playerAmount - 0) + 0);
     console.log("Function started")
 
     if (technologicalInventionPlayerChooser >= 0 && technologicalInventionPlayerChooser < players.length) {
@@ -182,15 +198,21 @@ function technologicalInventionWorldEvent() {
 
 function wasteOfAnEventWorldEvent() {
     //What did you expect was going to happen?
+    console.log("WASTE OF A WORLD EVENT")
 }
 
+let bullMarket = false;
+let bullMarketMultiplier = 1;
 function bullMarketWorldEvent() {
-    //Waiting for code pull
+    bullMarket = true
+    //Go to "Player turn end() function inside "dice+board."
 }
 
+let recession = false;
 function recessionWorldEvent() {
     generalTax = generalTax + 0.15;
-    //Pending
+    recession = true;
+    //Go to "Player turn end() function inside "dice+board."
 } 
 
 function warWorldEvent() {
@@ -284,7 +306,7 @@ function performChanceCard() {
     chanceCard = Math.floor(Math.random() * (10 - 1) + 1);
     if (chanceCard == 1) {
         //candy Lane
-        players[chanceAffectedPlayer].playerPosition = document.getElementById("cell31");
+        players[chanceAffectedPlayer].playerPosition = cell[31];
     } else if (chanceCard == 2) {
         //bail
         // I can not write this yet
@@ -329,25 +351,25 @@ function performChanceCard() {
                     players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget * (generalTax + 1)
                     //No taxes next round
                 } else {
-                    players[chanceAffectedPlayer].playerPosition = document.getElementById("cell00"); //Go to jail
+                    players[chanceAffectedPlayer].playerPosition = cell[0]; //Go to jail
                 }
             }
         }
     } else if (chanceCard == 9) {
         //Takin' a ride
-        if (players[chanceAffectedPlayer].playerPosition == document.getElementById("cell38")) {
-            players[chanceAffectedPlayer].playerPosition = document.getElementById("cell05");
-        } else if (players[chanceAffectedPlayer].playerPosition == document.getElementById("cell12")) {
-            players[chanceAffectedPlayer].playerPosition = document.getElementById("cell15");
-        } else if (players[chanceAffectedPlayer].playerPosition == document.getElementById("cell26")) {
-            players[chanceAffectedPlayer].playerPosition = document.getElementById("cell35");
+        if (players[chanceAffectedPlayer].playerPosition == cell[38]) {
+            players[chanceAffectedPlayer].playerPosition = cell[5];
+        } else if (players[chanceAffectedPlayer].playerPosition == cell[12]) {
+            players[chanceAffectedPlayer].playerPosition = cell[15];
+        } else if (players[chanceAffectedPlayer].playerPosition == cell[26]) {
+            players[chanceAffectedPlayer].playerPosition = cell[35];
         } else {
             console.log("Something is going wrong with the takin a ride chance card")
         }
         //Player advances to closest transportation tile
     } else if (chanceCard == 10) {
         //WAS THAT THE BITE OF 87????????
-        players[chanceAffectedPlayer].playerPosition = document.getElementById("cell17"); 
+        players[chanceAffectedPlayer].playerPosition = cell[17]; 
         //Player is advanced to Fredbear's family diner
     }
 }
@@ -379,27 +401,27 @@ function performChestCard() {
         console.log("Inhertance");
     } else if (chestCard = 6) {
         //Big Tower 
-        players[chestAffectedPlayer].playerPosition = document.getElementById("cell29");
+        players[chestAffectedPlayer].playerPosition = cell[29];
         console.log("Big tower");
     } else if (chestCard = 7) {
         //Opportunist
-        if (players[chestAffectedPlayer].playerPosition == document.getElementById("cell33")) {
-            players[chestAffectedPlayer].playerPosition = document.getElementById("cell38");
-        } else if (players[chestAffectedPlayer].playerPosition == document.getElementById("cell07")) {
-            players[chestAffectedPlayer].playerPosition = document.getElementById("cell12");
-        } else if (players[chanceAffectedPlayer].playerPosition == document.getElementById("cell23")) {
-            players[chestAffectedPlayer].playerPosition = document.getElementById("cell26");
+        if (players[chestAffectedPlayer].playerPosition == cell[33]) {
+            players[chestAffectedPlayer].playerPosition = cell[38];
+        } else if (players[chestAffectedPlayer].playerPosition == cell[7]) {
+            players[chestAffectedPlayer].playerPosition = cell[12];
+        } else if (players[chanceAffectedPlayer].playerPosition == cell[23]) {
+            players[chestAffectedPlayer].playerPosition = cell[26];
         } else {
             console.log("Something is going wrong with the opportunist card")
         }
     } else if (chestCard = 8) {
         //CaughtLackin'
         players[chestAffectedPlayer].jailed = true;
-        players[chestAffectedPlayer].playerPosition = document.getElementById("cell00");
+        players[chestAffectedPlayer].playerPosition = cell[0];
         console.log("Caught Lackin");
     } else if (chestCard = 9) {
         //Leap Year
-        players[chestAffectedPlayer].playerPosition = document.getElementById("cell30");
+        players[chestAffectedPlayer].playerPosition = cell[30];
         // CAN NOT FINISH THIS BECAUSE WE DONT HAVE AN ANNUAL INCOME VARIABLE YET. 
         console.log("Leap year");
     } else if (chestCard = 10) {
@@ -407,6 +429,6 @@ function performChestCard() {
         players[chestAffectedPlayer].budget = players[chestAffectedPlayer].budget - 20000;
         console.log("Tardis Taxes");
     } else {
-        console.log("Weird.");
+        console.log("Chest cards are not working properly");
     }
 } 
