@@ -163,6 +163,22 @@ function goCheck(x) {
 }
 
 function playerTurnEnd(x) {
+    if (capitalGains == true) {
+        if (capitalGainsTimer != capitalGainsTimer + 1) { //Checking if capital gains card is active, and if the player has spent more than 10,000 this turn
+        //Do nothing
+        } else {
+            if (players[chanceAffectedPlayer].budget < players [chanceAffectedPlayer].budget + 10000) {
+            //The good ending
+            capitalGains = false;
+            } else {
+            players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - (10000 * generalTax)
+            capitalGains = false;
+            //The bad ending
+            }
+        } 
+    }
+   
+
     if (players[turnCycle].playerPosition > 30 || (players[turnCycle].playerPosition > 0 && players[turnCycle].playerPosition <= 2)) { //If the player has passed go this turn
         players[turnCycle].goCounter = players[turnCycle].goCounter + 1
         if (recession == true) {

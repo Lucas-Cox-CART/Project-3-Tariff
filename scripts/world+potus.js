@@ -181,6 +181,7 @@ function pandemic2() {
 
 let technologicalInventionPlayerChooser;
 function technologicalInventionWorldEvent() { 
+    //One player doubles their money, every other player loses 20%.
     technologicalInventionPlayerChooser = Math.floor(Math.random() * (playerAmount - 0) + 0);
     console.log("Function started")
 
@@ -190,7 +191,7 @@ function technologicalInventionWorldEvent() {
                 players[i].budget *= 2;
                 console.log("PLAYER " + i + " GETS MONEY");
             } else {
-                players[i].budget *= 0.20;
+                players[i].budget *= 0.80;
             }
         }
     }
@@ -221,9 +222,7 @@ function warWorldEvent() {
 }
 
 function impendingDoom() {
-    for (i = 4; i > 3; i++) {
-    alert('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
-    }
+    //I don't know how to code this yet
 }
 
 const propertyData = [
@@ -301,38 +300,37 @@ let chanceAffectedPlayer;
 let chanceCard;
 let capitalGainsTimer;
 let taxEvasionTimer;
+let capitalGains = false;
 function performChanceCard() {
     chanceAffectedPlayer = turnCycle;
     chanceCard = Math.floor(Math.random() * (10 - 1) + 1);
     if (chanceCard == 1) {
+        console.log("Advance to candy land");
         //candy Lane
-        players[chanceAffectedPlayer].playerPosition = cell[31];
+        cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+        cell[31].appendChild(playerIcon);
+        players[chanceAffectedPlayer].playerPosition = 31;
     } else if (chanceCard == 2) {
+        console.log("Bail");
         //bail
         // I can not write this yet
     } else if (chanceCard == 3) {
+        console.log("Capital Gains");
+        capitalGains = true;
         //Capital Gains
         players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget + 10000;
         capitalGainsTimer = players[chanceAffectedPlayer].goCounter
-        while (capitalGainsTimer != capitalGainsTimer + 1) { //while the player still has not passed go, check if they have.
-        if (capitalGainsTimer != capitalGainsTimer + 1) {
-            //Do nothing
-        } else {
-            if (players[chanceAffectedPlayer].budget < players [chanceAffectedPlayer].budget + 10000) {
-                //The good ending
-                } else {
-                players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - (10000 * generalTax)
-                //The bad ending
-                }
-            }
-        }
+        //There is more in the dice + board file. 
     } else if (chanceCard == 4) {
+        console.log("Big Sneeze");
         //Big Sneeze
         players[chanceAffectedPlayer].playerPosition = players[chanceAffectedPlayer].playerPosition - 3;
     } else if (chanceCard == 5) {
+        console.log("Whale Fishing");
         //Whale Fishing
         players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - 5000;
     } else if (chanceCard == 6) {
+        console.log("General Repairs");
         //General Repairs
         if (players[chanceAffectedPlayer].property['length'] == 0) {
             //Do nothing
@@ -340,9 +338,11 @@ function performChanceCard() {
             players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - (15000 * players[chanceAffectedPlayer].property['length']); 
         }
     } else if (chanceCard == 7) {
+        console.log("Gospel Of Wealth");
         //Gospel of Wealth
         players[chanceAffectedPlayer].budget = players[chanceAffectedPlayer].budget - 10000
     } else if (chanceCard == 8) {
+        console.log("Tax Evasion");
         //Tax Evasion
         taxEvasionTimer = players[chanceAffectedPlayer].budget;
         while (players[chanceAffectedPlayer].goCounter === taxEvasionTimer) {
@@ -356,20 +356,30 @@ function performChanceCard() {
             }
         }
     } else if (chanceCard == 9) {
+        console.log("Takin a ride");
         //Takin' a ride
-        if (players[chanceAffectedPlayer].playerPosition == cell[38]) {
-            players[chanceAffectedPlayer].playerPosition = cell[5];
-        } else if (players[chanceAffectedPlayer].playerPosition == cell[12]) {
-            players[chanceAffectedPlayer].playerPosition = cell[15];
-        } else if (players[chanceAffectedPlayer].playerPosition == cell[26]) {
-            players[chanceAffectedPlayer].playerPosition = cell[35];
+        if (players[chanceAffectedPlayer].playerPosition == 38) {
+            players[chanceAffectedPlayer].playerPosition = 5;
+            cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+            cell[5].appendChild(playerIcon);
+        } else if (players[chanceAffectedPlayer].playerPosition == 12) {
+            cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+            cell[15].appendChild(playerIcon);
+            players[chanceAffectedPlayer].playerPosition = 15;
+        } else if (players[chanceAffectedPlayer].playerPosition == 26) {
+            cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+            cell[35].appendChild(playerIcon);
+            players[chanceAffectedPlayer].playerPosition = 35;
         } else {
             console.log("Something is going wrong with the takin a ride chance card")
         }
         //Player advances to closest transportation tile
     } else if (chanceCard == 10) {
+        console.log("Bite of 87");
         //WAS THAT THE BITE OF 87????????
-        players[chanceAffectedPlayer].playerPosition = cell[17]; 
+        cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+        cell[17].appendChild(playerIcon);
+        players[chanceAffectedPlayer].playerPosition = 17; 
         //Player is advanced to Fredbear's family diner
     }
 }
@@ -401,27 +411,39 @@ function performChestCard() {
         console.log("Inhertance");
     } else if (chestCard = 6) {
         //Big Tower 
-        players[chestAffectedPlayer].playerPosition = cell[29];
+        cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+        cell[29].appendChild(playerIcon);
+        players[chestAffectedPlayer].playerPosition = 29;
         console.log("Big tower");
     } else if (chestCard = 7) {
         //Opportunist
-        if (players[chestAffectedPlayer].playerPosition == cell[33]) {
-            players[chestAffectedPlayer].playerPosition = cell[38];
-        } else if (players[chestAffectedPlayer].playerPosition == cell[7]) {
-            players[chestAffectedPlayer].playerPosition = cell[12];
-        } else if (players[chanceAffectedPlayer].playerPosition == cell[23]) {
-            players[chestAffectedPlayer].playerPosition = cell[26];
+        if (players[chestAffectedPlayer].playerPosition == 33) {
+            cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+            cell[38].appendChild(playerIcon);
+            players[chestAffectedPlayer].playerPosition = 38;
+        } else if (players[chestAffectedPlayer].playerPosition == 7) {
+            cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+            cell[12].appendChild(playerIcon);
+            players[chestAffectedPlayer].playerPosition = 12;
+        } else if (players[chanceAffectedPlayer].playerPosition == 23) {
+            cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
+            cell[26].appendChild(playerIcon);
+            players[chestAffectedPlayer].playerPosition = 26;
         } else {
             console.log("Something is going wrong with the opportunist card")
         }
     } else if (chestCard = 8) {
         //CaughtLackin'
+        cell[x].removeChild(playerIcon); 
+        cell[0].appendChild(playerIcon);
         players[chestAffectedPlayer].jailed = true;
-        players[chestAffectedPlayer].playerPosition = cell[0];
+        players[chestAffectedPlayer].playerPosition = 0;
         console.log("Caught Lackin");
     } else if (chestCard = 9) {
         //Leap Year
-        players[chestAffectedPlayer].playerPosition = cell[30];
+        cell[x].removeChild(playerIcon); 
+        cell[30].appendChild(playerIcon);
+        players[chestAffectedPlayer].playerPosition = 30;
         // CAN NOT FINISH THIS BECAUSE WE DONT HAVE AN ANNUAL INCOME VARIABLE YET. 
         console.log("Leap year");
     } else if (chestCard = 10) {
