@@ -89,10 +89,21 @@ function rollDice(x) {
     diceAnim();
 }
 
-let playerIcon = document.createElement('div');
+let playerIcon = document.createElement('span');
 function createPlayers() {
-    playerIcon.classList.add('active', 'frog');
-    cell[30].appendChild(playerIcon);
+    for (let player of players) {
+        if (players['length'] == 1) {
+            playerIcon.classList.add('active', 'frog');
+            cell[30].appendChild(playerIcon);
+            players[turnCycle].playerPosition = 30;
+        } else if (players['length'] == 2) {
+            playerIcon.classList.add('active', 'frog');
+            playerIcon.classList.add('active', 'frog2');
+            cell[30].appendChild(playerIcon);
+            players[turnCycle].playerPosition = 30;
+        }
+    }
+    
 }
 
 function playerMove(x) { 
@@ -126,11 +137,11 @@ function buyProperty() {
     let purchaseAlert = document.createElement('div');
     purchaseAlert.classList.add('purchaseAlert');
     gameBoard.appendChild(purchaseAlert);
-    if (bullMarket == true) {
+    if (bullMarket == true) { //If the bullMarket world event it true 
         if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10] * bullMarketMultiplier)) {
             players[turnCycle].property.push(propertyData[players[turnCycle].playerPostion]);
         } 
-    } else if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10])) {
+    } else if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10])) { //If the player's budget is greater than the current propertie's cost they are on. 
         players[turnCycle].property.push(propertyData[players[turnCycle].playerPostion]);
     } 
 

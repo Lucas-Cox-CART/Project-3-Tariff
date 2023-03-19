@@ -351,7 +351,6 @@ span div label .customButton {
     margin-right:20px;
     text-align: center;
     font-weight: bolder;
-    margin-top: 62px;
 }  
 
 #cell11 div:not(.active), #cell13 div:not(.active), #cell14 div:not(.active), #cell16 div:not(.active), #cell17 div:not(.active), #cell19 div:not(.active) {
@@ -372,7 +371,6 @@ span div label .customButton {
     margin-right:20px;
     text-align: center;
     font-weight: bolder;
-    margin-top: 62px;
 }  
 
 #cell31 div, #cell33 div {
@@ -734,6 +732,14 @@ background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 
 
 .frog {
     content: url(../images/PC-PIECES/FrogCharacter.gif);
+    height: 50px;
+    width: 50px;
+}
+
+.frog2 {
+    content: url(../images/PC-PIECES/FrogTurn.gif);
+    height: 50px;
+    width: 50px;
 }
 
 .herm {
