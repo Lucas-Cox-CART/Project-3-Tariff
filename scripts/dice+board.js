@@ -89,10 +89,11 @@ function rollDice(x) {
     diceAnim();
 }
 
-let playerIcon = document.createElement('div');
+let playerIcon = document.createElement('span');
 function createPlayers() {
     playerIcon.classList.add('active', 'frog');
     cell[30].appendChild(playerIcon);
+    players[turnCycle].playerPosition = 30;
 }
 
 function playerMove(x) { 
@@ -129,11 +130,11 @@ function buyProperty() {
     if (bullMarket == true) {
         if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10] * bullMarketMultiplier)) {
             players[turnCycle].property.push(propertyData[players[turnCycle].playerPostion]);
+            
         } 
     } else if (players[turnCycle].budget > (propertyData[players[x].playerPostion][10])) {
         players[turnCycle].property.push(propertyData[players[turnCycle].playerPostion]);
-    } 
-
+    }
     playerTurnEnd(x);
 }
 
@@ -152,11 +153,14 @@ function goCheck(x) {
         for (let player of players) {
             player.goCounter = 0;
             player.budget = player.budget + ((50000 + (player.property['length'] * ( 50000 * 0.33))) - ((50000 + (player.property['length'] * ( 50000 * 0.33))) * generalTax));
+            // Player's budget = Player's budget - (Player's budget * the current tax)
+            //The "for loop" gives all players annual income, and pushes them all to go. 
+            //50,000$ is the default annual income. 
         }
-        for (let player of players) {
-            player.playerPosition = cell[0];
+        for (let player of players) { 
+            player.playerPosition = cell[30]; //
         }
-        election();
+        election(); 
     } else {
         playerTurnEnd();
     }
@@ -211,6 +215,7 @@ function playerTurnEnd(x) {
     }
     diceValue1 = 0;
     diceValue2 = 0;
+    extrasDetect();
     chanceDetect(turnCycle); //Checks if the player is on a chance tile
     chestDetect(turnCycle); //Checks if the player is on a chest tile
 }

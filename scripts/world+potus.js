@@ -198,7 +198,7 @@ function technologicalInventionWorldEvent() {
 }
 
 function wasteOfAnEventWorldEvent() {
-    //What did you expect was going to happen?
+    //What did you expect was going to happen? death 
     console.log("WASTE OF A WORLD EVENT")
 }
 
@@ -361,7 +361,7 @@ function performChanceCard() {
         if (players[chanceAffectedPlayer].playerPosition == 38) {
             players[chanceAffectedPlayer].playerPosition = 5;
             cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
-            cell[5].appendChild(playerIcon);
+            cell[5].appendChild(playerIcon); 
         } else if (players[chanceAffectedPlayer].playerPosition == 12) {
             cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
             cell[15].appendChild(playerIcon);
