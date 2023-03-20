@@ -99,13 +99,13 @@
                         <option value="false">No</option>
                     </select>
                 </div>
-                <div>
+                <!-- <div>
                     <p>Party! Mode:</p>
                     <label for="partyMode">
                         <input type="checkbox" id="partyMode">
                         <div class="PMButton"></div>
                     </label>    
-                </div>
+                </div> -->
                 <div>
                     <button onclick="startGame()">Start Game!</button>
                 </div>
@@ -191,8 +191,8 @@
                 </span>
                 <span class="E2R-B4">
                     <div id="cell30 johnBlowsWhistle">Go To Jail</div>
-                    <div id="cell31">Fast Fusion</div>
-                    <div id="cell32">Mary Allen Solar</div>
+                    <div id="cell31"> <div>Fast Fusion</div> </div>
+                    <div id="cell32"> <div>Mary Allen Solar</div> </div>
                     <div id="cell33">Chest</div>
                     <div id="cell34"><div>Robert Atomic</div></div>
                     <div id="cell35"><div>American Ambulance</div></div>
@@ -202,6 +202,33 @@
                     <div id="cell39"><div>Empire State</div></div>
                     <div id="cell1">GO</div>
                 </span>
+
+                <article class="electionAlert">
+                    <span>
+                        <div id="electionSide1">
+
+                        </div>
+                        <div id="electionSide2">
+
+                        </div>
+                    </span>
+                    <span>
+                        <div>
+                            <!--Candidate 1/2 Name/Quote-->
+                            <h3 id="C1N"></h3>
+                            <p id="C1Q"></p>
+                        </div>
+                        <div>
+                            <h3 id="C2N"></h3>
+                            <p id="C2Q"></p>
+                        </div>
+                    </span>
+                    <span>
+                        <div type="button">Vote for</div>
+                        <div type="button">Vote for</div>
+                    </span>
+                </article>
+
             </article>
         </section>
     </main>

@@ -1,17 +1,89 @@
 function election() {
-    let electionAlert = document.createElement('div');
-    electionAlert.classList.add('electionAlert');
-    gameBoard.appendChild(electionAlert);
+    let electionAlert = document.getElementByClassName('electionAlert');
+    electionAlert.style.display = 'flex';
 
-    let electionSide1 = document.createElement('div');
-    electionSide1.classList.add('electionSide');
-    electionAlert.appendChild(electionSide1);
+    let electionSide1 = document.getElementById('electionSide1');
+    let electionSide2 = document.getElementById('electionSide2');
+    let C1Math = Math.floor(Math.random() * 7);
+    let C2Math = Math.floor(Math.random() * 7);
 
-    let electionSide2 = document.createElement('div');
-    electionSide2.classList.add('electionSide');
-    electionAlert.appendChild(electionSide2);
+    let C1N = document.getElementById('C1N');
+    let C2N = document.getElementById('C2N');
+    let C1Q = document.getElementById('C1Q');
+    let C2Q = document.getElementById('C2Q');
 
-    let electDiv = [];
+
+    function CFiller() {
+        if (C1Math == 0 && C2Math != 0) {
+            electionSide1.classList.add('PKirk');
+            C1N.innerText = electCandidates[0].name;
+            C1Q.innerText = electCandidates[0].quote;
+        } else if (C1Math == 1 && C2Math != 1) {
+            electionSide1.classList.add('POlsen');
+            C1N.innerText = electCandidates[1].name;
+            C1Q.innerText = electCandidates[1].quote;
+        } else if (C1Math == 2 && C2Math != 2) {
+            electionSide1.classList.add('PCox');
+            C1N.innerText = electCandidates[2].name;
+            C1Q.innerText = electCandidates[2].quote;
+        } else if (C1Math == 3 && C2Math != 3) {
+            electionSide1.classList.add('PEthan');
+            C1N.innerText = electCandidates[3].name;
+            C1Q.innerText = electCandidates[3].quote;
+        } else if (C1Math == 4 && C2Math != 4) {
+            electionSide1.classList.add('PZach');
+            C1N.innerText = electCandidates[4].name;
+            C1Q.innerText = electCandidates[4].quote;
+        } else if (C1Math == 5 && C2Math != 5) {
+            electionSide1.classList.add('PMason');
+            C1N.innerText = electCandidates[5].name;
+            C1Q.innerText = electCandidates[5].quote;
+        } else if (C1Math == 6 && C2Math != 6) {
+            electionSide1.classList.add('PPaul');
+            C1N.innerText = electCandidates[6].name;
+            C1Q.innerText = electCandidates[6].quote;
+        } else if (C1Math == 7 && C2Math != 7) {
+            electionSide1.classList.add('PJustus');
+            C1N.innerText = electCandidates[7].name;
+            C1Q.innerText = electCandidates[7].quote;
+        } else if (C2Math == 0 && C1Math != 0) {
+            electionSide2.classList.add('PKirk');
+            C2N.innerText = electCandidates[0].name;
+            C2Q.innerText = electCandidates[0].quote;
+        } else if (C2Math == 1 && C1Math != 1) {
+            electionSide2.classList.add('POlsen');
+            C2N.innerText = electCandidates[1].name;
+            C2Q.innerText = electCandidates[1].quote;
+        } else if (C2Math == 2 && C1Math != 2) {
+            electionSide2.classList.add('PCox');
+            C2N.innerText = electCandidates[2].name;
+            C2Q.innerText = electCandidates[2].quote;
+        } else if (C2Math == 3 && C1Math != 3) {
+            electionSide2.classList.add('PEthan');
+            C2N.innerText = electCandidates[3].name;
+            C2Q.innerText = electCandidates[3].quote;
+        } else if (C2Math == 4 && C1Math != 4) {
+            electionSide2.classList.add('PZach');
+            C2N.innerText = electCandidates[4].name;
+            C2Q.innerText = electCandidates[4].quote;
+        } else if (C2Math == 5 && C1Math != 5) {
+            electionSide2.classList.add('PMason');
+            C2N.innerText = electCandidates[5].name;
+            C2Q.innerText = electCandidates[5].quote;
+        } else if (C2Math == 6 && C1Math != 6) {
+            electionSide2.classList.add('PPaul');
+            C2N.innerText = electCandidates[6].name;
+            C2Q.innerText = electCandidates[6].quote;
+        } else if (C2Math == 7 && C1Math != 7) {
+            electionSide2.classList.add('PJustus');
+            C2N.innerText = electCandidates[7].name;
+            C2Q.innerText = electCandidates[7].quote;
+        } else {
+            CFiller();
+        }
+    }
+    CFiller();
+
     let electCandidates = [
         { 
             name: `Colby Kirk`,
@@ -46,87 +118,21 @@ function election() {
             quote: `" how much gold for that rock? "`
         }
     ]
-
-    for (let i = 0; i <= 7; i++) {
-        electDiv[i] = document.createElement('div');
-        let electHead = document.createElement('h3');
-        let electCont = document.createElement('p');
-            electHead.innerText = electCandidates[i].name;
-            electCont.innerText = electCandidates[i].quote;
+//     for (let i = 0; i <= 7; i++) {
+//         electDiv[i] = document.createElement('div');
+//         let electHead = document.createElement('h3');
+//         let electCont = document.createElement('p');
+//         electHead.innerText = electCandidates[i].name;
+//         electCont.innerText = electCandidates[i].quote;
         
-        electDiv[i].appendChild(electHead);
-        electDiv[i].appendChild(electCont);
-        electDiv[i].style.display = 'none';
-        electionAlert.appendChild(electDiv[i]);
-    }
-
-    let CandidateOne;
-    function C1Maker() {
-        let CandidateOne = Math.floor(Math.random() * 8);
-        if (CandidateOne == 0 && CandidateTwo != 0) {
-            electionSide1.classList.add('PKirk');
-            electDiv[0].style.display = 'flex';
-        } else if (CandidateOne == 1 && CandidateTwo != 1) {
-            electionSide1.classList.add('POlsen');
-            electDiv[1].style.display = 'flex';
-        } else if (CandidateOne == 2 && CandidateTwo != 2) {
-            electionSide1.classList.add('PCox');
-            electDiv[2].style.display = 'flex';
-        } else if (CandidateOne == 3 && CandidateTwo != 3) {
-            electionSide1.classList.add('PEthan');
-            electDiv[3].style.display = 'flex';
-        } else if (CandidateOne == 4 && CandidateTwo != 4) {
-            electionSide1.classList.add('PZach');
-            electDiv[4].style.display = 'flex';
-        } else if (CandidateOne == 5 && CandidateTwo != 5) {
-            electionSide1.classList.add('PMason');
-            electDiv[5].style.display = 'flex';
-        } else if (CandidateOne == 6 && CandidateTwo != 6) {
-            electionSide1.classList.add('PPaul');
-            electDiv[6].style.display = 'flex';
-        } else if (CandidateOne == 7 && CandidateTwo != 7) {
-            electionSide1.classList.add('PJustus');
-            electDiv[7].style.display = 'flex';
-        } else {
-            C1Maker();
-        }
-    }
-
-    let CandidateTwo;
-    function C2Maker() {
-        let CandidateTwo = Math.floor(Math.random() * 7);
-        if (CandidateTwo == 0 && CandidateOne != 0) {
-            electionSide2.classList.add('PKirk');
-            electDiv[0].style.display = 'flex';
-        } else if (CandidateTwo == 1 && CandidateOne != 1) {
-            electionSide2.classList.add('POlsen');
-            electDiv[1].style.display = 'flex';
-        } else if (CandidateTwo == 2 && CandidateOne != 2) {
-            electionSide2.classList.add('PCox');
-            electDiv[2].style.display = 'flex';
-        } else if (CandidateTwo == 3 && CandidateOne != 3) {
-            electionSide2.classList.add('PEthan');
-            electDiv[3].style.display = 'flex';
-        } else if (CandidateTwo == 4 && CandidateOne != 4) {
-            electionSide2.classList.add('PZach');
-            electDiv[4].style.display = 'flex';
-        } else if (CandidateTwo == 5 && CandidateOne != 5) {
-            electionSide2.classList.add('PMason');
-            electDiv[5].style.display = 'flex';
-        } else if (CandidateTwo == 6 && CandidateOne != 6) {
-            electionSide2.classList.add('PPaul');
-            electDiv[6].style.display = 'flex';
-        } else if (CandidateTwo == 7 && CandidateOne != 7) {
-            electionSide2.classList.add('PJustus');
-            electDiv[7].style.display = 'flex';
-        } else {
-            C2Maker();
-        }
-    }
-
-    C1Maker();
-    C2Maker();
+//         electDiv[i].appendChild(electHead);
+//         electDiv[i].appendChild(electCont);
+//         electDiv[i].style.display = 'none';
+//         electionAlert.appendChild(electDiv[i]);
+//     }
+// }
 }
+
 let worldEventChooser = 0;
 function beginEvent() {
   worldEventChooser = Math.floor(Math.random() * (8 - 1) + 1);
@@ -152,13 +158,13 @@ function beginEvent() {
 // world events 
 
 const worldEvents = [
-    ["Pandemic 1", "The pandemic has started! Lucky for you you get a 15000 stimulus, but... inflation is up 10%. Tread lightly. "],
+    //I removed Impending doom because I have no time to make that. 
+    ["Pandemic 1", "The pandemic has started! Lucky for you you get a 15,000$ stimulus, but... inflation is up 10%. Tread lightly. "],
     ["Pandemic 2", "Well that is not good... 5% inflation.... and you get only half your annual income!"],
     ["Bull Market", "At the end of every player's turn, the price of all stats on properties rise by 5-20%."],
     ["Recession", "OH NOES! The economy inflated by 15%, and now all properties produce 10% less!"],
     ["Waste of an event", "Some twitter person started up a whole conspiracy where something bad was going to happen. This is stupid. Nothing bad is ever going to happen."],
     ["War", "Some genius decided war is a good idea. This is super good for you! You get +20% extra on annual income... but be careful: Taxes are up."],
-    ["Impending doom", "What did you guys do??? You idiots! Now you have to work together to solve this stupid problem. Everyone needs to work together to pitch in a total of 250,000 to fund a defense."],
     ["Technological Revolution", "A revolutionary new invention was just made! One player dominated the market and nearly doubled their income! Every other player wasted valuable resources and lost 20% of their wealth."],
 ]
 
@@ -221,9 +227,6 @@ function warWorldEvent() {
     generalTax // = generalTax + President tax value
 }
 
-function impendingDoom() {
-    //I don't know how to code this yet
-}
 
 const propertyData = [
     //[name, rent, house1, house2, house3, house4, hotel, mortgage, pricehouse, pricehotel, purchaseCost]
@@ -263,7 +266,7 @@ const propertyData = [
     ['DeLaRosa Atomic', 7000, 37500, 112500, 250000, 300000, 350000, 40000, 50000, 200000, 80000],
     ['American Ambulance'],
     ['Chance'],
-    ['Trump Tower', 8700, 43800, 125000, 275000, 325000, 375000, 43700, 50000, 200000, 87500],
+    ['Chump Tower', 8700, 43800, 125000, 275000, 325000, 375000, 43700, 50000, 200000, 87500],
     ['Luxury Tax'],
     ['Empire State Building', 12500, 50000, 150000, 350000, 425000, 500000, 50000, 50000, 200000, 100000]
 ]

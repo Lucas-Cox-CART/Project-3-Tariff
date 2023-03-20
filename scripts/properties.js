@@ -1,41 +1,77 @@
-let properties = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+let properties = []
+
+for (i = 0; i < 40; i++) {
+    properties.push(null)
+}
 
 // const tiles = [
 //     [document.getElementById("cell01")]
 // ]
-
+// null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0},null = {buildings: 0}
 let tiles = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 //Use cell[x] to determine playerPosition for now on. 
 
-function propertyIdentify(x,y) { //This function determines what property the player is on
-    if (players[x].playerPosition != 8 || 22 || 36 || 2 || 17 || 33 || 4 || 38 || 0 || 10 || 20 || 30) {
-        if (properties[x] = 0) {
-            playProperty()
-        } else if (properties[x] = 1) {
-            payRent(y)
+function propertyIdentify() { //This function determines what property the player is on
+    if (players[turnCycle].playerPosition != 9 || players[turnCycle].playerPosition != 23 || players[turnCycle].playerPosition != 37 || players[turnCycle].playerPosition != players[turnCycle].playerPosition != 3 || players[turnCycle].playerPosition != 18 || players[turnCycle].playerPosition != 34 || players[turnCycle].playerPosition != 5 || players[turnCycle].playerPosition != 39 || players[turnCycle].playerPosition != 1 || players[turnCycle].playerPosition != 11 || players[turnCycle].playerPosition != 21 || players[turnCycle].playerPosition != 31) {
+    playProperty()
+    }
+}
+
+let rentedProperty;
+
+function playProperty() {
+    if (properties[players[turnCycle].playerPosition] == bl) {
+        players[turnCycle].budget = players[turnCycle].budget - (propertyData[players[turnCycle].playerPostion][10]);
+        properties[players[turnCycle].playerPosition] = turnCycle = {buildings: 0};
+    } else if (properties[players[turnCycle].playerPosition] == turnCycle) {
+        buyBuildings();
+    } else {
+        rentedProperty = properties[players[turnCycle].playerPostion]
+        if (propertyData[players[turnCycle].playerPosition].buildings == 0) {
+        players[turnCycle].budget = players[turnCycle].budget - (propertyData[players[turnCycle].playerPostion][1]);
+        players[rentedProperty].budget = players[rentedProperty].budget + (propertyData[players[turnCycle].playerPostion][1]);
+        } else if (propertyData[players[turnCycle].playerPosition].buildings == 1) {
+        players[turnCycle].budget = players[turnCycle].budget - (propertyData[players[turnCycle].playerPostion][2]);
+        players[rentedProperty].budget = players[rentedProperty].budget + (propertyData[players[turnCycle].playerPostion][2]);
+        } else if (propertyData[players[turnCycle].playerPosition].buildings == 2) {
+        players[turnCycle].budget = players[turnCycle].budget - (propertyData[players[turnCycle].playerPostion][3]);
+        players[rentedProperty].budget = players[rentedProperty].budget + (propertyData[players[turnCycle].playerPostion][3]);
+        } else if (propertyData[players[turnCycle].playerPosition].buildings == 3) {
+        players[turnCycle].budget = players[turnCycle].budget - (propertyData[players[turnCycle].playerPostion][4]);
+        players[rentedProperty].budget = players[rentedProperty].budget + (propertyData[players[turnCycle].playerPostion][4]);
+        } else if (propertyData[players[turnCycle].playerPosition].buildings == 4) {
+        players[turnCycle].budget = players[turnCycle].budget - (propertyData[players[turnCycle].playerPostion][5]);
+        players[rentedProperty].budget = players[rentedProperty].budget + (propertyData[players[turnCycle].playerPostion][5]);
+        } else if (propertyData[players[turnCycle].playerPosition].buildings == 5) {
+        players[turnCycle].budget = players[turnCycle].budget - (propertyData[players[turnCycle].playerPostion][6]);
+        players[rentedProperty].budget = players[rentedProperty].budget + (propertyData[players[turnCycle].playerPostion][6]);
         }
     }
 }
 
-function playProperty(x) {
-    if (properties[players[x].playerPosition] == 0) {
-        players[x].budget = players[x].budget - (propertyData[players[x].playerPostion][10])
-        properties[players[x].playerPosition] = players[x]
-    } else if (properties[players[x].playerPosition] == players[x]) {
-        buyBuildings()
-    } else {
-        players[x].budget = players[x].budget - (propertyData[players[x].playerPostion][1])
-    }
-    //maybe move turn end call to here
-}
-
 function buyBuildings() { //for buying houses and whatnot
-
+ if (properties[players[turnCycle].playerPosition].buildings < 4) {
+    if (players[turnCycle].budget < propertyData[players[turnCycle].playerPostion][8]) {
+     alert('Not enough money to purchase building');
+    } else {
+        players[turnCycle].budget - propertyData[players[turnCycle].playerPostion][8];
+        properties[players[turnCycle].playerPosition].buildings = properties[players[turnCycle].playerPosition].buildings + 1;
+    }
+ } else if (properties[players[turnCycle].playerPosition].buildings == 4) {
+    if (players[turnCycle].budget < propertyData[players[turnCycle].playerPostion][9]) {
+     alert('Not enough money to purchase building');
+    } else {
+        players[turnCycle].budget - propertyData[players[turnCycle].playerPostion][9];
+        properties[players[turnCycle].playerPosition].buildings = properties[players[turnCycle].playerPosition].buildings + 1;
+    }
+ } else {
+    alert('This property cannot have another building')
+ }
 }
 
-function chanceDetect(turnCycle) {
-    if (players[turnCycle].playerPosition  == 38 || players[turnCycle].playerPosition == 12 || players[turnCycle].playerPosition == 26){ // If player is on chance tile or chest tile
+function chanceDetect() {
+    if (players[turnCycle].playerPosition  == 3 || players[turnCycle].playerPosition == 9 || players[turnCycle].playerPosition == 22){ // If player is on chance tile or chest tile
             performChanceCard();
             console.log("It works");
     } else {
@@ -43,15 +79,11 @@ function chanceDetect(turnCycle) {
     }
 }
 
-function chestDetect(turnCycle) {
-    if (players[turnCycle].playerPosition == 7 || players[turnCycle].playerPosition == 32 || players[turnCycle].playerPosition == 23) {
+function chestDetect() {
+    if (players[turnCycle].playerPosition == 18 || players[turnCycle].playerPosition == 3 || players[turnCycle].playerPosition == 33) {
         performChestCard();
         console.log("It works")
     } else {
         console.log("The code does not recognize the player is on a chest card")
     }
 }
-
-// daniel was here :> 
-// Consider eating some bananas later mason 
-// I do not know for sure, but there is a chance I am allergic to bananas actually. - Jason from Friday the 13th (I had my birthday on Friday the 13th 2 years ago >:) )

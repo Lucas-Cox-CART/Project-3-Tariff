@@ -362,55 +362,55 @@ div[type="button"] p::selection {
     margin-top: 62px;
 } */
 
-#cell31 div, #cell33 div {
+#cell2 div, #cell4 div {
     /* Brown Properties */
     background-color: rgb(165, 130, 42);
 }
-#cell36 div, #cell37 div, #cell39 div {
+#cell7 div, #cell8 div, #cell10 div {
     /* Sky Blue Properties */
     background-color: rgb(178, 220, 237);
 }
-#cell1 div, #cell3 div, #cell4 div {
+#cell12 div, #cell14 div, #cell15 div {
     /* Brownish Red Properties */
     background-color: rgb(208, 108, 108);
 }
-#cell6 div, #cell8 div, #cell9 div {
+#cell17 div, #cell19 div, #cell20 div {
     /* Orange Properties */
     background-color: orange;
 }
-#cell29 div, #cell27 div {
+#cell37 div, #cell39 div {
     /* Blue Properties */
     background-color: rgb(121, 132, 251);
 }
-#cell24 div, #cell22 div, #cell21 div {
+#cell31 div, #cell32 div, #cell34 div {
     /* Green Properties */
     background-color: greenyellow;
 }
-#cell11 div, #cell13 div, #cell14 div {
+#cell21 div, #cell23 div, #cell24 div {
     /* Red Properties */
     background-color: red;
 }
-#cell16 div, #cell17 div, #cell19 div {
+#cell26 div, #cell27 div, #cell29 div {
     /* Yellow Properties */
     background-color: yellow;
 }
-#cell35, #cell5, #cell15, #cell25 {
+#cell6, #cell16, #cell25, #cell35 {
     /* Transportation */
     background-color: rgb(165, 133, 255);
 }
-#cell35 div, #cell5 div, #cell15 div, #cell25 div{ 
+#cell6 div, #cell16 div, #cell25 div, #cell35 div{ 
     /*Also Transportation */
     background-color: rgb(165, 133, 255);
 }
-#cell2, #cell34, #cell18, #cell28 {
+#cell13, #cell28, #cell38, #cell5 {
     /* Extra tiles (water works, elec bill, etc) */
     background-color: rgb(242, 249, 255);
 }
-#cell7, #cell32, #cell23 {
+#cell18, #cell3, #cell33 {
     /* Chest tiles */
     background-color: khaki;
 }
-#cell38, #cell12, #cell26 {
+#cell9, #cell22, #cell36 {
     /* chance tiles  */
     background-color: pink;
 }
@@ -460,7 +460,7 @@ div[type="button"] p::selection {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 17vh;
     width: 100%;
 }
@@ -470,8 +470,8 @@ div[type="button"] p::selection {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 8vh;
-    width: 100%;
+    height: 7vh;
+    width: 80%;
     background-image: linear-gradient(90deg, rgba(0, 255, 0, 0.7), rgba(128, 255, 212, 0.7));
     border: 2px solid aqua;
     border-radius: 20px;
@@ -487,8 +487,8 @@ div[type="button"] p::selection {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 10vh;
-    width: 100%;
+    height: 7vh;
+    width: 80%;
     font-family: 'Goblin One', cursive;
     font-size: 2rem;
     font-weight: lighter;
@@ -514,14 +514,23 @@ div[type="button"] p::selection {
 .E2LM-1 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 45%;
-    height: 60vh;
+    height: 59vh;
+}
+
+.E2LM-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 45%;
+    height: 59vh;
 }
 
 .E2LM-PPS {
-    height: 50vh;
+    height: 48vh;
     width: 100%;
     border: 3px solid black;
     border-radius: 20px;
@@ -534,7 +543,7 @@ div[type="button"] p::selection {
 }
 
 .E2LM-PBS {
-    height: 10vh;
+    height: 8vh;
     width: 100%;
     border: 3px solid black;
     border-radius: 20px;
@@ -546,7 +555,7 @@ div[type="button"] p::selection {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 25vh;
+    height: 24vh;
     width: 100%;
     border: 3px solid black;
     border-radius: 20px;
@@ -558,7 +567,7 @@ div[type="button"] p::selection {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 25vh;
+    height: 24vh;
     width: 100%;
     border: 3px solid black;
     border-radius: 20px;
@@ -568,13 +577,10 @@ div[type="button"] p::selection {
 .E2LM-DF {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    height: 10vh;
+    height: 9vh;
     width: 100%;
-    border: 3px solid black;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
 }
 
 .E2LM-DBS {
@@ -582,7 +588,7 @@ div[type="button"] p::selection {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    height: 8vh;
     width: 50%;
     border: 3px solid black;
     border-radius: 20px;
@@ -594,11 +600,8 @@ div[type="button"] p::selection {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    height: 8vh;
     width: 50%;
-    border: 3px solid black;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
 }
 
 
@@ -631,7 +634,7 @@ div[type="button"] p::selection {
 /* Presidential Elections */
 
 .electionAlert {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     z-index: 9;
     top: 100px;
@@ -641,9 +644,10 @@ div[type="button"] p::selection {
     max-height: 70%;
     max-width: 57%;
     border: 10px black solid;
+    background-color: white;
 }
 
-.electionAlert div:not(.electionSide) {
+.electionAlert div:not(#electionSide1, #electionSide2) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -653,7 +657,8 @@ div[type="button"] p::selection {
     line-height: 30px;
 }
 
-.electionSide {
+#electionSide1,
+#electionSide2 {
     z-index: 9;
     width: 49.65%;
     height: 60vh;
@@ -748,7 +753,9 @@ div[type="button"] p::selection {
 
 #DL1 {
     height: 100%;
-    width: 100%;
+    width: 42%;
+    border: 3px solid black;
+    border-radius: 20px;
 }
 
 #DL1::selection {
@@ -757,7 +764,9 @@ div[type="button"] p::selection {
 
 #DL2 {
     height: 100%;
-    width: 100%;
+    width: 42%;
+    border: 3px solid black;
+    border-radius: 20px;
 }
 
 #DL2::selection {
@@ -765,25 +774,25 @@ div[type="button"] p::selection {
 }
 
 .D1 {
-    content: url(../images/DiceLogo/One.png);
+    content: url(../images/DiceLogo/DiceOne.png);
 }
 
 .D2 {
-    content: url(../images/DiceLogo/Two.png);    
+    content: url(../images/DiceLogo/DiceTwo.png);    
 }
 
 .D3 {
-    content: url(../images/DiceLogo/Three.png);    
+    content: url(../images/DiceLogo/DiceThree.png);    
 }
 
 .D4 {
-    content: url(../images/DiceLogo/Four.png);    
+    content: url(../images/DiceLogo/DiceFour.png);    
 }
 
 .D5 {
-    content: url(../images/DiceLogo/Five.png);    
+    content: url(../images/DiceLogo/DiceFive.png);    
 }
 
 .D6 {
-    content: url(../images/DiceLogo/Six.png);    
+    content: url(../images/DiceLogo/DiceSix.png);    
 }
