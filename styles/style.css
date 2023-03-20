@@ -1,15 +1,7 @@
-/* Universal */
-
 * {
-    font-size: 18px;
+    font-size: 16px;
     padding: 0;
     margin: 0;
-}
-
-main > section {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 
 option {
@@ -27,6 +19,13 @@ nav {
     box-shadow: 10px 5px 5px black;
 }
 
+nav p {
+    font-family: 'Times New Roman', 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    color: white;
+    background-color: transparent;
+}
+
 h1 {
     font-family: 'Tilt Prism', cursive;
     font-weight: lighter;
@@ -36,16 +35,9 @@ h1 {
     background-color: transparent;
 }
 
-nav p {
-    font-family:'Times New Roman', Times, serif;
-    font-size: 2.5rem;
-    color: white;
-    background-color: transparent;
-}
+/* Event 1: Intro Page*/
 
-
-/* Event 1: Intro Page */
-#event0 {
+#E0 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,14 +61,6 @@ nav p {
     align-items: center;
 }
 
-.Event1Container {
-    display: flex;
-    justify-content: center;
-    height: 25vh;
-    width: fit-content;
-    background-color:rgba(157, 159, 123, 0);
-}
-
 .introIcon button  {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(119, 119, 119, 0.8) 100%);
     animation-duration: 4s;
@@ -94,7 +78,7 @@ nav p {
 }
 
 .introIcon button:hover  {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .instructions {
@@ -120,52 +104,47 @@ nav p {
     height: 15%;
 }
 
-#event0 > article * {
+.instructions * {
     background-color: white;
 }
 
-#event0 > article .leftShift {
-    align-self: flex-start;
+.leftShift {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
+    align-items: center;
+    align-self: flex-start;
 }
 
-#event0 > article .rightShift {
-    align-self: flex-end;
+.rightShift {
+    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
+    align-items: center;
+    align-self: flex-end;
 }
 
-#event0 > article div h3 {
+.instructions div h3 {
     width: 80%;
     font-size: 2rem;
     font-family: 'Black Han Sans', sans-serif;
 }
 
-#event0 > article div p {
+.instructions div p {
     width: 80%;
     font-size: 1.4rem;
     font-family: 'Nanum Myeongjo', serif;
 }
 
-/* Event 1: Footer */
+/* Footer */
 footer {
-    background-color: black;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 3vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-footer section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
+    color: white;
+    background-color: black;
 }
 
 footer a {
@@ -187,7 +166,7 @@ footer p {
 }
 
 /* Event 2: Settings Menu */
-#event1 > div {
+#E1 {
     height: 100vh;
     background-color: rgb(255, 254, 248);
     width: 40vw;
@@ -198,39 +177,7 @@ footer p {
     font-size: 2em;
 }
 
-#event1 span * {
-    background-color: rgb(255, 255, 255);
-}
-
-#event1 input {
-    background-color: aliceblue;
-    margin-left: 20px;
-    margin-top: 5vh;
-}
-
-#event1 p {
-    margin-top: 5vh;
-}
-
-#event1 button {
-    background-color: aliceblue;
-    margin-top: 10vh;
-    padding: 20px;
-}
-
-#event1 img {
-    margin-right: 50%;
-    background: none;
-}
-
-#event1 span select:not(.customButton) {
-    width: 200px;
-    background-color: aliceblue;
-    margin-left: 20px;
-    margin-top: 5vh;
-}
-
-#event1 span {
+#E1 article {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -238,7 +185,39 @@ footer p {
     align-items: center;
 }
 
-#event1 span div {
+#E1 article * {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#E1 input {
+    background-color: aliceblue;
+    margin-left: 20px;
+    margin-top: 5vh;
+}
+
+#E1 p {
+    margin-top: 5vh;
+}
+
+#E1 button {
+    background-color: aliceblue;
+    margin-top: 10vh;
+    padding: 20px;
+}
+
+#E1 img {
+    margin-right: 50%;
+    background: none;
+}
+
+#E1 article div select:not(.PMButton) {
+    width: 200px;
+    background-color: aliceblue;
+    margin-left: 20px;
+    margin-top: 5vh;
+}
+
+#E1 article div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,11 +225,11 @@ footer p {
     width: 100%;
 }
 
-input[type="checkbox"] {
+label[for="partyMode"] input[type="checkbox"] {
     visibility: hidden;
 }
 
-span div label .customButton {
+.PMButton {
     height: 20px;
     width: 20px;
     background-color: red;
@@ -258,53 +237,75 @@ span div label .customButton {
 
 /* Event 3: Game */
 
-/* Game Board */
-#cell0 {
-    content: url(../images/GameResources/bankLoan.gif);
-}
-
-#cell20 {
-    content: url(../images/GameResources/John.gif);
-}
-
-#cell30 {
-    /* content: url(../images/GameResources/GOSymbol.gif); */
-}
-
-#event2 {
-    align-items: center;
+/* Game Board Side */
+#E2 {
     display: flex;
     flex-direction: row;
     justify-content: right;
+    align-items: center;
 }
 
-#event2 *:not(#event2sup *) {
-    /* background-color: white; */
-    max-height: 100%;
-}
-
-#event2 #event2sub {
+#E2R {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     width: 1025px;
-    height: 98.3%;
-    background-color: rgb(227, 227, 227);
-}
-
-#event2 #event2sup {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 50%;
     height: 98.3vh;
+    background-color: rgba(227, 227, 227, 1);
+    max-height: 100%;
 }
 
-#event2sup *:not(.lowsupFather *, .diceFather *, .pIFather *, .placeholder *) {
-    background-color: white;
+.E2R-B1,
+.E2R-B2,
+.E2R-B3,
+.E2R-B4 {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
 }
 
-.cell img {
+.E2R-B1 {
+    flex-direction: row;
+}
+
+.E2R-B2 {
+    flex-direction: column-reverse;
+}
+
+.E2R-B3 {
+    flex-direction: column;
+}
+
+.E2R-B4 {
+    flex-direction: row-reverse;
+}
+
+div[type="button"] p {
+    background-color: transparent;
+    font-size: 1.5rem;
+}
+
+div[type="button"] p::selection {
+    background-color: unset;
+}
+
+.E2R-B1 > div,
+.E2R-B2 > div,
+.E2R-B3 > div,
+.E2R-B4 > div {
+    width: 70px;
+    height: 70px;
+    border: 2px black solid;
+    padding: 10px;
+    background-color: rgb(241, 241, 241);
+    position: relative;
+    z-index: 1;
+}
+
+.E2R-B1 div img,
+.E2R-B2 div img,
+.E2R-B3 div img,
+.E2R-B4 div img {
     background-color: rgb(241, 241, 241);
     width: 75%;
     padding: 0;
@@ -319,17 +320,7 @@ span div label .customButton {
     border-radius: 20px 20px 20px 20px;
 }
 
-.cell {
-    width: 70px;
-    height: 70px;
-    border: 2px black solid;
-    padding: 10px;
-    background-color: rgb(241, 241, 241);
-    position: relative;
-    z-index: 1;
-}
-
-#cell31 div:not(.active), #cell33 div:not(.active), #cell34 div:not(.active), #cell36 div:not(.active), #cell37 div:not(.active), #cell39 div:not(.active) {
+/* #cell31 div:not(.active), #cell33 div:not(.active), #cell34 div:not(.active), #cell36 div:not(.active), #cell37 div:not(.active), #cell39 div:not(.active) {
     font-size: 0.7em;
     padding: 2px;
     transform: rotate(90deg);
@@ -346,7 +337,8 @@ span div label .customButton {
     width: 100%;
     margin-right:20px;
     text-align: center;
-    font-weight: bolder; 
+    font-weight: bolder;
+    margin-top: 62px;
 }  
 
 #cell11 div:not(.active), #cell13 div:not(.active), #cell14 div:not(.active), #cell16 div:not(.active), #cell17 div:not(.active), #cell19 div:not(.active) {
@@ -367,7 +359,8 @@ span div label .customButton {
     margin-right:20px;
     text-align: center;
     font-weight: bolder;
-}  
+    margin-top: 62px;
+} */
 
 #cell31 div, #cell33 div {
     /* Brown Properties */
@@ -422,53 +415,220 @@ span div label .customButton {
     background-color: pink;
 }
 
-#firstBlock,
-#secondBlock,
-#thirdBlock,
-#fourthBlock {
+#cell30 {
+    content: url(../images/GameResources/John.gif);
+}
+
+#cell1 {
+    content: url(../images/GameResources/GOArrow.gif);
+}
+
+/* Player Information Side */
+#E2L {
     display: flex;
-    width: fit-content;
-    height: fit-content;
-}
-
-#firstBlock {
-    flex-direction: row;
-}
-
-#fourthBlock {
-    flex-direction: row-reverse;
-}
-
-#thirdBlock {
     flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+    height: 98.3%;
 }
 
-#secondBlock {
-    flex-direction: column-reverse;
+#E2L * {
+    background-color: white;
 }
 
-#diceButton p {
+.E2LB-CES *, .E2LM-DBS *, .E2LM-1 *, .E2LM-CC1 *, .E2LM-CC2 * {
     background-color: transparent;
-    font-size: 1.5rem;
 }
 
-#diceButton p::selection {
+/* Purchase Alert */
+.purchaseAlert {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 9;
+    top: 100px;
+    left: 21.5%;
+    position: absolute;
+    height: 70%;
+    max-height: 70%;
+    width: 57%;
+    border: 10px black solid;
+    background-color: white;
+}
+
+/* E2LT */
+.E2LT {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 17vh;
+    width: 100%;
+}
+
+#E2LT-PIH {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    width: 100%;
+    background-image: linear-gradient(90deg, rgba(0, 255, 0, 0.7), rgba(128, 255, 212, 0.7));
+    border: 2px solid aqua;
+    border-radius: 20px;
+    margin: 20px 0px 0px 0px;
+}
+
+#E2LT-PIH * {
     background-color: unset;
 }
 
-/* Presidential Elections */
-
-#event2 > #electD > #KD,
-#event2 > #electD > #OD,
-#event2 > #electD > #RD,
-#event2 > #electD > #PTD,
-#event2 > #electD > #CD,
-#event2 > #electD > #PSD,
-#event2 > #electD > #ZD,
-#event2 > #electD > #GD {
-    display: none;
-    z-index: 9;
+#E2LT-PTI {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 100%;
+    font-family: 'Goblin One', cursive;
+    font-size: 2rem;
+    font-weight: lighter;
+    border: 3px black solid;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
 }
+
+/* E2LM */
+.E2LM {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60vh;
+    width: 100%;
+}
+
+.E2LM p {
+    background-color: transparent;
+}
+
+.E2LM-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 60vh;
+}
+
+.E2LM-PPS {
+    height: 50vh;
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+#E2LM-PPD {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.E2LM-PBS {
+    height: 10vh;
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+#E2LM-CC1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+#E2LM-CC2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+.E2LM-DF {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+.E2LM-DBS {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 50%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+.DL {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 50%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+
+/* E2LB */
+.E2LB {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 17vh;
+    width: 100%;
+}
+
+.E2LB p {
+    background-color: transparent;
+}
+
+.E2LB-CES,
+.E2LB-CPS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 100%;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
+}
+
+/* Presidential Elections */
 
 .electionAlert {
     display: flex;
@@ -513,199 +673,16 @@ span div label .customButton {
     margin: -3px;
 }
 
-.lowsupFather *, .diceFather *, .pIFather *, .placeholder * {
-    background-color: transparent;
-}
-
-/* Purchase Alert */
-.purchaseAlert {
-    display: flex;
-    flex-wrap: wrap;
+#KD,
+#OD,
+#RD,
+#PTD,
+#CD,
+#PSD,
+#ZD,
+#GD {
+    display: none;
     z-index: 9;
-    top: 100px;
-    left: 21.5%;
-    position: absolute;
-    height: 70%;
-    max-height: 70%;
-    width: 57%;
-    border: 10px black solid;
-    background-color: white;
-}
-
-/* Top Sup */
-.topsup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 17vh;
-    width: 100%;
-}
-
-#playerBar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 8vh;
-    width: min-content;
-    background-image: linear-gradient(90deg, rgba(0, 255, 0, 0.7), rgba(128, 255, 212, 0.7));
-    border: 2px solid aqua;
-    border-radius: 20px;
-    margin: 20px 0px 0px 0px;
-}
-
-#event2sup .topsup #playerBar * {
-    background-color: unset;
-}
-
-.cPCFather {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-    width: 100%;
-}
-
-#currentPC {
-    font-family: 'Goblin One', cursive;
-    font-size: 2rem;
-    font-weight: lighter;
-}
-
-/* Mid Sup */
-.midsup {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 60vh;
-    width: 100%;
-}
-
-.midsup p {
-    background-color: transparent;
-}
-
-.pIFather {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-width: 45%;
-height: 60vh;
-border: 3px solid black;
-border-radius: 20px;
-background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-}
-
-#playerInventory {
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.test {
-    height: 30vh;
-    width: 100%;
-    background-color: white;
-}
-
-.midsupsub {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 45%;
-    height: 60vh;
-}
-
-.chestFather {
-    width: 100%;
-    height: 50vh;
-}
-
-.placeholder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 48vh;
-    border: 3px solid black;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-}
-
-.diceHolder {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.diceFather {
-    width: 50%;
-    height: 10vh;
-    border: 3px black solid;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.diceFather:active {
-    background-image: linear-gradient(180deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-}
-
-.diceLogoDad {
-    width: 50%;
-    height: 10vh;
-    border: 3px black solid;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#diceLogo {
-    width: 50%;
-}
-
-/* Bottom Sup */
-.lowsup {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 17vh;
-    width: 100%;
-}
-
-.lowsup p {
-    background-color: transparent ;
-}
-
-.lowsupFather {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45%;
-    height: 100%;
-    border: 3px solid black;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 48, 0.8));
-}
-
-#currentEvent {
-
-}
-
-#currentPOTUS {
-
 }
 
 /* Player Characters */
@@ -730,7 +707,6 @@ background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 
     content: url(../images/PC-PIECES/FrogCharacter.gif);
     width: 40px;
     height: 40px; 
-    /* I am currently using the height and width so that way the character for right now at least fits inside the tiles. */
 }
 
 .herm {
@@ -770,21 +746,21 @@ background-image: linear-gradient(90deg, rgba(170, 170, 170, 0.8), rgba(48, 48, 
     content: url(../images/POTUS/JustusP.jpg);
 }
 
-#dL1 {
+#DL1 {
     height: 100%;
     width: 100%;
 }
 
-#dL1::selection {
+#DL1::selection {
     background-color: unset;
 }
 
-#dL2 {
+#DL2 {
     height: 100%;
     width: 100%;
 }
 
-#dL2::selection {
+#DL2::selection {
     background-color: unset;
 }
 

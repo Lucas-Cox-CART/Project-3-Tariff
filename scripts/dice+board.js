@@ -1,4 +1,4 @@
-let gameBoard = document.getElementById('event2sub');
+let gameBoard = document.getElementById('E2R');
 
 let world = {
     worldEventCooldown: false,
@@ -10,8 +10,8 @@ function startGame() {
     if (shareScreen == 1) {
         alert("You need to select an option for Share Screen.");
     } else {
-        document.getElementById('event1').style.display = 'none';
-        document.getElementById('event2').style.display = 'flex';
+        document.getElementById('E1').style.display = 'none';
+        document.getElementById('E2').style.display = 'flex';
         playerCreation(startingBudget);
     }
     pcLogo();
@@ -24,8 +24,8 @@ for (let i = 0; i < 40; i++) {
 }
 
 
-let dL1 = document.getElementById('dL1');
-let dL2 = document.getElementById('dL2');
+let DL1 = document.getElementById('DL1');
+let DL2 = document.getElementById('DL2');
 let diceValue1;
 let diceValue2;
 let movement;
@@ -37,8 +37,8 @@ function rollDice(x) {
     if (players[x].jailed == true) {
         if (diceValue1 == diceValue2) {
             playerMove(x);
-            dL1.classList.remove(`D${1-6}`);
-            dL2.classList.remove(`D${1-6}`);
+            DL1.classList.remove(`D${1-6}`);
+            DL2.classList.remove(`D${1-6}`);
         }
     } else {
         playerMove(x);
@@ -47,42 +47,42 @@ function rollDice(x) {
     function diceAnim() {
         switch (diceValue1) {
             case 1: 
-                dL1.classList.add('D1');
+                DL1.classList.add('D1');
                 break;
             case 2:
-                dL1.classList.add('D2');
+                DL1.classList.add('D2');
                 break;
             case 3:
-                dL1.classList.add('D3');
+                DL1.classList.add('D3');
                 break;
             case 4:
-                dL1.classList.add('D4');
+                DL1.classList.add('D4');
                 break;
             case 5:
-                dL1.classList.add('D5');
+                DL1.classList.add('D5');
                 break;
             case 6:
-                dL1.classList.add('D6');
+                DL1.classList.add('D6');
                 break;
         }
         switch (diceValue2) {
             case 1: 
-                dL2.classList.add('D1');
+                DL2.classList.add('D1');
                 break;
             case 2:
-                dL2.classList.add('D2');
+                DL2.classList.add('D2');
                 break;
             case 3:
-                dL2.classList.add('D3');
+                DL2.classList.add('D3');
                 break;
             case 4:
-                dL2.classList.add('D4');
+                DL2.classList.add('D4');
                 break;
             case 5:
-                dL2.classList.add('D5');
+                DL2.classList.add('D5');
                 break;
             case 6:
-                dL2.classList.add('D6');
+                DL2.classList.add('D6');
                 break;
         }
     }
@@ -92,7 +92,7 @@ function rollDice(x) {
 let playerIcon = document.createElement('span');
 function createPlayers() {
     playerIcon.classList.add('active', 'frog');
-    cell[30].appendChild(playerIcon);
+    cell[1].appendChild(playerIcon);
     players[turnCycle].playerPosition = 30;
 }
 
@@ -153,14 +153,11 @@ function goCheck(x) {
         for (let player of players) {
             player.goCounter = 0;
             player.budget = player.budget + ((50000 + (player.property['length'] * ( 50000 * 0.33))) - ((50000 + (player.property['length'] * ( 50000 * 0.33))) * generalTax));
-            // Player's budget = Player's budget - (Player's budget * the current tax)
-            //The "for loop" gives all players annual income, and pushes them all to go. 
-            //50,000$ is the default annual income. 
         }
-        for (let player of players) { 
-            player.playerPosition = cell[30]; //
+        for (let player of players) {
+            player.playerPosition = cell[0];
         }
-        election(); 
+        election();
     } else {
         playerTurnEnd();
     }
@@ -215,7 +212,6 @@ function playerTurnEnd(x) {
     }
     diceValue1 = 0;
     diceValue2 = 0;
-    extrasDetect();
     chanceDetect(turnCycle); //Checks if the player is on a chance tile
     chestDetect(turnCycle); //Checks if the player is on a chest tile
 }

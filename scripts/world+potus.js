@@ -130,23 +130,23 @@ function election() {
 let worldEventChooser = 0;
 function beginEvent() {
   worldEventChooser = Math.floor(Math.random() * (8 - 1) + 1);
-  if (worldEventChooser == 1) {
-    pandemic1();
-  } else if (worldEventChooser == 2) {
-    pandemic2();
-  } else if (worldEventChooser == 3) {
-    bullMarket();
-  } else if (worldEventChooser == 4) {
-    recessionWorldEvent();
-  } else if (worldEventChooser == 5) {
-    technologicalInventionWorldEvent();
-  } else if (worldEventChooser == 6) {
-    warWorldEvent();
-  } else if (worldEventChooser == 7) {
-    impendingDoom();
-  } else if (worldEventChooser == 8) {
-    wasteOfAnEventWorldEvent();
-  } 
+    if (worldEventChooser == 1) {
+        pandemic1();
+    } else if (worldEventChooser == 2) {
+        pandemic2();
+    } else if (worldEventChooser == 3) {
+        bullMarket();
+    } else if (worldEventChooser == 4) {
+        recessionWorldEvent();
+    } else if (worldEventChooser == 5) {
+        technologicalInventionWorldEvent();
+    } else if (worldEventChooser == 6) {
+        warWorldEvent();
+    } else if (worldEventChooser == 7) {
+        impendingDoom();
+    } else if (worldEventChooser == 8) {
+        wasteOfAnEventWorldEvent();
+    } 
 }
 
 // world events 
@@ -183,7 +183,7 @@ let technologicalInventionPlayerChooser;
 function technologicalInventionWorldEvent() { 
     //One player doubles their money, every other player loses 20%.
     technologicalInventionPlayerChooser = Math.floor(Math.random() * (playerAmount - 0) + 0);
-    console.log("Function started")
+    console.log("Function started");
 
     if (technologicalInventionPlayerChooser >= 0 && technologicalInventionPlayerChooser < players.length) {
         for (let i = 0; i < players.length; i++) {
@@ -198,7 +198,7 @@ function technologicalInventionWorldEvent() {
 }
 
 function wasteOfAnEventWorldEvent() {
-    //What did you expect was going to happen? death 
+    //What did you expect was going to happen?
     console.log("WASTE OF A WORLD EVENT")
 }
 
@@ -361,7 +361,7 @@ function performChanceCard() {
         if (players[chanceAffectedPlayer].playerPosition == 38) {
             players[chanceAffectedPlayer].playerPosition = 5;
             cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
-            cell[5].appendChild(playerIcon); 
+            cell[5].appendChild(playerIcon);
         } else if (players[chanceAffectedPlayer].playerPosition == 12) {
             cell[players[turnCycle].playerPosition].removeChild(playerIcon); 
             cell[15].appendChild(playerIcon);

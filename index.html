@@ -4,34 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 3 // Tariff</title>
+    <title>Tariff</title>
     <link rel="stylesheet" href="styles/style.css">
-
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Goblin+One&family=Nanum+Myeongjo&family=Tilt+Prism&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main id="main">
-        <section id="event0">
+    <main>
+        <section id="E0">
             <nav>
                 <h1>Tariff!</h1>
                 <p><em>Monopoly...with taxes.</em></p>
             </nav>
             <div class="introIcon">
-                <div class="Event1Container">
-                    <button onclick="SettingsMenu()">
-                        Click to start!
-                    </button>
-                </div>
+                <button onclick="SettingsMenu()">Click to Start!</button>
             </div>
             <article class="instructions">
                 <div class="leftShift">
                     <h3>Base Monopoly Rules</h3>
                     <p>
                         To start, all players roll 2 dice. The highest player goes first. Players take turns by rolling the dice, and moving the spaces summed up on the two dice. Players may choose to purchase a plot if they land on an un-owned one, or must take a chance card or community chest card if they land on it. 
-                        <br> <br>
+                        <br><br>
                         Other special plots will have their rules displayed. The player wins when all other players have gone bankrupt. If you would like exceptional detail into the base Monopoly rules <a href="https://www.ultraboardgames.com/monopoly/game-rules.php">click here</a>.
                     </p>
                 </div>
@@ -44,15 +39,15 @@
                 <div class="leftShift">
                     <h3>Presidential Elections</h3>
                     <p>
-                        As part of our special modifications, we have decided to add <strong>presidential elections</strong> to the game! 
-                        <br> <br>
-                        An election occurs every time a player passes go for the 4th time. From there, playes are forced to vote for 1 of the 2 presidents displayed. Be careful! All presidents have special modifications that change the game <strong>immensely</strong>. Presidents also change taxes, chance cards, and community chest cards. 
+                        As part of our special modifications, we have decided to add presidential elections to the game. 
+                        <br><br>
+                        An election occurs every time a player passes go for the 4th time. From there, playes are forced to vote for 1 of the 2 presidents displayed. Be careful! All presidents have special modifications that change the game immensely. Presidents also change taxes, chance cards, and community chest cards. 
                     </p>
                 </div>
                 <div class="rightShift">
                     <h3>World Events</h3>
                     <p>
-                        Every time a player passes go for the 2nd time, there is a chance a <strong>world event</strong> could occur. World events change large amounts of the game and can impact a player positively, or negatively depending on their current status. World event chances can also be altered by certain presidents. 
+                        Every time a player passes go for the 2nd time, there is a chance a world event could occur. World events change large amounts of the game and can impact a player positively, or negatively depending on their current status. World event chances can also be altered by certain presidents. 
                     </p>
                 </div>
                 <div class="leftShift">
@@ -63,184 +58,161 @@
                 </div>
             </article>
         </section>
-        <section id="event1">
-            <div>
-                Settings
-                <span>
-                    <div>
-                        <p>Difficulty:</p>
-                        <select id="difficultySelect">
-                            <option value="1">Easy</option>
-                            <option value="2">Normal</option>
-                            <option value="3">Hard</option>
-                            <option value="4">Custom</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p>Player Count:</p>
-                        <select id="playerCountSelect">
-                            <option value="1">1 Player</option>
-                            <option value="2">2 Players</option>
-                            <option value="3">3 Players</option>
-                            <option value="4">4 Players</option>
-                            <option value="5">5 Players</option>
-                            <option value="6">6 Players</option>
-                            <option value="7">7 Players</option>
-                            <option value="8">8 Players</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p>Share Screen:</p>
-                        <select id="shareScreenSelect">
-                            <option value="null">--</option>
-                            <option value="true">Yes</option>
-                            <option value="false">No</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p>Starting Budget:</p>
-                        <input type="number" id="startingBudgetSelect">
-                    </input>
-                    </div>
-                    <div id="funnyHiddenThing">
-                        <p>Starting General Tax:</p>
-                        <input type="number" id="generalTaxSelect">
-                    </input>
-                    </div>
-                    <div>
-                        <p>Party! Mode:</p>
-                        <label for="partyMode">
-                            <input type="checkbox" id="partyMode">
-                            <span class="customButton"></span>
-                        </label>
-                    </div>
-                    <div>
-                        <button onclick="startGame()">
-                        Start Game!
-                        </button>
-                    </div>
-                    <img src="images/LOGOS/monopolyManQuestioningExistence - Copy.png" alt="">
-                </span>
-            </div>
+        <section id="E1">
+            <h3>Settings</h3>
+            <article>
+                <div>
+                    <p>Difficulty:</p>
+                    <select id="diffSelect">
+                        <option value="1">Easy</option>
+                        <option value="2">Normal</option>
+                        <option value="3">Hard</option>
+                        <option value="4">Custom</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Player Count:</p>
+                    <select id="PCSelect">
+                        <option value="1">1 Player</option>
+                        <option value="2">2 Players</option>
+                        <option value="3">3 Players</option>
+                        <option value="4">4 Players</option>
+                        <option value="5">5 Players</option>
+                        <option value="6">6 Players</option>
+                        <option value="7">7 Players</option>
+                        <option value="8">8 Players</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Starting Budget:</p>
+                    <input type="number" id="SBSelect">
+                </div>
+                <div id="funnyHiddenThing">
+                    <p>Starting General Tax:</p>
+                    <input type="number" id="GTSelect">
+                </div>
+                <div>
+                    <p>Share Screen:</p>
+                    <select id="SCSelect">
+                        <option value="null">--</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div>
+                    <p>Party! Mode:</p>
+                    <label for="partyMode">
+                        <input type="checkbox" id="partyMode">
+                        <div class="PMButton"></div>
+                    </label>    
+                </div>
+                <div>
+                    <button onclick="startGame()">Start Game!</button>
+                </div>
+                <img src="images/LOGOS/monopolyMan.png">
+            </article>
         </section>
-        <section id="event2">
-            <span id="event2sup">
-                <article class="topsup">
-                    <div id="playerBar">
-                        <div id="player1" class="frog inactive"></div>
-                        <div id="player2" class="frog inactive"></div>
-                        <div id="player3" class="frog inactive"></div>
-                        <div id="player4" class="frog inactive"></div>
-                        <div id="player5" class="frog inactive"></div>
-                        <div id="player6" class="frog inactive"></div>
-                        <div id="player7" class="frog inactive"></div>
-                        <div id="player8" class="frog inactive"></div>
-                    </div>
-                    <div class="cPCFather">
-                        <h2 id="currentPC">Monopoly</h2>
-                    </div>
-                </article>
-                <article class="midsup">
-                    <div class="pIFather">
-                        <span id="playerInventory">
-                            <article class="test"></article>
-                            <article class="test"></article>
-                            <article class="test"></article>
-                        </span>
-                    </div>
-                    <div class="midsupsub">
-                        <div class="chestFather">
-                            <div class="placeholder"></div>
+        <section id="E2">
+            <article id="E2L">
+                <span class="E2LT">
+                    <div id="E2LT-PIH"></div>
+                    <div id="E2LT-PTI"></div>
+                </span>
+                <span class="E2LM">
+                    <article class="E2LM-1">
+                        <div class="E2LM-PPS">
+                            <div id="E2LM-PPD"></div>
                         </div>
-                        <span class="diceHolder">
-                            <div type="button" onclick="rollDice(turnCycle)" onkeyup="buyProperty()" class="diceFather">
-                                <div id="diceButton">
-                                    <p>Click to Roll Dice?</p>
+                        <div class="E2LM-PBS">
+                            <div id="E2LM-PBD"></div>
+                        </div>
+                    </article>
+                    <article class="E2LM-2">
+                        <div id="E2LM-CC1"></div>
+                        <div id="E2LM-CC2"></div>
+                        <div class="E2LM-DF">
+                            <div class="E2LM-DBS">
+                                <div type="button" onclick="rollDice(turnCycle)" onkeyup="buyProperty()">
+                                    <p>Click to Roll Dice.</p>
                                 </div>
                             </div>
-                            <div class="diceLogoDad">
-                                <div id="dL1"></div>
-                                <div id="dL2"></div>
-                            </div>
-                        </span>
+                            <span class="DL">
+                                <div id="DL1"></div>
+                                <div id="DL2"></div>
+                            </span>    
+                        </div>
+                    </article>
+                </span>
+                <span class="E2LB">
+                    <div class="E2LB-CES">
+                        <div id="E2LB-CED"></div>
                     </div>
-                </article>
-                <article class="lowsup"> 
-                    <span class="lowsupFather">
-                        <div id="currentEvent">
-                            <p>Current Event</p>
-                        </div>
-                    </span>
-                    <span class="lowsupFather">
-                        <div id="currentPOTUS">
-                            <p>Current POTUS</p>
-                        </div>
-                    </span>
-                </article>
-            </span>
-            <span id="event2sub">
-                <article id="firstBlock">
-                    <div class="cell" id="cell0">Jail</div>
-                    <div class="cell" id="cell1"><div>MY T.</div></div>
-                    <div class="cell" id="cell2">Elec. Bill</div>
-                    <div class="cell" id="cell3"><div>Mason Arct.</div></div>
-                    <div class="cell" id="cell4"><div>Lucas Clin.</div></div>
-                    <div class="cell" id="cell5"><div>Sputnik Ex.</div></div>
-                    <div class="cell" id="cell6"><div>Caesar's P.</div></div>
-                    <div class="cell" id="cell7">Chest</div>
-                    <div class="cell" id="cell8"><div>S.C. Casino</div></div>
-                    <div class="cell" id="cell9"><div>AG Turtle P.</div></div>
-                    <div class="cell" id="cell10">Bank Loan</div>
-                </article>
-                <article id="secondBlock">
-                    <div class="cell" id="cell31"><div>Candy Land</div></div>
-                    <div class="cell" id="cell32">Chest</div>
-                    <div class="cell" id="cell33"><div>Corndog</div></div>
-                    <div class="cell" id="cell34">IRS Audit</div>
-                    <div class="cell" id="cell35"><div>Delta AirLn.</div></div>
-                    <div class="cell" id="cell36"><div>Mt. P. Face</div></div>
-                    <div class="cell" id="cell37"><div>S.O.L.</div></div>
-                    <div class="cell" id="cell38">Chance</div>
-                    <div class="cell" id="cell39"><div>Pearl Hbr.</div></div>
-                </article>
-                <img class="boardLogoImage" src="images/LOGOS/TarrifLogoFinal.PNG" alt="">
-                <article id="thirdBlock">
-                    <div class="cell" id="cell11"><div>NORAD</div></div>
-                    <div class="cell" id="cell12">Chance</div>
-                    <div class="cell" id="cell13"><div>Pentagon</div></div>
-                    <div class="cell" id="cell14"><div>Area 51</div></div>
-                    <div class="cell" id="cell15"><div>USS Montana</div></div>
-                    <div class="cell" id="cell16"><div>Col. Corn L.</div></div>
-                    <div class="cell" id="cell17"><div>F.B.F Diner</div></div>
-                    <div class="cell" id="cell18">Water Works</div>
-                    <div class="cell" id="cell19"><div>Pious S.</div></div>
-                </article>
-                <article id="fourthBlock">
-                    <div class="cell" id="cell20 johnBlowsWhistle">Go to Jail</div>
-                    <div class="cell" id="cell21"><div>Fast Fusion</div></div>
-                    <div class="cell" id="cell22"><div>MA Solar</div></div>
-                    <div class="cell" id="cell23">Chest</div>
-                    <div class="cell" id="cell24"><div>DeLaRosa</div></div>
-                    <div class="cell" id="cell25"><div>American Ambulance</div></div>
-                    <div class="cell" id="cell26">Chance</div>
-                    <div class="cell" id="cell27"><div>T. Tower</div></div>
-                    <div class="cell" id="cell28">Luxury Tax</div>
-                    <div class="cell" id="cell29"><div>Empire S. B.</div></div>
-                    <div class="cell" id="cell30">GO</div>
-                </article>
-            </span>
+                    <div class="E2LB-CPS">
+                        <div id="E2LB-CPD"></div>
+                    </div>
+                </span>
+            </article>
+            <article id="E2R">
+                <span class="E2R-B1">
+                    <div id="cell11">Jail</div>
+                    <div id="cell12"><div>Tech Museum</div></div>
+                    <div id="cell13">Electric Bill</div>
+                    <div id="cell14"><div>Architect Center</div></div>
+                    <div id="cell15"><div>Clinic</div></div>
+                    <div id="cell16"><div>Sputnik Ex.</div></div>
+                    <div id="cell17"><div>Caesar's Palace</div></div>
+                    <div id="cell18">Chest</div>
+                    <div id="cell19"><div>Sun City</div></div>
+                    <div id="cell20"><div>Arroyo Grande</div></div>
+                    <div id="cell21">Bank Loan</div>
+                </span>
+                <span class="E2R-B2">
+                    <div id="cell2"><div>Candy Land</div></div>
+                    <div id="cell3">Chest</div>
+                    <div id="cell4"><div>Corndog</div></div>
+                    <div id="cell5">IRS Audit</div>
+                    <div id="cell6"><div>Delta Airliner</div></div>
+                    <div id="cell7"><div>Mt. Pres. Face</div></div>
+                    <div id="cell8"><div>S.O.L</div></div>
+                    <div id="cell9">Chance</div>
+                    <div id="cell10"><div>Pearl Harbor</div></div>
+                </span>
+                <img class="boardLogoImage" src="images/LOGOS/TarrifLogoFinal.png">
+                <span class="E2R-B3">
+                    <div id="cell21"><div>NORAD</div></div>
+                    <div id="cell22">Chance</div>
+                    <div id="cell23"><div>Pentagon</div></div>
+                    <div id="cell24"><div>Area 51</div></div>
+                    <div id="cell25"><div>USS Montana</div></div>
+                    <div id="cell26"><div>Col. Lighthouse</div></div>
+                    <div id="cell27"><div>Fred's Diner</div></div>
+                    <div id="cell28">Water Works</div>
+                    <div id="cell29"><div>Sanctuary</div></div>
+                </span>
+                <span class="E2R-B4">
+                    <div id="cell30 johnBlowsWhistle">Go To Jail</div>
+                    <div id="cell31">Fast Fusion</div>
+                    <div id="cell32">Mary Allen Solar</div>
+                    <div id="cell33">Chest</div>
+                    <div id="cell34"><div>Robert Atomic</div></div>
+                    <div id="cell35"><div>American Ambulance</div></div>
+                    <div id="cell36">Chance</div>
+                    <div id="cell37"><div>Chump Tower</div></div>
+                    <div id="cell38">Luxury Tax</div>
+                    <div id="cell39"><div>Empire State</div></div>
+                    <div id="cell1">GO</div>
+                </span>
+            </article>
         </section>
     </main>
     <footer id="footer">
-        <section>
-            <address>
-                Written by <em><a href="mailto:lucas.cox.edu@gmail.com">Lucas Cox</a></em>, <em><a href="mailto:mason.peters@student.cart.org">Mason Peters</a></em>, <em><a href="mailto:mark.yang@student.cart.org">Mark Yang</a></em>.
-                Students of <a href="https://cart.org">CART</a>
-                2555 Clovis Ave, Fresno CA
-                USA
-            </address>
-            <p>Copyright 2023 by Web Application Development Team. All Rights Reserved.</p>
-        </section>
+        <address>
+            Written by <em><a href="mailto:lucas.cox.edu@gmail.com">Lucas Cox</a></em>, <em><a href="mailto:mason.peters@student.cart.org">Mason Peters</a></em>, <em><a href="mailto:mark.yang@student.cart.org">Mark Yang</a></em>.
+            Students of <a href="https://cart.org">CART</a>
+            2555 Clovis Ave, Fresno CA
+            USA
+        </address>
+        <p>Copyright 2023 by Web Application Development Team. All Rights Reserved.</p>
     </footer>
     <script src="scripts/settings.js"></script>
     <script src="scripts/dice+board.js"></script>
@@ -248,4 +220,4 @@
     <script src="scripts/funny.js"></script>
     <script src="scripts/properties.js"></script>
 </body>
-</html>
+</html> 
