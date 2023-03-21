@@ -21,7 +21,7 @@ function propertyIdentify() { //This function determines what property the playe
 let rentedProperty;
 
 function playProperty() {
-    if (properties[players[turnCycle].playerPosition] == bl) {
+    if (properties[players[turnCycle].playerPosition] == null) {
         players[turnCycle].budget = players[turnCycle].budget - (propertyData[players[turnCycle].playerPostion][10]);
         properties[players[turnCycle].playerPosition] = turnCycle = {buildings: 0};
     } else if (properties[players[turnCycle].playerPosition] == turnCycle) {
